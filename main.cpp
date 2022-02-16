@@ -10,8 +10,10 @@ std::vector<int> digitize(unsigned long n)
     {
         std::cout << "Adding: " << s[i] << "\n";
         new_vector.push_back((int)s[i]);
+        std::cout << (int)s[i] << "\n";
+        std::cout << std::stoi(s[i]) << "\n";
     }
-    std::cout << new_vector.size() << "\n";
+    std::cout << "SIZE: " << new_vector.size() << "\n";
     std::cout << new_vector[1] << "\n";
     for (int i = 0; i <= new_vector.size() - 1; i++)
     {
