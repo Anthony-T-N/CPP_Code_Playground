@@ -2,8 +2,6 @@
 #include <vector>
 #include <string>
 
-// Commit test
-
 std::vector<int> digitize(unsigned long n)
 {
     std::string s = std::to_string(n);
@@ -45,3 +43,6 @@ int main()
     std::cout << "START" << "\n";
     digitize(35231);
 }
+
+// Commit test
+// gpg Verification test
