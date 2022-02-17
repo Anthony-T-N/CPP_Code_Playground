@@ -5,39 +5,17 @@
 std::vector<int> digitize(unsigned long n)
 {
     std::string s = std::to_string(n);
-    std::vector<int> new_vector = {};
+    std::vector<int> vector_int = {};
+    std::vector<int> vector_final = {};
     for (int i = 0; i <= s.size() - 1; i++)
     {
-        std::cout << "Adding: " << s[i] << "\n";
-        new_vector.push_back((int)s[i]);
-        std::cout << (int)s[i] << "\n";
-        std::cout << std::stoi(s[i]) << "\n";
+        vector_int.push_back((int)s[i] - '0');
     }
-    std::cout << "SIZE: " << new_vector.size() << "\n";
-    std::cout << new_vector[1] << "\n";
-    for (int i = 0; i <= new_vector.size() - 1; i++)
+    for (int i = vector_int.size() - 1; i >= 0; i--)
     {
-        std::cout << "\n";
-        std::cout << i << "\n";
-        if ((i + 1) <= new_vector.size() - 1)
-        {
-            if (new_vector[i] < new_vector[i + 1])
-            {
-                std::swap(new_vector[i], new_vector[i + 1]);
-            }
-        }
-        for (int i = 0; i <= new_vector.size() - 1; i++)
-        {
-            std::cout << new_vector[i] << " + ";
-        }
+        vector_final.push_back(vector_int[i]);
     }
-    std::cout << "\n";
-    std::cout << "Result" << "\n";
-    for (int i = 0; i <= new_vector.size() - 1; i++)
-    {
-        std::cout << new_vector[i] << " + ";
-    }
-    return new_vector;
+    return vector_final;
 }
 
 int main()
