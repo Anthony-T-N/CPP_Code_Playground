@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 
 std::vector<int> digitize(unsigned long n)
 {
@@ -54,6 +53,37 @@ std::pair<int, int> rowWeights(const std::vector <int>& weights)
     std::cout << "Team_One: " << team_one << "\n";
     std::cout << "Team_Two: " << team_two << "\n";
     return std::make_pair(team_one, team_two);
+}
+
+#include <string>
+#include <vector>
+std::string createPhoneNumber(const int arr[10])
+{
+    std::vector<std::string> vector_new;
+    std::vector<int> vector_phone(arr, arr + 10);
+    std::cout << "Size: " << vector_phone.size() << "\n";
+    vector_new.push_back("(");
+    for (int i = 0; i <= vector_phone.size() - 1; i++)
+    {
+        std::cout << i << "\n";
+        if (i == 3)
+        {
+            vector_new.push_back(") ");
+        }
+        vector_new.push_back(std::to_string(vector_phone[i]));
+        if (i == 5)
+        {
+            vector_new.push_back("-");
+        }
+    }
+    std::cout << "Final Result: " << "\n";
+    std::string str = "";
+    for (int i = 0; i <= vector_new.size() - 1; i++)
+    {
+        std::cout << vector_new[i];
+        str += vector_new[i];
+    }
+    return str;
 }
 
 int main()
