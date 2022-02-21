@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <string>
 std::vector<int> digitize(unsigned long n)
 {
     std::string s = std::to_string(n);
@@ -86,7 +86,44 @@ std::string createPhoneNumber(const int arr[10])
     return str;
 }
 
+#include<string>
+bool scramble(const std::string& s1, const std::string& s2)
+{
+    int count_correct = 0;
+    std::vector<char> vector_s2(s2.begin(), s2.end());
+    std::vector<char> vector_s1(s1.begin(), s1.end());
+
+    std::cout << "Vector_s2: " << vector_s2.size() << "\n";
+    std::cout << "Vector_s1: " << vector_s1.size() << "\n";
+
+    for (int i = 0; i <= s1.size() - 1; i++)
+    {
+        for (int j = 0; j <= s2.size() - 1; j++)
+        {
+            if (vector_s2[j] == vector_s1[i])
+            {
+                std::cout << vector_s2[j] << "\n";
+                count_correct += 1;
+            }
+        }
+    }
+    std::cout << "count_correct: " << count_correct << "\n";
+    if (count_correct == vector_s2.size())
+    {
+        return true;
+    }
+}
+
 int main()
 {
     std::cout << "BEGIN TESTING" << "\n";
+    if (scramble("katas", "steak") == true)
+    {
+        std::cout << "True" << "\n";
+    }
+    else
+    {
+        std::cout << "False" << "\n";
+    }
+    
 }
