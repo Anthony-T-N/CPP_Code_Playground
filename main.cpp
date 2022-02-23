@@ -89,7 +89,6 @@ std::string createPhoneNumber(const int arr[10])
 #include<string>
 bool scramble(const std::string& s1, const std::string& whole_word)
 {
-    std::cout << "\n";
     bool iteration = true;
     int count_correct = 0;
     std::vector<char> vector_whole_word(whole_word.begin(), whole_word.end());
@@ -109,6 +108,7 @@ bool scramble(const std::string& s1, const std::string& whole_word)
                 std::cout << vector_s1[j] << "\n";
                 count_correct += 1;
                 iteration = true;
+                vector_s1.erase(vector_s1.begin() + j);
                 break;
             }
             else
@@ -134,6 +134,15 @@ int main()
 {
     std::cout << "BEGIN TESTING" << "\n";
     if (scramble("rkqodlw", "world") == true)
+    {
+        std::cout << "True" << "\n";
+    }
+    else
+    {
+        std::cout << "False" << "\n";
+    }
+    // False
+    if (scramble("scriptjavx", "javascript") == true)
     {
         std::cout << "True" << "\n";
     }
