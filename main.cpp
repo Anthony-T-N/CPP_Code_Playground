@@ -87,8 +87,14 @@ std::string createPhoneNumber(const int arr[10])
 }
 
 #include<string>
+#include<algorithm>
 bool scramble(const std::string& s1, const std::string& whole_word)
 {
+    if (std::all_of(s1.begin(), s1.end(), islower))
+    { 
+        return false;
+    }
+
     bool iteration = true;
     int count_correct = 0;
     std::vector<char> vector_whole_word(whole_word.begin(), whole_word.end());
@@ -128,12 +134,70 @@ bool scramble(const std::string& s1, const std::string& whole_word)
     {
         return true;
     }
+    else
+    {
+        return false;
+    }
+}
+
+#include<string>
+#include<algorithm>
+bool scramblez(const std::string& s2, const std::string& word)
+{
+    std::string s1 = s2;
+    std::string whole_word = word;
+    if (std::all_of(s1.begin(), s1.end(), islower))
+    {
+        return false;
+    }
+
+    bool iteration = true;
+    int count_correct = 0;
+
+    std::cout << "whole_word: " << whole_word << " " << whole_word.size() << "\n";
+    std::cout << "s1: " << s1 << " " << s1.size() << "\n";
+
+    for (int i = 0; i <= whole_word.size() - 1; i++)
+    {
+        std::cout << "Main: " << whole_word[i] << ": ";
+        for (int j = 0; j <= s1.size() - 1; j++)
+        {
+            std::cout << "j:" << s1[j] << "\n";
+            if (whole_word[i] == s1[j])
+            {
+                std::cout << s1[j] << "\n";
+                count_correct += 1;
+                iteration = true;
+                s1[j] = '0';
+                break;
+            }
+            else
+            {
+                iteration = false;
+            }
+        }
+        if (iteration == false)
+        {
+            std::cout << "iteration false" << "\n";
+            return false;
+        }
+        std::cout << "\n";
+    }
+    std::cout << "count_correct: " << count_correct << "\n";
+    if (count_correct == whole_word.size())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 int main()
 {
     std::cout << "BEGIN TESTING" << "\n";
-    if (scramble("rkqodlw", "world") == true)
+    if (scramblez("rkqodlw", "world") == true)
     {
         std::cout << "True" << "\n";
     }
@@ -142,7 +206,7 @@ int main()
         std::cout << "False" << "\n";
     }
     // False
-    if (scramble("scriptjavx", "javascript") == true)
+    if (scramblez("scriptjavx", "javascript") == true)
     {
         std::cout << "True" << "\n";
     }
