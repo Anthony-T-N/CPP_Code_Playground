@@ -194,8 +194,10 @@ bool scramblez(const std::string& s2, const std::string& word)
     }
 }
 
+#include<chrono>
 int main()
 {
+    auto start = std::chrono::steady_clock::now();
     std::cout << "BEGIN TESTING" << "\n";
     if (scramblez("rkqodlw", "world") == true)
     {
@@ -214,4 +216,7 @@ int main()
     {
         std::cout << "False" << "\n";
     }
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+    std::cout << std::chrono::duration <double, milli>(diff).count() << " ms" << endl;
 }
