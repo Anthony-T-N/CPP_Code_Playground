@@ -140,16 +140,19 @@ bool scramble(const std::string& s1, const std::string& whole_word)
     }
 }
 
+// Algorithm slower than previous function.
 #include<string>
 #include<algorithm>
 bool scramblez(const std::string& s2, const std::string& word)
 {
-    std::string s1 = s2;
-    std::string whole_word = word;
-    if (std::all_of(s1.begin(), s1.end(), islower))
+    
+    if (!std::all_of(s2.begin(), s2.end(), islower))
     {
         return false;
     }
+    
+    std::string s1 = s2;
+    std::string whole_word = word;
 
     bool iteration = true;
     int count_correct = 0;
@@ -174,6 +177,11 @@ bool scramblez(const std::string& s2, const std::string& word)
             else
             {
                 iteration = false;
+            }
+            // Break function early once number of correct letters outweigh total word.
+            if (count_correct >= whole_word.size())
+            {
+                return false;
             }
         }
         if (iteration == false)
@@ -218,5 +226,5 @@ int main()
     }
     auto end = std::chrono::steady_clock::now();
     auto diff = end - start;
-    std::cout << std::chrono::duration <double, milli>(diff).count() << " ms" << endl;
+    std::cout << std::chrono::duration <double, std::milli>(diff).count() << " ms" << std::endl;
 }
