@@ -1,10 +1,28 @@
+#include <iostream>
 #include <vector>
 std::vector<int> solution(std::vector<int> nums)
 {
+    if (nums.size() == 0)
+    {
+        return {};
+    }
     for (int i = 0; i <= nums.size() - 1; i++)
     {
-
+        if (!((i + 1) > nums.size() - 1))
+        {
+            std::cout << nums[i] << " " << nums[i + 1] << "\n";
+            if (nums[i] > nums[i + 1])
+            {
+                std::iter_swap(nums.begin() + i, nums.begin() + i + 1);
+            }
+        }
     }
+    std::cout << "LIST: " << "\n";
+    for (int i = 0; i <= nums.size() - 1; i++)
+    {
+        std::cout << nums[i] << "\n";
+    }
+    return nums;
 }
 
 #include <iostream>
@@ -214,6 +232,7 @@ bool scramblez(const std::string& s2, const std::string& word)
 #include<chrono>
 int main()
 {
+    /*
     auto start = std::chrono::steady_clock::now();
     std::cout << "BEGIN TESTING" << "\n";
     if (scramblez("rkqodlw", "world") == true)
@@ -236,4 +255,16 @@ int main()
     auto end = std::chrono::steady_clock::now();
     auto diff = end - start;
     std::cout << std::chrono::duration <double, std::milli>(diff).count() << " ms" << std::endl;
+    */
+    std::vector<int> answer = { 1, 2, 3, 5, 10 };
+    if (solution({ 1,2,3,10,5 }) == answer)
+    {
+        std::cout << "Works" << "\n";
+    }
+    else
+    {
+        std::cout << "Failed" << "\n";
+    }
+    
+
 }
