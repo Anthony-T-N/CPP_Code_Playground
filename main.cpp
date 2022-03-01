@@ -25,6 +25,30 @@ std::vector<int> solution(std::vector<int> nums)
     return nums;
 }
 
+std::string pig_it(std::string str)
+{
+    bool signal = false;
+    std::string char_temp;
+    std::vector<std::string> vector_new;
+    for (int i = 0; i <= str.size() - 1; i++)
+    {
+        if (signal == true)
+        {
+            char_temp = str[i];
+        }
+        std::cout << str[i];
+        if (str[i] == ' ')
+        {
+            vector_new.push_back(char_temp + "ay");
+            std::cout << "|" << "\n";
+        }
+    }
+    //std::string test(vector_new.begin(), vector_new.end());
+    std::cout << "\n";
+    //std::cout << test << "\n";
+    return "123";
+}
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -255,7 +279,7 @@ int main()
     auto end = std::chrono::steady_clock::now();
     auto diff = end - start;
     std::cout << std::chrono::duration <double, std::milli>(diff).count() << " ms" << std::endl;
-    */
+    
     std::vector<int> answer = { 1, 2, 3, 5, 10 };
     if (solution({ 1,2,3,10,5 }) == answer)
     {
@@ -265,6 +289,9 @@ int main()
     {
         std::cout << "Failed" << "\n";
     }
-    
-
+    */
+    if (pig_it("Acta est fabula") == ("ctaAay steay abulafay"))
+    {
+        std::cout << "WORKS" << "\n";
+    }
 }
