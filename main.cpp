@@ -32,16 +32,23 @@ std::string pig_it(std::string str)
     std::vector<std::string> vector_new;
     for (int i = 0; i <= str.size() - 1; i++)
     {
-        if (signal == true)
-        {
-            char_temp = str[i];
-        }
         std::cout << str[i];
         if (str[i] == ' ')
         {
             vector_new.push_back(char_temp + "ay");
+            char_temp = "";
+            signal = true;
             std::cout << "|" << "\n";
         }
+        else
+        {
+            char_temp += str[i];
+        }
+    }
+    std::cout << "\n";
+    for (int i = 0; i <= vector_new.size() - 1; i++)
+    {
+        std::cout << vector_new[i] << " ";
     }
     //std::string test(vector_new.begin(), vector_new.end());
     std::cout << "\n";
