@@ -27,18 +27,26 @@ std::vector<int> solution(std::vector<int> nums)
 
 std::string pig_it(std::string str)
 {
+    std::string first_character_store;
     bool signal = false;
     std::string char_temp;
     std::vector<std::string> vector_new;
     for (int i = 0; i <= str.size() - 1; i++)
     {
         std::cout << str[i];
-        if (str[i] == ' ')
+        if (str[i] == ' ' || i == str.size() - 1)
         {
+            // Remove first character, place after word. Then add ay.
             vector_new.push_back(char_temp + "ay");
             char_temp = "";
             signal = true;
             std::cout << "|" << "\n";
+        }
+        else if (signal == true)
+        {
+            first_character_store = str[i];
+            //vec.push_back(i);
+            signal = false;
         }
         else
         {
