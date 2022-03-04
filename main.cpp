@@ -1,3 +1,18 @@
+class CD
+{
+public:
+    static int nD(int n, int d)
+    {
+      for (int i = 0; i <= n; i++)
+      {
+        std::cout << i << " " << i*i << "\n";
+      }
+      std::cout << "Test" << "\n";
+      return 1;
+    }
+  
+};
+
 #include <iostream>
 #include <vector>
 std::vector<int> solution(std::vector<int> nums)
