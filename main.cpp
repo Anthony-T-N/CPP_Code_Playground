@@ -15,13 +15,10 @@ public:
             total_digital_count++;
           }
         }
-        std::cout << i << " " << i*i << "\n";
-        
+        std::cout << i << " " << i*i << "\n";  
       }
-      std::cout << "Test" << "\n";
       return 1;
     }
-  
 };
 
 #include <iostream>
