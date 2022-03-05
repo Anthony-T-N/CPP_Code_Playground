@@ -3,9 +3,20 @@ class CD
 public:
     static int nD(int n, int d)
     {
+      int total_digital_count = 0;
       for (int i = 0; i <= n; i++)
       {
+        int temp_squared = i*i;
+        std::string temp_squared_str = std::to_string(temp_squared);
+        for (unsigned long int j = 0; j <= temp_squared_str.size(); j++)
+        {
+          if (temp_squared_str[j].compare(std::to_string(d)) == 1) 
+          {
+            total_digital_count++;
+          }
+        }
         std::cout << i << " " << i*i << "\n";
+        
       }
       std::cout << "Test" << "\n";
       return 1;
