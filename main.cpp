@@ -3,6 +3,8 @@ class CD
 public:
     static int nD(int n, int d)
     {
+      std::cout << "d: " << d << "\n";
+      std::cout << '0' + d << "\n";
       int total_digital_count = 0;
       for (int i = 0; i <= n; i++)
       {
@@ -10,8 +12,8 @@ public:
         std::cout << i << " " << i*i << "\n";
         for (unsigned long int j = 0; j <= temp_squared_str.size() - 1; j++)
         {
-          std::cout << "j: " << temp_squared_str[j] << " char:" << static_cast<char>(d) << "\n";
-          if (temp_squared_str[j] == static_cast<char>(d)) 
+          std::cout << "j: " << temp_squared_str[j] << " char: " << std::to_string(d) << "\n";
+          if (std::to_string(temp_squared_str[j]) == std::to_string(d)) 
           {
             std::cout << "YES" << "\n";
             total_digital_count++;
@@ -24,7 +26,6 @@ public:
       std::cout << "Total Digital Count: " << total_digital_count << "\n";
       return total_digital_count;
     }
-  
 };
 
 #include <iostream>
