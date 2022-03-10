@@ -1,3 +1,19 @@
+#include <vector>
+#include <map>
+
+int fO(const std::vector<int>& numbers)
+{
+  std::map<int, int> odd_map = 
+  {
+    { 'A', '1' },
+  };
+  for (int i = 0; i <= numbers.size() - 1; i++)
+  {
+    std::cout << numbers[i] << " ";
+  }
+  return 1;
+}
+
 class CD
 {
 public:
