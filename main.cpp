@@ -3,13 +3,26 @@
 
 int fO(const std::vector<int>& numbers)
 {
-  std::map<int, int> odd_map = 
-  {
-    { 'A', '1' },
-  };
+  std::map<int, int> odd_map;
   for (int i = 0; i <= numbers.size() - 1; i++)
   {
     std::cout << numbers[i] << " ";
+    if (odd_map.count(numbers[i]) != 1)
+    {
+      odd_map[numbers[i]] = 1;
+    }
+    else if (odd_map.count(numbers[i]) == 1)
+    {
+      odd_map[numbers[i]]++;
+    }
+  }
+  std::cout << " " << "\n";
+  for (auto const& [key, val] : odd_map)
+  {
+      std::cout << key        // string (key)
+                << ':'  
+                << val        // string's value
+                << std::endl;
   }
   return 1;
 }
