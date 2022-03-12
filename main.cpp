@@ -1,5 +1,4 @@
 #include <vector>
-#include <map>
 
 int fO(const std::vector<int>& numbers)
 {
@@ -19,10 +18,15 @@ int fO(const std::vector<int>& numbers)
   std::cout << " " << "\n";
   for (auto const& [key, val] : odd_map)
   {
-      std::cout << key        // string (key)
+      std::cout << key
                 << ':'  
-                << val        // string's value
+                << val
                 << std::endl;
+    if (val % 2 != 0)
+    {
+      std::cout << "Is odd: " << key << "\n";
+      return key;
+    }
   }
   return 1;
 }
