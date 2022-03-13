@@ -1,6 +1,38 @@
+#include <string>
+std::map<char, int> vowels_map =
+{
+  {'a', 1},
+  {'e', 2},
+  {'i', 3},
+  {'o', 4},
+  {'u', 5}
+};
+
+std::string e(const std::string &str) 
+{
+  std::string copied_str = "";
+  for (int i = 0; i <= str.length() - 1; i++)
+  {
+    std::cout << str[i] << "\n";
+    for (auto const& [key, val] : vowels_map)
+    {
+      if (key == str[i])
+      {
+        copied_str[i] = '0' + val;
+        std::cout << key << " " << str[i] << "\n";
+      }
+     }
+  }
+  return copied_str;
+}
+
+std::string d(const std::string &str) 
+{
+  return "";
+}
+
 #include <vector>
 #include <map>
-
 int fO(const std::vector<int>& numbers)
 {
   std::map<int, int> odd_map;
