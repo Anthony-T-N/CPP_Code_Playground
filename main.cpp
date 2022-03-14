@@ -10,7 +10,8 @@ std::map<char, int> vowels_map =
 
 std::string e(const std::string &str) 
 {
-  std::string copied_str = "";
+  std::cout << "Encoding" << "\n";
+  std::string copied_str = str;
   for (int i = 0; i <= str.length() - 1; i++)
   {
     std::cout << str[i] << "\n";
@@ -28,7 +29,21 @@ std::string e(const std::string &str)
 
 std::string d(const std::string &str) 
 {
-  return "";
+  std::cout << "Decoding" << "\n";
+  std::string copied_str = str;
+  for (int i = 0; i <= str.length() - 1; i++)
+  {
+    std::cout << str[i] << "\n";
+    for (auto const& [key, val] : vowels_map)
+    {
+      if ((int)val == str[i])
+      {
+        copied_str[i] = key;
+        std::cout << val << " " << str[i] << "\n";
+      }
+     }
+  }
+  return copied_str;
 }
 
 #include <vector>
