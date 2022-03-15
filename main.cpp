@@ -12,7 +12,7 @@ std::string e(const std::string &str)
 {
   std::cout << "Encoding" << "\n";
   std::string copied_str = str;
-  for (int i = 0; i <= str.length() - 1; i++)
+  for (unsigned long i = 0; i <= str.length() - 1; i++)
   {
     std::cout << str[i] << "\n";
     for (auto const& [key, val] : vowels_map)
@@ -22,7 +22,7 @@ std::string e(const std::string &str)
         copied_str[i] = '0' + val;
         std::cout << key << " " << str[i] << "\n";
       }
-     }
+    }
   }
   return copied_str;
 }
@@ -31,17 +31,18 @@ std::string d(const std::string &str)
 {
   std::cout << "Decoding" << "\n";
   std::string copied_str = str;
-  for (int i = 0; i <= str.length() - 1; i++)
+  for (unsigned long i = 0; i <= str.length() - 1; i++)
   {
     std::cout << str[i] << "\n";
     for (auto const& [key, val] : vowels_map)
     {
-      if ((int)val == str[i])
+      if (val + '0' == (int)str[i])
       {
+        std::cout << "DEBUG: " << (int)val << " " << (int)str[i] << "\n";
         copied_str[i] = key;
         std::cout << val << " " << str[i] << "\n";
       }
-     }
+    }
   }
   return copied_str;
 }
