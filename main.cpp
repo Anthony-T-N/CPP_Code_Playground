@@ -135,43 +135,48 @@ std::vector<int> solution(std::vector<int> nums)
     return nums;
 }
 
+#include <string>
+#include <vector>
 std::string pig_it(std::string str)
 {
-    std::string first_character_store;
-    bool signal = false;
-    std::string char_temp;
-    std::vector<std::string> vector_new;
-    for (int i = 0; i <= str.size() - 1; i++)
+  std::cout << "Whole string: " << str << "\n";
+  std::string first_character_store;
+  bool signal = false;
+  std::string char_temp;
+  std::vector<std::string> vector_new;
+  for (unsigned long i = 0; i <= str.size() - 1; i++)
+  {
+    std::cout << str[i];
+    if (str[i] == ' ' || i == str.size() - 1)
     {
-        std::cout << str[i];
-        if (str[i] == ' ' || i == str.size() - 1)
-        {
-            // Remove first character, place after word. Then add ay.
-            vector_new.push_back(char_temp + "ay");
-            char_temp = "";
-            signal = true;
-            std::cout << "|" << "\n";
-        }
-        else if (signal == true)
-        {
-            first_character_store = str[i];
-            //vec.push_back(i);
-            signal = false;
-        }
-        else
-        {
-            char_temp += str[i];
-        }
+      // Remove first character, place after word. Then add ay.
+      vector_new.push_back(char_temp + first_character_store + "ay");
+      char_temp = "";
+      signal = true;
+      std::cout << "|" << "\n";
+    }
+    else if (signal == true || i == 0)
+    {
+      first_character_store = str[i];
+      //vec.push_back(i);
+      signal = false;
+    }
+    else
+    {
+      char_temp += str[i];
+    }
     }
     std::cout << "\n";
-    for (int i = 0; i <= vector_new.size() - 1; i++)
+    std::string string_new = "";
+    for (unsigned long i = 0; i <= vector_new.size() - 1; i++)
     {
-        std::cout << vector_new[i] << " ";
+      std::cout << vector_new[i] << " ";
+      string_new += vector_new[i] + " ";
     }
     //std::string test(vector_new.begin(), vector_new.end());
     std::cout << "\n";
     //std::cout << test << "\n";
-    return "123";
+    return string_new;
 }
 
 #include <iostream>
