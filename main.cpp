@@ -147,6 +147,10 @@ std::string pig_it(std::string str)
   for (unsigned long i = 0; i <= str.size() - 1; i++)
   {
     std::cout << str[i];
+    if (str[i] != ' ')
+    {
+      char_temp += str[i];
+    }
     if (str[i] == ' ' || i == str.size() - 1)
     {
       // Remove first character, place after word. Then add ay.
@@ -161,22 +165,15 @@ std::string pig_it(std::string str)
       //vec.push_back(i);
       signal = false;
     }
-    else
-    {
-      char_temp += str[i];
-    }
-    }
-    std::cout << "\n";
-    std::string string_new = "";
-    for (unsigned long i = 0; i <= vector_new.size() - 1; i++)
-    {
-      std::cout << vector_new[i] << " ";
-      string_new += vector_new[i] + " ";
-    }
-    //std::string test(vector_new.begin(), vector_new.end());
-    std::cout << "\n";
-    //std::cout << test << "\n";
-    return string_new;
+  }
+  std::cout << "\n";
+  std::string string_new = "";
+  for (unsigned long i = 0; i <= vector_new.size() - 1; i++)
+  {
+    std::cout << vector_new[i] << " ";
+    string_new += vector_new[i] + " ";
+  }
+  return string_new;
 }
 
 #include <iostream>
