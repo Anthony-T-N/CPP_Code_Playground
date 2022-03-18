@@ -147,7 +147,13 @@ std::string pig_it(std::string str)
   for (unsigned long i = 0; i <= str.size() - 1; i++)
   {
     std::cout << str[i];
-    if (str[i] != ' ')
+    if (signal == true || i == 0)
+    {
+      first_character_store = str[i];
+      //vec.push_back(i);
+      signal = false;
+    }
+    else if (str[i] != ' ')
     {
       char_temp += str[i];
     }
@@ -157,22 +163,25 @@ std::string pig_it(std::string str)
       vector_new.push_back(char_temp + first_character_store + "ay");
       char_temp = "";
       signal = true;
-      std::cout << "|" << "\n";
-    }
-    else if (signal == true || i == 0)
-    {
-      first_character_store = str[i];
-      //vec.push_back(i);
-      signal = false;
+      std::cout << "@" << "\n";
     }
   }
   std::cout << "\n";
   std::string string_new = "";
   for (unsigned long i = 0; i <= vector_new.size() - 1; i++)
   {
-    std::cout << vector_new[i] << " ";
-    string_new += vector_new[i] + " ";
+    if (i == vector_new.size() - 1)
+    {
+      std::cout << vector_new[i] << "@";
+      string_new += vector_new[i];
+    }
+    else
+    {
+      std::cout << vector_new[i] << " ";
+      string_new += vector_new[i] + " ";
+    }
   }
+  std::cout << "\n\n";
   return string_new;
 }
 
