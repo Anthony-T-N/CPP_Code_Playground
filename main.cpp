@@ -159,15 +159,27 @@ std::string pig_it(std::string str)
     }
     if (str[i] == ' ' || i == str.size() - 1)
     {
-      // Remove first character, place after word. Then add ay.
-      vector_new.push_back(char_temp + first_character_store + "ay");
-      char_temp = "";
-      signal = true;
-      std::cout << "@" << "\n";
+      if (str[i] == '!')
+      {
+        std::cout << "123" << "\n";
+        vector_new.push_back("!");
+        char_temp = "";
+        signal = true;
+        std::cout << "@" << "\n";
+      }
+      else 
+      {
+        // Remove first character, place after word. Then add ay.
+        vector_new.push_back(char_temp + first_character_store + "ay");
+        char_temp = "";
+        signal = true;
+        std::cout << "@" << "\n";
+      }
     }
   }
   std::cout << "\n";
   std::string string_new = "";
+  std::cout << "Creating new string: " << "\n";
   for (unsigned long i = 0; i <= vector_new.size() - 1; i++)
   {
     if (i == vector_new.size() - 1)
