@@ -159,10 +159,22 @@ std::string pig_it(std::string str)
     }
     if (str[i] == ' ' || i == str.size() - 1)
     {
-      if (str[i] == '!')
+      // TODO: Handle all punctuation(s);
+      if (str[i] == '!' || str[i] == '?' || str[i] == '.')
       {
         std::cout << "123" << "\n";
-        vector_new.push_back("!");
+        if (str[i] == '?')
+        {
+          vector_new.push_back("?");
+        }
+        else if (str[i] == '!')
+        {
+          vector_new.push_back("!");
+        }
+        else if (str[i] == '.')
+        {
+          vector_new.push_back(".");
+        }
         char_temp = "";
         signal = true;
         std::cout << "@" << "\n";
