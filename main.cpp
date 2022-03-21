@@ -144,6 +144,7 @@ std::string pig_it(std::string str)
   bool signal = false;
   std::string char_temp;
   std::vector<std::string> vector_new;
+  std::string punctuation_marks = "!,.?";
   for (unsigned long i = 0; i <= str.size() - 1; i++)
   {
     std::cout << str[i];
@@ -159,25 +160,27 @@ std::string pig_it(std::string str)
     }
     if (str[i] == ' ' || i == str.size() - 1)
     {
-      // TODO: Handle all punctuation(s);
-      if (str[i] == '!' || str[i] == '?' || str[i] == '.')
+      if (str[i] == ' ')
       {
-        std::cout << "123" << "\n";
-        if (str[i] == '?')
+        if (punctuation_marks.find(str[i - 1]) != std::string::npos)
         {
-          vector_new.push_back("?");
+          std::cout << "123" << "\n";
+          vector_new.push_back(std::string() + str[i - 1]);
+          char_temp = "";
+          signal = true;
+          std::cout << "@" << "\n";
         }
-        else if (str[i] == '!')
+      }
+      else if (i == str.size() - 1)
+      {
+        if (punctuation_marks.find(str[i]) != std::string::npos)
         {
-          vector_new.push_back("!");
+          std::cout << "123" << "\n";
+          vector_new.push_back(std::string() + str[i]);
+          char_temp = "";
+          signal = true;
+          std::cout << "@" << "\n";
         }
-        else if (str[i] == '.')
-        {
-          vector_new.push_back(".");
-        }
-        char_temp = "";
-        signal = true;
-        std::cout << "@" << "\n";
       }
       else 
       {
