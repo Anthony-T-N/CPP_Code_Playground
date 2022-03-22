@@ -151,7 +151,7 @@ std::string pig_it(std::string str)
     if (signal == true || i == 0)
     {
       first_character_store = str[i];
-      //vec.push_back(i);
+      std::cout << " First_character_store;" << "\n";
       signal = false;
     }
     else if (str[i] != ' ')
@@ -160,27 +160,22 @@ std::string pig_it(std::string str)
     }
     if (str[i] == ' ' || i == str.size() - 1)
     {
-      if (str[i] == ' ')
+      if (punctuation_marks.find(str[i - 1]) != std::string::npos)
       {
-        if (punctuation_marks.find(str[i - 1]) != std::string::npos)
-        {
-          std::cout << "123" << "\n";
-          vector_new.push_back(std::string() + str[i - 1]);
-          char_temp = "";
-          signal = true;
-          std::cout << "@" << "\n";
-        }
+        std::cout << "123" << "\n";
+        vector_new.push_back(std::string() + str[i - 1]);
+        char_temp = "";
+        signal = true;
+        std::cout << "@" << "\n";
       }
-      else if (i == str.size() - 1)
+      // Else if breaks program.
+      if (punctuation_marks.find(str[i]) != std::string::npos)
       {
-        if (punctuation_marks.find(str[i]) != std::string::npos)
-        {
-          std::cout << "123" << "\n";
-          vector_new.push_back(std::string() + str[i]);
-          char_temp = "";
-          signal = true;
-          std::cout << "@" << "\n";
-        }
+        std::cout << "123" << "\n";
+        vector_new.push_back(std::string() + str[i]);
+        char_temp = "";
+        signal = true;
+        std::cout << "@" << "\n";
       }
       else 
       {
@@ -188,7 +183,7 @@ std::string pig_it(std::string str)
         vector_new.push_back(char_temp + first_character_store + "ay");
         char_temp = "";
         signal = true;
-        std::cout << "@" << "\n";
+        std::cout << "<>" << "\n";
       }
     }
   }
@@ -199,7 +194,7 @@ std::string pig_it(std::string str)
   {
     if (i == vector_new.size() - 1)
     {
-      std::cout << vector_new[i] << "@";
+      std::cout << vector_new[i] << "#";
       string_new += vector_new[i];
     }
     else
