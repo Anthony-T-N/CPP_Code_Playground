@@ -151,7 +151,7 @@ std::string pig_it(std::string str)
     if (signal == true || i == 0)
     {
       first_character_store = str[i];
-      std::cout << " First_character_store;" << "\n";
+      std::cout << " F_store;" << "\n";
       signal = false;
     }
     else if (str[i] != ' ')
@@ -162,16 +162,13 @@ std::string pig_it(std::string str)
     {
       if (punctuation_marks.find(str[i - 1]) != std::string::npos)
       {
-        std::cout << "123" << "\n";
         vector_new.push_back(std::string() + str[i - 1]);
         char_temp = "";
         signal = true;
         std::cout << "@" << "\n";
       }
-      // Else if breaks program.
-      if (punctuation_marks.find(str[i]) != std::string::npos)
+      else if (punctuation_marks.find(str[i]) != std::string::npos)
       {
-        std::cout << "123" << "\n";
         vector_new.push_back(std::string() + str[i]);
         char_temp = "";
         signal = true;
