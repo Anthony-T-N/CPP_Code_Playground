@@ -163,25 +163,22 @@ std::string pig_it(std::string str)
       if (punctuation_marks.find(str[i - 1]) != std::string::npos)
       {
         vector_new.push_back(std::string() + str[i - 1]);
-        char_temp = "";
-        signal = true;
         std::cout << "@" << "\n";
       }
+      // Else if breaks program.
       else if (punctuation_marks.find(str[i]) != std::string::npos)
       {
         vector_new.push_back(std::string() + str[i]);
-        char_temp = "";
-        signal = true;
         std::cout << "@" << "\n";
       }
       else 
       {
         // Remove first character, place after word. Then add ay.
         vector_new.push_back(char_temp + first_character_store + "ay");
-        char_temp = "";
-        signal = true;
         std::cout << "<>" << "\n";
       }
+      char_temp = "";
+      signal = true;
     }
   }
   std::cout << "\n";
