@@ -139,7 +139,7 @@ std::vector<int> solution(std::vector<int> nums)
 #include <vector>
 std::string pig_it(std::string str)
 {
-  std::cout << "Whole string: " << str << "\n";
+  std::cout << "[Debug] Whole string: " << str << "\n";
   std::string first_character_store;
   bool signal = false;
   std::string char_temp;
@@ -151,7 +151,7 @@ std::string pig_it(std::string str)
     if (signal == true || i == 0)
     {
       first_character_store = str[i];
-      std::cout << " F_store;" << "\n";
+      std::cout << "[Debug] F_store;" << "\n";
       signal = false;
     }
     else if (str[i] != ' ')
@@ -183,7 +183,7 @@ std::string pig_it(std::string str)
   }
   std::cout << "\n";
   std::string string_new = "";
-  std::cout << "Creating new string: " << "\n";
+  std::cout << "[Debug] Creating new string: " << "\n";
   for (unsigned long i = 0; i <= vector_new.size() - 1; i++)
   {
     if (i == vector_new.size() - 1)
