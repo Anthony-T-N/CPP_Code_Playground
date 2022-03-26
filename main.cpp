@@ -1,14 +1,23 @@
+#include <string>
 double m_v(const std::string &s)
 {
   std::string value_copy = s;
   if (value_copy.find("$") != std::string::npos)
   {
-    std::cout << value_copy.find("$") << "\n";
+    //std::cout << value_copy.find("$") << "\n";
     value_copy.erase(value_copy.begin() + value_copy.find("$"));
-    return std::stod(value_copy);
+    while (value_copy[0] == ' ')
+    {
+      //value_copy.erase(remove(value_copy.begin(), value_copy.end(), ' '), value_copy.end());
+    }
+    std::cout << value_copy << "\n";
+    double earth = std::stod(value_copy);
+    std::cout << "Return: " << earth << "\n";
+    return earth;
   }
   else
   {
+    std::cout << "Return: " << value_copy << "\n";
     return std::stod(value_copy);
   }
 }
