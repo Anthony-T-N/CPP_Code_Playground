@@ -1,14 +1,23 @@
 #include <string>
 double m_v(const std::string &s)
 {
+  std::cout << "Para: " << s << "\n";
   std::string value_copy = s;
+  while (value_copy.find(' ') != std::string::npos)
+  {
+    value_copy.erase(value_copy.begin() + value_copy.find(' '));
+    //value_copy.erase(remove(value_copy.begin(), value_copy.end(), ' '), value_copy.end());
+  }
   if (value_copy.find("$") != std::string::npos)
   {
     //std::cout << value_copy.find("$") << "\n";
-    value_copy.erase(value_copy.begin() + value_copy.find("$"));
-    while (value_copy[0] == ' ')
+    while (value_copy.find("$") != std::string::npos)
     {
-      //value_copy.erase(remove(value_copy.begin(), value_copy.end(), ' '), value_copy.end());
+      value_copy.erase(value_copy.begin() + value_copy.find("$"));
+    }
+    if (value_copy == "" || value_copy == "-" || value_copy == " ")
+    {
+      return 0.0;
     }
     std::cout << value_copy << "\n";
     double earth = std::stod(value_copy);
@@ -17,7 +26,7 @@ double m_v(const std::string &s)
   }
   else
   {
-    std::cout << "Return: " << value_copy << "\n";
+    std::cout << "Return: (!= $): " << value_copy << "\n";
     return std::stod(value_copy);
   }
 }
