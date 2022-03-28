@@ -3,6 +3,10 @@ double m_v(const std::string &s)
 {
   std::cout << "Para: " << s << "\n";
   std::string value_copy = s;
+  if (value_copy.find_first_of("0123456789") == std::string::npos)
+  {
+    return 0.0;
+  }
   while (value_copy.find(' ') != std::string::npos)
   {
     value_copy.erase(value_copy.begin() + value_copy.find(' '));
@@ -15,14 +19,8 @@ double m_v(const std::string &s)
     {
       value_copy.erase(value_copy.begin() + value_copy.find("$"));
     }
-    if (value_copy == "" || value_copy == "-" || value_copy == " ")
-    {
-      return 0.0;
-    }
-    std::cout << value_copy << "\n";
-    double earth = std::stod(value_copy);
-    std::cout << "Return: " << earth << "\n";
-    return earth;
+    std::cout << "Return: " << std::stod(value_copy) << "\n";
+    return std::stod(value_copy);
   }
   else
   {
