@@ -10,11 +10,9 @@ double m_v(const std::string &s)
   while (value_copy.find(' ') != std::string::npos)
   {
     value_copy.erase(value_copy.begin() + value_copy.find(' '));
-    //value_copy.erase(remove(value_copy.begin(), value_copy.end(), ' '), value_copy.end());
   }
   if (value_copy.find("$") != std::string::npos)
   {
-    //std::cout << value_copy.find("$") << "\n";
     while (value_copy.find("$") != std::string::npos)
     {
       value_copy.erase(value_copy.begin() + value_copy.find("$"));
