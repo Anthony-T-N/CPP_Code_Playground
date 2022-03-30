@@ -1,4 +1,17 @@
 #include <string>
+bool hSp(const std::string& str)
+{
+  std::string sub_pattern = "";
+  for (unsigned long int i = 0; i <= str.length() - 1; i++)
+  {
+    std::cout << str[i] << "\n";
+    sub_pattern += str[i];
+  }
+  std::cout << sub_pattern << "\n";
+  return false;
+}
+
+#include <string>
 double m_v(const std::string &s)
 {
   std::cout << "Para: " << s << "\n";
