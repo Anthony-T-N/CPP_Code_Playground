@@ -1,10 +1,15 @@
 #include <string>
 bool hSp(const std::string& str)
 {
+  if (str.length() == 0)
+  {
+    return false;
+  }
   std::string sub_pattern = std::string() + str[0];
+  bool pattern = false;
   for (unsigned long int i = 0; i <= str.length() - 1; i++)
   {
-    for (unsigned long int j = 0; j <= sub_pattern.length() - 1; j++)
+    for (unsigned long int j = 0; j <= str.length() - 1; j++)
     {
       if (sub_pattern[j] == str[j])
       {
@@ -12,14 +17,18 @@ bool hSp(const std::string& str)
       }
       else
       {
+        pattern = false;
         sub_pattern += str[i];
       }
     }
-    std::cout << str[i] << "\n";
-    sub_pattern += str[i];
+    std::cout << "Sub-pattern: " << sub_pattern << "\n";
+  }
+  if (pattern == false)
+  {
+    return false;
   }
   std::cout << sub_pattern << "\n";
-  return false;
+  return true;
 }
 
 #include <string>
