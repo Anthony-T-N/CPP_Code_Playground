@@ -2,7 +2,7 @@
 bool hSp(const std::string& str)
 {
   std::cout << "Working pattern: " << str << "\n";
-  if (str.length() == 0)
+  if (str.length() == 0 || str.length() == 1)
   {
     return false;
   }
@@ -10,40 +10,39 @@ bool hSp(const std::string& str)
   bool pattern = false;
   for (unsigned long int i = 0; i <= str.length() - 1; i++)
   {
-    if (i != str.length() - 1)
+    for (unsigned long int j = 0; j <= str.length() - 1; j++)
     {
-      for (unsigned long int j = 0; j <= str.length() - 1; j++)
+      std::cout << "[D] Loop round: " << "i: " << i << " j: " << j << "\n"; 
+      std::cout << "[D] Comparison: " << "Sub: " << sub_pattern[j] << " str: " << str[j] << "\n";
+      if (sub_pattern[j] == str[j])
       {
-        std::cout << "[D] Loop round: " << "i: " << i << " j: " << j << "\n"; 
-        std::cout << "[D] Comparison: " << "Sub: " << sub_pattern[j] << " str: " << str[j] << "\n";
-        if (sub_pattern[j] == str[j])
+        pattern = true;
+        continue;
+      }
+      else
+      {
+        std::cout << "No Match" << "\n";
+        if (j == str.length() - 1)
         {
-          pattern = true;
-          continue;
+          std::cout << "END" << "\n";
+          pattern = false;
         }
-        else
+        if (i == 0)
         {
-          if (i == str.length() - 1)
-          {
-            pattern = false;
-          }
-          if (i == 0)
-          {
-            break;
-          }
-          sub_pattern += str[i];
           break;
         }
+        sub_pattern += str[i];
+        break;
       }
     }
     std::cout << "Sub-pattern: " << sub_pattern << "\n";
   }
   if (pattern == false)
   {
-    std::cout << "Return: false" << "\n";
+    std::cout << "Return: false" << "\n\n";
     return false;
   }
-  std::cout << "Return: true" << "\n";
+  std::cout << "Return: true" << "\n\n";
   return true;
 }
 
