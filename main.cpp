@@ -1,6 +1,7 @@
 #include <string>
 bool hSp(const std::string& str)
 {
+  bool reset = false;
   std::cout << "Working pattern: " << str << "\n";
   if (str.length() == 0 || str.length() == 1)
   {
@@ -8,12 +9,13 @@ bool hSp(const std::string& str)
   }
   std::string sub_pattern = std::string() + str[0];
   bool pattern = false;
-  for (unsigned long int i = 0; i <= str.length() - 1; i++)
+  for (unsigned long int i = 0; i <= sub_pattern.length() - 1; i++)
   {
     for (unsigned long int j = 0; j <= str.length() - 1; j++)
     {
       std::cout << "[D] Loop round: " << "i: " << i << " j: " << j << "\n"; 
       std::cout << "[D] Comparison: " << "Sub: " << sub_pattern[j] << " str: " << str[j] << "\n";
+      std::cout << "[D] Sub pattern: " << sub_pattern << "\n";
       if (sub_pattern[j] == str[j])
       {
         pattern = true;
@@ -32,10 +34,16 @@ bool hSp(const std::string& str)
           break;
         }
         sub_pattern += str[i];
+        reset = true;
         break;
       }
     }
     std::cout << "Sub-pattern: " << sub_pattern << "\n";
+    if (reset == true)
+    {
+      std::cout << "[D] RESET" << "\n";
+      i = -1;
+    }
   }
   if (pattern == false)
   {
