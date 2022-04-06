@@ -1,6 +1,33 @@
 #include <string>
 bool hSp(const std::string& str)
 {
+  std::cout << "Working pattern: " << str << "\n";
+  // String will never be empty. No check required.
+  std::string sub_pattern = std::string() + str[0];
+  int i = 0;
+  int j = 0;
+  while (true)
+  {
+    if (sub_pattern[i] == str[j])
+    {
+      j++;
+    }
+    else
+    {
+      if ((int)sub_pattern.length() <= (i + 1))
+      {
+        sub_pattern += str[i];
+        i = 0;
+        j = 0;
+      }
+      else
+      {
+        i++;
+      }
+    }
+  }
+}
+/*
   bool reset = false;
   std::cout << "Working pattern: " << str << "\n";
   if (str.length() == 0 || str.length() == 1)
@@ -53,6 +80,7 @@ bool hSp(const std::string& str)
   std::cout << "Return: true" << "\n\n";
   return true;
 }
+*/
 
 #include <string>
 double m_v(const std::string &s)
