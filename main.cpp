@@ -14,7 +14,9 @@ bool hSp(const std::string& str)
     }
     else
     {
-      if ((int)sub_pattern.length() <= (i + 1))
+      std::cout << sub_pattern.length() << "\n";
+      int temp = sub_pattern.length();
+      if (temp <= (i + 1))
       {
         sub_pattern += str[i];
         i = 0;
