@@ -1,8 +1,12 @@
 #include <string>
 bool hSp(const std::string& str)
 {
+  bool pattern_broken = true;
   std::cout << "Working pattern: " << str << "\n";
-  // String will never be empty. No check required.
+  if (str.length() == 0 || str.length() == 1)
+  {
+    return false;
+  }
   std::string sub_pattern = std::string() + str[0];
   int i = 0;
   int j = 0;
@@ -10,17 +14,33 @@ bool hSp(const std::string& str)
   {
     if (sub_pattern[i] == str[j])
     {
+      if (str.length() - 1 <= j)
+      {
+        std::cout << "END = true" << "\n";
+        if (pattern_broken == true)
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+      }
+      pattern_broken = false;
       j++;
     }
     else
     {
-      std::cout << sub_pattern.length() << "\n";
-      int temp = sub_pattern.length();
+      std::cout << sub_pattern.length() - 1 << "\n";
+      int temp = sub_pattern.length() - 1;
+      // Once loop reaches to end of sub pattern, add new character.
       if (temp <= (i + 1))
       {
-        sub_pattern += str[i];
+        sub_pattern += str[j];
         i = 0;
         j = 0;
+        std::cout << "New: " << sub_pattern << "\n";
+        pattern_broken = true;
       }
       else
       {
