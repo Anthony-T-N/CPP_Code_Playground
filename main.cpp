@@ -14,16 +14,19 @@ bool hSp(const std::string& str)
   {
     if (sub_pattern[i] == str[j])
     {
-      if (str.length() - 1 <= j)
+      if (str.length() - 1 == j)
       {
-        std::cout << "END = true" << "\n";
+        std::cout << "Length: " << str.length() - 1 << " " << j << "\n";
+
         if (pattern_broken == true)
         {
-          return true;
+          std::cout << "END = true" << "\n";
+          return false;
         }
         else
         {
-          return false;
+          std::cout << "END = false" << "\n";
+          return true;
         }
       }
       pattern_broken = false;
