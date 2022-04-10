@@ -1,3 +1,19 @@
+class Avg_Class
+{ 
+  public:
+    std::vector<int> avg_vector;
+    Avg_Class(int num) 
+    {
+      avg_vector.push_back(num);
+    }
+};
+
+auto rA() 
+{
+  Avg_Class avg_object(0);
+  return avg_object; 
+}
+
 #include <string>
 bool hSp(const std::string& str)
 {
