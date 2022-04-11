@@ -2,7 +2,16 @@ class Avg_Class
 { 
   public:
     std::vector<int> avg_vector;
+    // Constructor
+    Avg_Class() 
+    {
+      avg_vector.push_back(0);
+    }
     Avg_Class(int num) 
+    {
+      avg_vector.push_back(num);
+    }
+    Avg_Class() operator()(int num)
     {
       avg_vector.push_back(num);
     }
