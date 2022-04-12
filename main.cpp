@@ -15,6 +15,14 @@ class Avg_Class
     {
       avg_vector.push_back(num);
     }
+    Avg_Class() repeat()()
+    {
+      for (int i = 0; i <= avg_vector.length() - 1; i++)
+      {
+        std::cout << avg_vector[i] << "\n";
+      }
+    }
+  
 };
 
 auto rA() 
