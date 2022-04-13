@@ -5,7 +5,7 @@ class Avg_Class
     // Constructor
     Avg_Class() 
     {
-      avg_vector.push_back(0);
+      //avg_vector.push_back(0);
     }
     Avg_Class(int num) 
     {
@@ -15,7 +15,7 @@ class Avg_Class
     {
       avg_vector.push_back(num);
     }
-    void repeat()
+    void method_repeat()
     {
       for (int i = 0; i <= avg_vector.length() - 1; i++)
       {
