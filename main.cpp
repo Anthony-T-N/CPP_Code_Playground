@@ -22,6 +22,15 @@ class Avg_Class
         std::cout << avg_vector[i] << "\n";
       }
     }
+    void method_average()
+    {
+      int sum = 0;
+      for (int i = 0; i <= avg_vector.length() - 1; i++)
+      {
+        std::cout << avg_vector[i] << "\n";
+        sum += avg_vector[i]; 
+      }
+    }
 };
 auto rA() 
 {
