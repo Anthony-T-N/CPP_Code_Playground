@@ -1,23 +1,17 @@
 class Avg_Class
 { 
+  private:
+      std::vector<int> avg_vector;
+
   public:
-    std::vector<int> avg_vector;
     // Constructor
-    Avg_Class() 
-    {
-      //avg_vector.push_back(0);
-    }
-    Avg_Class(int num) 
-    {
-      avg_vector.push_back(num);
-    }
-    Avg_Class() operator()(int num)
+    Avg_Class operator()(int num)
     {
       avg_vector.push_back(num);
     }
     void method_repeat()
     {
-      for (int i = 0; i <= avg_vector.length() - 1; i++)
+      for (unsigned long i = 0; i <= avg_vector.size() - 1; i++)
       {
         std::cout << avg_vector[i] << "\n";
       }
@@ -25,17 +19,23 @@ class Avg_Class
     void method_average()
     {
       int sum = 0;
-      for (int i = 0; i <= avg_vector.length() - 1; i++)
+      for (unsigned long i = 0; i <= avg_vector.size() - 1; i++)
       {
         std::cout << avg_vector[i] << "\n";
         sum += avg_vector[i]; 
       }
     }
+    void myMethod() 
+    {  
+      std::cout << "Hello World!";
+    }
 };
+
 auto rA() 
 {
   Avg_Class avg_object(0);
-  avg_object.repeat();
+  avg_object.myMethod();
+  avg_object.method_repeat();
   return avg_object; 
 }
 
