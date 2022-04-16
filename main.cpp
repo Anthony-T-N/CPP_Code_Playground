@@ -25,16 +25,11 @@ class Avg_Class
         sum += avg_vector[i]; 
       }
     }
-    void myMethod() 
-    {  
-      std::cout << "Hello World!";
-    }
 };
 
 auto rA() 
 {
   Avg_Class avg_object(0);
-  avg_object.myMethod();
   avg_object.method_repeat();
   return avg_object; 
 }
