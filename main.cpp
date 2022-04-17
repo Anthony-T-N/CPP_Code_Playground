@@ -27,8 +27,10 @@ class Avg_Class
     }
 };
 
-auto rA() 
+auto rA(int num) 
 {
+  std::vector<int> avg_vector;
+  avg_vector.push_back(num);
   Avg_Class avg_object(0);
   avg_object.method_repeat();
   return avg_object; 
