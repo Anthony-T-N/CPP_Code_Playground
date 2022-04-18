@@ -24,9 +24,11 @@ class Avg_Class
         std::cout << avg_vector[i] << "\n";
         sum += avg_vector[i]; 
       }
+      std::cout << sum << "\n";
     }
 };
 
+// Persistent vector here:
 auto rA(int num) 
 {
   std::vector<int> avg_vector;
