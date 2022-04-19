@@ -1,3 +1,19 @@
+namespace T
+{
+  // Triangle inequality theorem
+  bool iT(int a, int b, int c)
+  {
+    if (a <= 0 || b <= 0 || c <= 0)
+    {
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+  }
+};
+
 class Avg_Class
 { 
   private:
