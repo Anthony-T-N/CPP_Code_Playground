@@ -7,6 +7,18 @@ namespace T
     {
       return false;
     }
+    if (a + b > c)
+    {
+      
+    }
+    else if (a + c > b)
+    {
+      
+    }
+    else if (b + c > a)
+    {
+      
+    }
     else
     {
       return true;
