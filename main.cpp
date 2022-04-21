@@ -9,19 +9,19 @@ namespace T
     }
     if (a + b > c)
     {
-      
+      return true;
     }
     else if (a + c > b)
     {
-      
+      return true;
     }
     else if (b + c > a)
     {
-      
+      return true;
     }
     else
     {
-      return true;
+      return false;
     }
   }
 };
