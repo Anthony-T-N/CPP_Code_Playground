@@ -3,6 +3,7 @@ namespace T
   // Triangle inequality theorem
   bool iT(int a, int b, int c)
   {
+    std::cout << a << " " << b << " " << c << "\n";
     if (a <= 0 || b <= 0 || c <= 0)
     {
       return false;
@@ -11,15 +12,15 @@ namespace T
     {
       return false;
     }
-    if (a + b => c)
+    if (a + b <= c)
     {
       return true;
     }
-    else if (a + c => b)
+    else if (a + c <= b)
     {
       return true;
     }
-    else if (b + c => a)
+    else if (b + c <= a)
     {
       return true;
     }
