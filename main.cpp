@@ -6,12 +6,10 @@ namespace T
     std::cout << a << " " << b << " " << c << "\n";
     if (a <= 0 || b <= 0 || c <= 0)
     {
-      std::cout << "return false;" << "\n";
       return false;
     }
     if (a == b == c)
     {
-      std::cout << "return false;" << "\n";
       return false;
     }
     if (a + b > c)
@@ -20,24 +18,20 @@ namespace T
       {
         if (b + c > a)
         {
-          std::cout << "return true;" << "\n";
           return true;
         }
         else
         {
-          std::cout << "return false;" << "\n";
           return false;
         }
       }
       else
       {
-        std::cout << "return false;" << "\n";
         return false;
       }
     }
     else
     {
-      std::cout << "return false;" << "\n";
       return false;
     }
   }
