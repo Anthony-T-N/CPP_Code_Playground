@@ -1,3 +1,21 @@
+#include <string>
+std::string DtoR(std::string dna)
+{
+  std::string new_strand;
+  for (int i = 0; i <= dna.length() - 1; i++)
+  {
+    if (dna[i] == 'T')
+    {
+      new_strand += 'U';
+    }
+    else
+    {
+      new_strand += dna[i];
+    }
+  }
+  return new_strand;
+}
+
 namespace T
 {
   // Triangle inequality theorem
