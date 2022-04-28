@@ -1,3 +1,18 @@
+#include <vector>
+long sTSN(std::vector<int> numbers)
+{
+  int low = 0;
+  for (int i = 0; i <= numbers.size() - 1; i++)
+  {
+    if (numbers[i] > numbers[i + 1])
+    {
+      low = numbers[i + 1];
+    }
+    std::cout << numbers[i] << "\n";
+  }
+  return 0;
+}
+
 #include <string>
 std::string DtoR(std::string dna)
 {
