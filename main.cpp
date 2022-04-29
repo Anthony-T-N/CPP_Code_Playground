@@ -6,6 +6,7 @@ long sTSN(std::vector<int> numbers)
   {
     if (numbers[i] > numbers[i + 1])
     {
+      std::cout << numbers[i] << numbers[i + 1] << "\n";
       low = numbers[i + 1];
     }
     std::cout << numbers[i] << "\n";
