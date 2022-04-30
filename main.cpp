@@ -2,12 +2,22 @@
 long sTSN(std::vector<int> numbers)
 {
   int low = 0;
+  int another_low = 0;
   for (int i = 0; i <= numbers.size() - 1; i++)
   {
     if (numbers[i] > numbers[i + 1])
     {
       std::cout << numbers[i] << numbers[i + 1] << "\n";
       low = numbers[i + 1];
+    }
+    std::cout << numbers[i] << "\n";
+  }
+  for (int i = 0; i <= numbers.size() - 1; i++)
+  {
+    if (numbers[i] > numbers[i + 1] && another_low != numbers[i])
+    {
+      std::cout << numbers[i] << numbers[i + 1] << "\n";
+      numbers[i] = numbers[i + 1];
     }
     std::cout << numbers[i] << "\n";
   }
