@@ -17,11 +17,11 @@ long sTSN(std::vector<int> numbers)
     if (numbers[i] > numbers[i + 1] && another_low != numbers[i])
     {
       std::cout << numbers[i] << numbers[i + 1] << "\n";
-      numbers[i] = numbers[i + 1];
+      another_low = numbers[i + 1];
     }
     std::cout << numbers[i] << "\n";
   }
-  return 0;
+  return low + another_low;
 }
 
 #include <string>
