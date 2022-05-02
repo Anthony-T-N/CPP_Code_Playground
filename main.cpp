@@ -21,7 +21,10 @@ long sTSN(std::vector<int> numbers)
     }
     std::cout << numbers[i] << "\n";
   }
-  return low + another_low;
+  std::cout << low + another_low << "\n";
+  int average = (low + another_low) / 2;
+  std::cout << average << "\n";
+  return (low + another_low) / 2;
 }
 
 #include <string>
