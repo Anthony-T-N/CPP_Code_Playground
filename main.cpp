@@ -1,30 +1,30 @@
 #include <vector>
 long sTSN(std::vector<int> numbers)
 {
-  int low = 0;
-  int another_low = 0;
+  int first_low = 0;
+  int second_low = 0;
   for (int i = 0; i <= numbers.size() - 1; i++)
   {
     if (numbers[i] > numbers[i + 1])
     {
       std::cout << numbers[i] << numbers[i + 1] << "\n";
-      low = numbers[i + 1];
+      first_low = numbers[i + 1];
     }
     std::cout << numbers[i] << "\n";
   }
   for (int i = 0; i <= numbers.size() - 1; i++)
   {
-    if (numbers[i] > numbers[i + 1] && another_low != numbers[i])
+    if (numbers[i] > numbers[i + 1] && first_low != numbers[i])
     {
       std::cout << numbers[i] << numbers[i + 1] << "\n";
-      another_low = numbers[i + 1];
+      second_low = numbers[i + 1];
     }
     std::cout << numbers[i] << "\n";
   }
-  std::cout << low + another_low << "\n";
-  int average = (low + another_low) / 2;
+  std::cout << first_low + second_low << "\n";
+  int average = (first_low + second_low) / 2;
   std::cout << average << "\n";
-  return (low + another_low) / 2;
+  return (first_low + second_low) / 2;
 }
 
 #include <string>
