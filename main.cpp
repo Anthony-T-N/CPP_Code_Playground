@@ -1,29 +1,32 @@
 #include <vector>
 long sTSN(std::vector<int> numbers)
 {
-  int first_low = 0;
-  int second_low = 0;
+  int first_low = numbers[0];
+  int second_low = numbers[0];
   for (int i = 0; i <= numbers.size() - 1; i++)
   {
-    if (numbers[i] > numbers[i + 1] && numbers[i + 1] != numbers.size() - 1)
+    if (first_low > numbers[i + 1] && i + 1 < numbers.size() - 1)
     {
-      std::cout << numbers[i] << numbers[i + 1] << "\n";
+      std::cout << numbers[i] << " " << numbers[i + 1] << "\n";
       first_low = numbers[i + 1];
+      numbers.erase(numbers.begin() + 1);
     }
     std::cout << numbers[i] << "\n";
   }
+  std::cout << "1st for Loop: " << first_low << "\n";
   for (int i = 0; i <= numbers.size() - 1; i++)
   {
-    if (numbers[i] > numbers[i + 1] && first_low != numbers[i] && numbers[i + 1] != numbers.size() - 1)
+    if (second_low > numbers[i + 1] && first_low != numbers[i] && i + 1 < numbers.size() - 1)
     {
-      std::cout << numbers[i] << numbers[i + 1] << "\n";
+      std::cout << numbers[i] << " " << numbers[i + 1] << "\n";
       second_low = numbers[i + 1];
     }
     std::cout << numbers[i] << "\n";
   }
-  std::cout << first_low + second_low << "\n";
-  //int average = (first_low + second_low) / 2;
-  std::cout << average << "\n";
+  std::cout << "2nd for Loop: " << first_low << "\n";
+  std::cout << first_low << " " << second_low << "\n";
+  int average = (first_low + second_low) / 2;
+  std::cout << "Average: " << average << "\n";
   return (first_low + second_low) / 2;
 }
 
