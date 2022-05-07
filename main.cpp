@@ -9,11 +9,9 @@ long sTSN(std::vector<int> numbers)
     if (first_low > numbers[i] && i <= numbers.size() - 1)
     {
       trigger = true;
-      std::cout << first_low << " > " << numbers[i] << "\n";
       first_low = numbers[i];
       pos = i;
     }
-    std::cout << i << " " << numbers[i] << "\n";
   }
   if (trigger == false)
   {
@@ -24,18 +22,13 @@ long sTSN(std::vector<int> numbers)
     numbers.erase(numbers.begin() + pos);
   }
   double second_low = numbers[0];
-  std::cout << "1st for Loop: " << first_low << "\n\n";
   for (unsigned long int i = 0; i <= numbers.size() - 1; i++)
   {
-    if (second_low > numbers[i] && second_low != numbers[i] && i + 1 <= numbers.size())
+    if (second_low > numbers[i] && i <= numbers.size() - 1)
     {
-      std::cout << second_low  << " > " << numbers[i] << "\n";
       second_low = numbers[i];
     }
-    std::cout << i << " " << numbers[i] << "\n";
   }
-  std::cout << "2nd for Loop: " << second_low << "\n\n";
-  std::cout << first_low << " " << second_low << "\n";
   double sum = (first_low + second_low);
   return sum;
 }
