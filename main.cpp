@@ -1,3 +1,29 @@
+#include <string>
+bool i_u(const std::string &s) 
+{
+  bool is_upper_case = false;
+  for (unsigned long i = 0; i <= s.size() - 1; i++)
+  {
+    std::cout << s[i] << "\n";
+    if (isupper(s[i]))
+    {
+      is_upper_case = true;
+      std::cout << s[i] << "\n";
+    }
+    else if (s[i] == ' ')
+    {
+      continue;
+    }
+    else
+    {
+      is_upper_case = false;
+      break;
+    }
+  }
+  std::cout << is_upper_case << "\n";
+  return is_upper_case;
+}
+
 #include <vector>
 long sTSN(std::vector<int> numbers)
 {
