@@ -3,7 +3,11 @@ bool i_u(const std::string &s)
 {
   std::cout << "Full string: " << s << "\n";
   // 18446744073709551615 error here
-  std::cout << "s size: " << s.size() - 1 << "\n"; 
+  std::cout << "s size: " << s.size() << "\n";
+  if (s.size() <= 0)
+  {
+    return true;
+  }
   bool is_upper_case = true;
   for (unsigned long i = 0; i <= s.size() - 1; i++)
   {
@@ -19,7 +23,7 @@ bool i_u(const std::string &s)
     }
     else if (!isalpha(s[i]))
     {
-      std::cout << "Alphabetic: " << s[i] << "\n"; 
+      std::cout << "[D] Not Alphabetic: " << s[i] << "\n"; 
       continue;
     }
     else
