@@ -1,3 +1,36 @@
+std::vector<char> alphabet_upper
+(
+  { 
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
+    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+  }
+);
+
+int letter_score_return(char &letter)
+{
+  int letter_count = 0;
+  for (int i = 0; i <= 26; i++)
+  {
+    if (letter = alphabet_upper)
+    {
+      letter_count = i;
+      break;
+    }
+  }
+  return letter_count;
+}
+
+std::string hSW(const std::string &str)
+{
+  int highest_score = 0;
+  int temp_sum = 0;
+  for (int i = 0; i <= str.length() - 1; i++)
+  {
+     temp_sum += letter_score_return(str[i]);
+  }
+  return "word";
+}
+
 #include <string>
 bool i_u(const std::string &s) 
 {
