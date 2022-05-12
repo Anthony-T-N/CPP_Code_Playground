@@ -1,3 +1,47 @@
+std::string e(std::string text, int n)
+{
+  std::string odd_text = "";
+  std::string even_text = "";
+  std::cout << "New_Test" << "\n\n";
+  if (n == 0)
+  {
+    return text;
+  }
+  else if (text.length() == 0)
+  {
+    return text;
+  }
+  for (int i = 0; i < n; i++)
+  {
+    std::string odd_text = "";
+    std::string even_text = "";
+    for (int j = 0; j <= text.length() - 1; j++)
+    {
+      if (!(j % 2 == 0))
+      {
+        odd_text += text[j];
+        std::cout << "ODD" << "\n";
+      }
+      else
+      {
+        even_text += text[j];
+        std::cout << "EVEN" << "\n";
+      }
+      std::cout << j << " " << odd_text << " " << even_text << "\n";
+    }
+    text = odd_text + even_text;
+    std::cout << "[" << i << "] " << text << "\n\n";
+  }
+  std::cout << text << "\n";
+  std::cout << "\n\n";
+  return text;
+}
+
+std::string d(std::string eT, int n)
+{
+    return text;
+}
+
 std::vector<char> alphabet_upper
 (
   { 
