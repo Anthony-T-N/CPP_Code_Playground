@@ -39,7 +39,7 @@ std::string e(std::string text, int n)
 
 std::string d(std::string text, int n)
 {
-  std::string decrypted_string = "";
+  std::string temp_text = text;
   std::string odd_text = "";
   std::string even_text = "";
   int odd_int = 0;
@@ -53,32 +53,35 @@ std::string d(std::string text, int n)
   {
     return text;
   }
-  // Length of encrypted string. Half if even, half + 0.5 if odd.
-  odd_text = text.substr(0, text.length()/2);
-  even_text = text.substr(text.length()/2);
-  std::cout << odd_text << " == " << even_text << "\n";
   for (int i = 0; i < n; i++)
   {
-    for (int j = 0; j <= text.length() - 1; j++)
+    // Length of encrypted string. Half if even, half + 0.5 if odd.
+    odd_int = 0;
+    even_int = 0;
+    odd_text = text.substr(0, text.length()/2);
+    even_text = text.substr(text.length()/2);
+    text = "";
+    std::cout << odd_text << " == " << even_text << "\n";
+    for (int j = 0; j <= temp_text.length() - 1; j++)
     {
       if ((j % 2 == 0))
       {
-        decrypted_string += even_text[even_int];
+        text += even_text[even_int];
         std::cout << "EVEN" << "\n";
         even_int++;
       }
       else
       {
-        decrypted_string += odd_text[odd_int];
+        text += odd_text[odd_int];
         std::cout << "ODD" << "\n";
         odd_int++;
       }
-      std::cout << "[" << j << "] " << decrypted_string << "\n\n";
+      std::cout << "[" << j << "] " << text << "\n\n";
     }
   }
-  std::cout << decrypted_string << "\n";
+  std::cout << text << "\n";
   std::cout << "\n\n";
-  return decrypted_string;
+  return text;
 }
 
 std::vector<char> alphabet_upper
