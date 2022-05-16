@@ -1,13 +1,7 @@
 std::string e(std::string text, int n)
 {
-  std::string odd_text = "";
-  std::string even_text = "";
   std::cout << "New_Test" << "\n\n";
-  if (n == 0)
-  {
-    return text;
-  }
-  else if (text.length() == 0)
+  if (n == 0 || text.length() == 0)
   {
     return text;
   }
@@ -19,68 +13,56 @@ std::string e(std::string text, int n)
     {
       if (!(j % 2 == 0))
       {
+        // ODD
         odd_text += text[j];
-        std::cout << "ODD" << "\n";
       }
       else
       {
+        // EVEN
         even_text += text[j];
-        std::cout << "EVEN" << "\n";
       }
-      std::cout << j << " " << odd_text << " " << even_text << "\n";
+      std::cout << "[" << j << "] " << odd_text << " " << even_text << "\n\n";
     }
     text = odd_text + even_text;
     std::cout << "[" << i << "] " << text << "\n\n";
   }
-  std::cout << text << "\n";
-  std::cout << "\n\n";
+  std::cout << text << "\n\n";
   return text;
 }
 
 std::string d(std::string text, int n)
 {
-  std::string temp_text = text;
-  std::string odd_text = "";
-  std::string even_text = "";
-  int odd_int = 0;
-  int even_int = 0;
-  std::cout << "New_Test" << "\n\n";
-  if (n == 0)
-  {
-    return text;
-  }
-  else if (text.length() == 0)
+  int text_length = text.length() - 1;
+  if (n == 0 || text.length() == 0)
   {
     return text;
   }
   for (int i = 0; i < n; i++)
   {
-    // Length of encrypted string. Half if even, half + 0.5 if odd.
-    odd_int = 0;
-    even_int = 0;
-    odd_text = text.substr(0, text.length()/2);
-    even_text = text.substr(text.length()/2);
+    int odd_int = 0;
+    int even_int = 0;
+    std::string odd_text = text.substr(0, text.length()/2);
+    std::string even_text = text.substr(text.length()/2);
     text = "";
-    std::cout << odd_text << " == " << even_text << "\n";
-    for (int j = 0; j <= temp_text.length() - 1; j++)
+    std::cout << odd_text << " == " << even_text << "\n\n";
+    for (int j = 0; j <= text_length; j++)
     {
       if ((j % 2 == 0))
       {
+        // EVEN
         text += even_text[even_int];
-        std::cout << "EVEN" << "\n";
         even_int++;
       }
       else
       {
+        // ODD
         text += odd_text[odd_int];
-        std::cout << "ODD" << "\n";
         odd_int++;
       }
       std::cout << "[" << j << "] " << text << "\n\n";
     }
   }
-  std::cout << text << "\n";
-  std::cout << "\n\n";
+  std::cout << text << "\n\n";
   return text;
 }
 
