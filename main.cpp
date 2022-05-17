@@ -1,3 +1,40 @@
+#include <vector>
+
+class Same {
+public :
+    static bool comp(std::vector<int>&a, std::vector<int>&b) 
+    {
+      std::cout << "\n" << "NEW" << "\n";
+      if (a.size() <= 0 || b.size() <= 0)
+      {
+        std::cout << "BAD SIZE: False" << "\n";
+        return false;
+      }
+      std::vector<int> sqd_vec_a;
+      for (unsigned long i = 0; i <= a.size() - 1; i++)
+      {
+        sqd_vec_a.push_back(a[i] * a[i]);
+        std::cout << sqd_vec_a[i] << "\n";
+      }
+      std::sort(sqd_vec_a.begin(), sqd_vec_a.end());
+      std::sort(b.begin(), b.end());
+      for (unsigned long i = 0; i <= a.size() - 1; i++)
+      {
+        if (sqd_vec_a[i] != b[i])
+        {
+          std::cout << "ERROR: " << sqd_vec_a[i] << " == " << b[i] << "\n";
+          return false;
+        }
+        else
+        {
+          std::cout << sqd_vec_a[i] << " == " << b[i] << "\n";
+        }
+      }
+      return true;
+    }
+};
+
+
 std::string e(std::string text, int n)
 {
   std::cout << "New_Test" << "\n\n";
