@@ -4,11 +4,27 @@ class Same {
 public :
     static bool comp(std::vector<int>&a, std::vector<int>&b) 
     {
-      std::cout << "\n" << "NEW" << "\n";
+      std::cout << "\n" << "===" << "\n";
+      for (const auto i : a) 
+      {
+          std::cout << i << ' ';
+      }
+      std::cout << "\n";
+      for (const auto i : b) 
+      {
+          std::cout << i << ' ';
+      }
+      std::cout << "\n" << "===" << "\n";
+      
+      std::cout << "\n" << "[D] New Test" << "\n";
+      if (a.size() != b.size())
+      {
+        return false;
+      }
       if (a.size() <= 0 || b.size() <= 0)
       {
         std::cout << "BAD SIZE: False" << "\n";
-        return false;
+        return true;
       }
       std::vector<int> sqd_vec_a;
       for (unsigned long i = 0; i <= a.size() - 1; i++)
@@ -33,7 +49,6 @@ public :
       return true;
     }
 };
-
 
 std::string e(std::string text, int n)
 {
