@@ -1,3 +1,31 @@
+#include <string>
+#include <vector>
+
+std::string rot13(std::string msg)
+{
+  std::cout << "[D]: " << msg << "\n";
+  std::string alphabet = "abcdefghijklmnopqrstuvwsyz";
+  for (unsigned long i = 0; i <= msg.size() - 1; i++)
+  {
+    for (unsigned long j = 0; j <= alphabet.size() - 1; j++)
+    {
+      std::cout << alphabet[j] << "\n";
+      if (msg[i] == alphabet[j])
+      {
+        for (unsigned long k = 0; k <= 13; k++)
+        {
+          j++;
+          if (alphabet.size() - 1)
+          {
+            
+          }
+        }
+      }
+    }
+  }
+  return "";
+}
+
 #include <vector>
 
 class Same {
