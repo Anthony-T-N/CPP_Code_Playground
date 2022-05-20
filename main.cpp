@@ -3,27 +3,48 @@
 
 std::string rot13(std::string msg)
 {
+  std::string new_string = "";
   std::cout << "[D]: " << msg << "\n";
-  std::string alphabet = "abcdefghijklmnopqrstuvwsyz";
+  std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
   for (unsigned long i = 0; i <= msg.size() - 1; i++)
   {
     for (unsigned long j = 0; j <= alphabet.size() - 1; j++)
     {
-      std::cout << alphabet[j] << "\n";
-      if (msg[i] == alphabet[j])
+      if (msg[i] == alphabet[j] || msg[i] == std::toupper(alphabet[j]))
       {
-        for (unsigned long k = 0; k <= 13; k++)
+        bool upper_case_switch = false;
+        if (msg[i] == std::toupper(alphabet[j]))
+        {
+          upper_case_switch = true;
+        }
+        std::cout << msg[i] << " == " << alphabet[j] << "\n";
+        for (unsigned long k = 0; k <= 12; k++)
         {
           j++;
-          if (alphabet.size() - 1)
+          if (j == alphabet.size())
           {
-            
+            j = 0;
           }
         }
+        if (upper_case_switch == true)
+        {
+          new_string += std::toupper(alphabet[j]);
+        }
+        else
+        {
+          new_string += alphabet[j];
+        }
+        break;
+      }
+      std::cout << "[D] " << msg[j] << "\n";
+      if (j == alphabet.size() - 1)
+      {
+        new_string += msg[i];
       }
     }
   }
-  return "";
+  std::cout << "New string: " << new_string << "\n";
+  return  new_string;
 }
 
 #include <vector>
