@@ -1,3 +1,43 @@
+std::vector<int> josephus(std::vector<int> items, unsigned long k) 
+{
+  if (k == 1)
+  {
+    return items;
+  }
+  for (unsigned long i = 0; i <= items.size() - 1; i++)
+  {
+    std::cout << items[i] << "\n";
+  }
+  std::vector<int> permutation_vec;
+  unsigned long index = 0;
+  unsigned long pos = 0;
+  while (items.size() - 1 != 0)
+  {
+    std::cout << items[index] << "\n";
+    if (index == items.size() - 1)
+    {
+      index = 0;
+    }
+    if (pos == k)
+    {
+      permutation_vec.push_back(items[index]);
+      items.erase(items.begin() + index);
+      pos = 0;
+    }
+    else
+    {
+      pos++;
+    }
+    index++;
+  }
+  std::cout << "Permutation_vec" << "\n";
+  for (int i = 0; i <= permutation_vec.size() - 1; i++)
+  {
+    std::cout << permutation_vec[i] << "\n";
+  }
+  return permutation_vec;
+}
+
 #include <string>
 #include <vector>
 
