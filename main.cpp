@@ -1,37 +1,59 @@
 std::vector<int> josephus(std::vector<int> items, unsigned long k) 
 {
-  if (k == 1)
+  if (k <= 1)
   {
     return items;
   }
+  std::cout << "Items" << " k: " << k << "\n";
   for (unsigned long i = 0; i <= items.size() - 1; i++)
   {
     std::cout << items[i] << "\n";
   }
+  std::cout << "\n";
   std::vector<int> permutation_vec;
   unsigned long index = 0;
   unsigned long pos = 0;
-  while (items.size() - 1 != 0)
+  while (items.size() != 0)
   {
     std::cout << items[index] << "\n";
-    if (index == items.size() - 1)
+    if (1 == items.size())
+    {
+      std::cout << "Size 1" << "\n";
+      // UndefinedBehaviorSanitizer:DEADLYSIGNAL with items[0];
+      for (unsigned long y = 0; y <= items.size() - 1; y++)
+      {
+        std::cout << items[y] << "\n";
+        //permutation_vec.push_back(items[y]);
+      }
+      break;
+    }
+    if (index == items.size())
     {
       index = 0;
     }
-    if (pos == k)
+    if (pos == k - 1)
     {
+      std::cout << "pos==k-1: " << items[index] << "\n";
       permutation_vec.push_back(items[index]);
       items.erase(items.begin() + index);
       pos = 0;
+      for (unsigned long z = 0; z <= items.size() - 1; z++)
+      {
+        std::cout << items[z];
+      }
+      std::cout << "\n";
     }
     else
     {
       pos++;
+      index++;
     }
-    index++;
+    std::cout << "\n";
   }
+  //permutation_vec.push_back(items[0]);
+  std::cout << "\n";
   std::cout << "Permutation_vec" << "\n";
-  for (int i = 0; i <= permutation_vec.size() - 1; i++)
+  for (unsigned long i = 0; i <= permutation_vec.size() - 1; i++)
   {
     std::cout << permutation_vec[i] << "\n";
   }
