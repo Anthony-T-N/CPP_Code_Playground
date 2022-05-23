@@ -1,4 +1,7 @@
-std::vector<int> josephus(std::vector<int> items, unsigned long k) 
+#include <iostream>
+#include <vector>
+
+std::vector<int> josephus(std::vector<int> items, unsigned long k)
 {
   if (k <= 1)
   {
@@ -13,23 +16,30 @@ std::vector<int> josephus(std::vector<int> items, unsigned long k)
   std::vector<int> permutation_vec;
   unsigned long index = 0;
   unsigned long pos = 0;
+  int temp = 0;
   while (items.size() != 0)
   {
+    if (index == items.size())
+    {
+      index = 0;
+    }
+    std::cout << "Index: " << index << "\n";
+    std::cout << "Pos: " << pos << "\n";
     std::cout << items[index] << "\n";
-    if (1 == items.size())
+    if (1 == items.size() && !items.empty())
     {
       std::cout << "Size 1" << "\n";
-      // UndefinedBehaviorSanitizer:DEADLYSIGNAL with items[0];
+      temp = items[0];
+      //permutation_vec.push_back(temp);
+      //Error UndefinedBehaviorSanitizer:DEADLYSIGNAL
+      std::cout << "Container check: " << "\n";
+      std::cout << "ITEM 0: " << temp << "\n";
       for (unsigned long y = 0; y <= items.size() - 1; y++)
       {
         std::cout << items[y] << "\n";
         //permutation_vec.push_back(items[y]);
       }
       break;
-    }
-    if (index == items.size())
-    {
-      index = 0;
     }
     if (pos == k - 1)
     {
@@ -51,6 +61,7 @@ std::vector<int> josephus(std::vector<int> items, unsigned long k)
     std::cout << "\n";
   }
   //permutation_vec.push_back(items[0]);
+  permutation_vec.push_back(temp);
   std::cout << "\n";
   std::cout << "Permutation_vec" << "\n";
   for (unsigned long i = 0; i <= permutation_vec.size() - 1; i++)
