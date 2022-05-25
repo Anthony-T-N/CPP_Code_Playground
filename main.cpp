@@ -1,3 +1,31 @@
+std::vector<int> sortArray(std::vector<int> array)
+{
+  std::vector<std::string> even_list;
+  std::vector<int> odd_list;
+  for (int i = 0; i <= array.size() - 1; i++)
+  {
+    if (array[i] % 2 == 0)
+    {
+      even_list.push_back(std::to_string(array[i]));
+    }
+    else
+    {
+      odd_list.push_back(array[i]);
+      even_list.push_back("_");
+    }
+  }
+  for (int i = 0; i <= even_list.size() - 1; i++)
+  {
+    std::cout << even_list[i];
+  }
+  std::cout << "\n";
+  for (int i = 0; i <= odd_list.size() - 1; i++)
+  {
+    std::cout << odd_list[i];
+  }
+  return array;
+}
+
 #include <iostream>
 #include <vector>
 
