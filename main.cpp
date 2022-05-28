@@ -2,10 +2,13 @@
 
 int sum(std::vector<int> nums) 
 {
+  if (nums.empty())
+  {
+    return 0;
+  }
   int sum = 0;
   for (unsigned long i = 0; i <= nums.size() - 1; i++)
   {
-    std::cout << nums[i] << "\n";
     sum += nums[i];
   }
   return sum;
