@@ -1,5 +1,23 @@
 #include <vector>
 
+std::vector<int> m_z(const std::vector<int>& input) 
+{
+  std::cout << "\n\n";
+  std::vector<int> test = input;
+  for (unsigned long i = 0; i <= test.size() - 1; i++)
+  {
+    std::cout << test[i] << " ";
+    if (test[i] == 0)
+    {
+      test.erase(test.begin() + i);
+      test.push_back(0);
+    }
+  }
+  return test;
+}
+
+#include <vector>
+
 int sum(std::vector<int> nums) 
 {
   if (nums.empty())
