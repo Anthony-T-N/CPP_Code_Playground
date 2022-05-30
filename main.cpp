@@ -3,17 +3,27 @@
 std::vector<int> m_z(const std::vector<int>& input) 
 {
   std::cout << "\n\n";
-  std::vector<int> test = input;
-  for (unsigned long i = 0; i <= test.size() - 1; i++)
+  std::cout << "Debug Test " << "\n";
+  std::vector<int> i_vector = input;
+  for (unsigned long i = 0; i <= i_vector.size() - 1; i++)
   {
-    std::cout << test[i] << " ";
-    if (test[i] == 0)
+    std::cout << i_vector[i] << " ";
+  }
+  std::cout << "\n\n";
+  std::cout << "New Test 2nd" << "\n";
+  for (unsigned long i = 0; i <= i_vector.size() - 1; i++)
+  {
+    std::cout << i_vector[i] << " ";
+    if (i_vector[i] == 0)
     {
-      test.erase(test.begin() + i);
-      test.push_back(0);
+      std::cout << "Detection: " << i_vector[i] << "\n";
+      std::cout << "[ " << i_vector[i-1] << " " << i_vector[i] << " " << i_vector[i+1] << " ]" << "\n";
+      i_vector.erase(i_vector.begin() + i);
+      i_vector.push_back(0);
+      std::cout << "[ " << i_vector[i-1] << " " << i_vector[i] << " " << i_vector[i+1] << " ]" << "\n";
     }
   }
-  return test;
+  return i_vector;
 }
 
 #include <vector>
