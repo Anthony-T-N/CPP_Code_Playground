@@ -1,4 +1,27 @@
 #include <vector>
+#include <string> 
+
+int missing(std::string s) 
+{
+  std::vector<int> vector_missing;
+  int a = 0;
+  int b = 1;
+  unsigned long i = 0;
+  while (i <= s.size())
+  {
+    vector_missing.push_back(std::stoi(s.substr(a,b)));
+    a++;
+    b++;
+    i++;
+  }
+  for (unsigned long i = 0; i <= vector_missing.size() - 1; i++)
+  {
+    std::cout << vector_missing[i] << "\n";
+  }
+  return 0;
+}
+
+#include <vector>
 
 std::vector<int> m_z(const std::vector<int>& input) 
 {
