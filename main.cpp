@@ -9,14 +9,22 @@ int missing(std::string s)
   unsigned long i = 0;
   while (i <= s.size())
   {
+    std::cout << " A: " << a << " B: " << b << " I: " << i << "\n";
+    std::cout << s.substr(a,b) << "\n";
     vector_missing.push_back(std::stoi(s.substr(a,b)));
     a++;
-    b++;
+    //b++;
     i++;
   }
+  int compare = vector_missing[0];
   for (unsigned long i = 0; i <= vector_missing.size() - 1; i++)
   {
+    if (compare != vector_missing[i])
+    {
+      std::cout << "No pattern" << "\n";
+    }
     std::cout << vector_missing[i] << "\n";
+    compare++;
   }
   return 0;
 }
