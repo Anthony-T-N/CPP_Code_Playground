@@ -3,19 +3,23 @@
 
 int missing(std::string s) 
 {
+  std::cout << "New Test" << "\n";
   std::vector<int> vector_missing;
   int a = 0;
   int b = 1;
   unsigned long i = 0;
-  while (i <= s.size())
+  int temp_test = std::stoi(s.substr(a,b));
+  std::cout << temp_test << "\n\n";
+  while (i <= s.size() - 1)
   {
     std::cout << " A: " << a << " B: " << b << " I: " << i << "\n";
     std::cout << s.substr(a,b) << "\n";
-    vector_missing.push_back(std::stoi(s.substr(a,b)));
+    vector_missing.push_back(std::stoi(std::string() + s.substr(a,b)));
     a++;
     //b++;
     i++;
   }
+  std::cout << "Pattern Check" << "\n";
   int compare = vector_missing[0];
   for (unsigned long i = 0; i <= vector_missing.size() - 1; i++)
   {
