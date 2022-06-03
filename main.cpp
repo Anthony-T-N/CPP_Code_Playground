@@ -20,12 +20,25 @@ int missing(std::string s)
     i++;
   }
   std::cout << "Pattern Check" << "\n";
+  int missing_number = 0;
   int compare = vector_missing[0];
   for (unsigned long i = 0; i <= vector_missing.size() - 1; i++)
   {
     if (compare != vector_missing[i])
     {
       std::cout << "No pattern" << "\n";
+      std::cout << compare << "\n";
+      missing_number = compare;
+      for (int j = 0; j <= 3; j++)
+      {
+        std::cout << j << "\n";
+        std::cout << "Missing # loop: " << vector_missing[i + j] << "\n";
+        if (vector_missing[i + j] == missing_number)
+        {
+          return missing_number;
+        }
+      }
+      break;
     }
     std::cout << vector_missing[i] << "\n";
     compare++;
