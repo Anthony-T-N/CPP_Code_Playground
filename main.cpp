@@ -37,13 +37,17 @@ int missing(std::string s)
           if (baseline_cout != missing_number)
           {
             // Broken pattern with current # of digits
+            std::cout << "Baseline: " << baseline_cout << " missing_number: " << missing_number << "\n";
+            std::cout << "pattern fail" << "\n";
             pattern_fail = true;
             break;
           }
         }
-        if (baseline_cout != vector_missing[i + j])
+        else if (baseline_cout != vector_missing[i + j])
         {
           // Broken pattern with current # of digits
+          std::cout << "Baseline: " << baseline_cout << " vector_missing: " << vector_missing[i + j] << "\n";
+          std::cout << "pattern fail" << "\n";
           pattern_fail = true;
           break;
         }
