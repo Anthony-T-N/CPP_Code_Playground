@@ -31,7 +31,8 @@ int missing(std::string s)
       missing_number = compare;
       for (int j = -1; j <= 1; j++)
       {
-        std::cout << "j: " << j << " Internal loop: " << vector_missing[i + j] << " Baseline: " << baseline_cout << "\n";
+        std::cout << "i: " << vector_missing[i] << "\n";
+        std::cout << "j: " << j << " Internal loop: " << vector_missing[i] + j << " Baseline: " << baseline_cout << "\n";
         if (j == 0)
         {
           if (baseline_cout != missing_number)
@@ -52,7 +53,7 @@ int missing(std::string s)
           break;
         }
         std::cout << j << "\n";
-        std::cout << "Missing # loop: " << vector_missing[i + j] << "\n";
+        std::cout << "Missing # loop: " << vector_missing[i] + j << "\n";
         baseline_cout++;
       }
       break;
