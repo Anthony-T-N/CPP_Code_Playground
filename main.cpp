@@ -25,41 +25,47 @@ int missing(std::string s)
   {
     if (compare != vector_missing[i])
     {
-      int baseline_cout = vector_missing[i-1];
+      int baseline_cout = vector_missing[i-2];
       std::cout << "Broken pattern" << "\n";
-      std::cout << compare << "\n\n";
+      std::cout << "Compare: " << compare << "\n\n";
       missing_number = compare;
-      for (int j = -1; j <= 1; j++)
+      for (int j = -2; j <= 2; j++)
       {
         std::cout << "i: " << vector_missing[i] << "\n";
-        std::cout << "j: " << j << " Internal loop: " << vector_missing[i] + j << " Baseline: " << baseline_cout << "\n";
+        std::cout << "j: " << j << " Internal loop: " << vector_missing[i+j] << " Baseline: " << baseline_cout << "\n";
         if (j == 0)
         {
           if (baseline_cout != missing_number)
           {
             // Broken pattern with current # of digits
-            std::cout << "Baseline: " << baseline_cout << " missing_number: " << missing_number << "\n";
+            std::cout << "0 Baseline: " << baseline_cout << " missing_number: " << missing_number << "\n";
             std::cout << "pattern fail" << "\n";
             pattern_fail = true;
             break;
           }
+          baseline_cout+=2;
+          continue; 
         }
-        else if (baseline_cout != vector_missing[i + j])
+        else if (baseline_cout != vector_missing[i+j])
         {
           // Broken pattern with current # of digits
-          std::cout << "Baseline: " << baseline_cout << " vector_missing: " << vector_missing[i + j] << "\n";
+          std::cout << "Baseline: " << baseline_cout << " vector_missing: " << vector_missing[i+j] << "\n";
           std::cout << "pattern fail" << "\n";
           pattern_fail = true;
           break;
         }
         std::cout << j << "\n";
-        std::cout << "Missing # loop: " << vector_missing[i] + j << "\n";
+        std::cout << "Missing # loop: " << vector_missing[i+j] << "\n\n";
         baseline_cout++;
       }
       break;
     }
     std::cout << vector_missing[i] << "\n";
     compare++;
+  }
+  if (pattern_fail == false)
+  {
+    return missing_number;
   }
   return 0;
 }
