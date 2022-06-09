@@ -67,9 +67,24 @@ int missing(std::string s)
   {
     return missing_number;
   }
-  //return 0;
-  // TEST TEST
-  vector_missing.empty();
+  else
+  {
+    // TEST TEST
+    vector_missing.empty();
+    a = 0;
+    b = 2;
+    i = 0;
+    while (i <= s.size() - 1)
+    {
+      //std::cout << s.substr(a,b) << "\n";
+      vector_missing.push_back(std::stoi(std::string() + s.substr(a,b)));
+      std::cout << " A: " << a << " B: " << b << " I: " << i << " " << s.substr(a,b) << "\n";
+      a+=2;
+      //b++;
+      i++;
+    }
+    return 0;
+  }
 }
 
 #include <vector>
