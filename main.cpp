@@ -3,88 +3,84 @@
 
 int missing(std::string s) 
 {
-  bool pattern_fail = false;
   std::cout << "New Test" << "\n";
   std::vector<int> vector_missing;
   int a = 0;
-  int b = 1;
+  int b = 0;
   unsigned long i = 0;
-  while (i <= s.size() - 1)
+  while (true)
   {
-    std::cout << " A: " << a << " B: " << b << " I: " << i << "\n";
-    //std::cout << s.substr(a,b) << "\n";
-    vector_missing.push_back(std::stoi(std::string() + s.substr(a,b)));
-    a++;
-    //b++;
-    i++;
-  }
-  std::cout << "Pattern Check" << "\n";
-  int missing_number = 0;
-  int compare = vector_missing[0];
-  for (unsigned long i = 0; i <= vector_missing.size() - 1; i++)
-  {
-    if (compare != vector_missing[i])
+    bool pattern_fail = false;
+    vector_missing.empty();
+    a = 0;
+    b+=1;
+    i = 0;
+    std::cout << "BBB" << b << "\n";
+    while (i <= s.size() - 1)
     {
-      int baseline_cout = vector_missing[i-2];
-      std::cout << "Broken pattern" << "\n";
-      std::cout << "Compare: " << compare << "\n\n";
-      missing_number = compare;
-      for (int j = -2; j <= 2; j++)
+      std::cout << " A: " << a << " B: " << b << " I: " << i << "\n";
+      std::cout << s.substr(a,b) << "\n";
+      vector_missing.push_back(std::stoi(std::string() + s.substr(a,b)));
+      a+=b;
+      //b++;
+      i++;
+    }
+    std::cout << "Pattern Check" << "\n";
+    int missing_number = 0;
+    int compare = vector_missing[0];
+    for (unsigned long i = 0; i <= vector_missing.size() - 1; i++)
+    {
+      if (compare != vector_missing[i])
       {
-        std::cout << "i: " << vector_missing[i] << "\n";
-        std::cout << "j: " << j << " Internal loop: " << vector_missing[i+j] << " Baseline: " << baseline_cout << "\n";
-        if (j == 0)
+        int baseline_cout = vector_missing[i-2];
+        std::cout << "Broken pattern" << "\n";
+        std::cout << "Compare: " << compare << "\n\n";
+        missing_number = compare;
+        for (int j = -2; j <= 2; j++)
         {
-          if (baseline_cout != missing_number)
+          std::cout << "i: " << vector_missing[i] << "\n";
+          std::cout << "j: " << j << " Internal loop: " << vector_missing[i+j] << " Baseline: " << baseline_cout << "\n";
+          if (j == 0)
+          {
+            if (baseline_cout != missing_number)
+            {
+              // Broken pattern with current # of digits
+              std::cout << "0 Baseline: " << baseline_cout << " missing_number: " << missing_number << "\n";
+              std::cout << "pattern fail" << "\n";
+              pattern_fail = true;
+              break;
+            }
+            baseline_cout+=2;
+            continue; 
+          }
+          else if (baseline_cout != vector_missing[i+j])
           {
             // Broken pattern with current # of digits
-            std::cout << "0 Baseline: " << baseline_cout << " missing_number: " << missing_number << "\n";
+            std::cout << "Baseline: " << baseline_cout << " vector_missing: " << vector_missing[i+j] << "\n";
             std::cout << "pattern fail" << "\n";
             pattern_fail = true;
             break;
           }
-          baseline_cout+=2;
-          continue; 
+          std::cout << j << "\n";
+          std::cout << "Missing # loop: " << vector_missing[i+j] << "\n\n";
+          baseline_cout++;
         }
-        else if (baseline_cout != vector_missing[i+j])
-        {
-          // Broken pattern with current # of digits
-          std::cout << "Baseline: " << baseline_cout << " vector_missing: " << vector_missing[i+j] << "\n";
-          std::cout << "pattern fail" << "\n";
-          pattern_fail = true;
-          break;
-        }
-        std::cout << j << "\n";
-        std::cout << "Missing # loop: " << vector_missing[i+j] << "\n\n";
-        baseline_cout++;
+        break;
       }
-      break;
+      std::cout << vector_missing[i] << "\n";
+      compare++;
     }
-    std::cout << vector_missing[i] << "\n";
-    compare++;
-  }
-  if (pattern_fail == false)
-  {
-    return missing_number;
-  }
-  else
-  {
-    // TEST TEST
-    vector_missing.empty();
-    a = 0;
-    b = 2;
-    i = 0;
-    while (i <= s.size() - 1)
+    if (pattern_fail == false)
     {
-      //std::cout << s.substr(a,b) << "\n";
-      vector_missing.push_back(std::stoi(std::string() + s.substr(a,b)));
-      std::cout << " A: " << a << " B: " << b << " I: " << i << " " << s.substr(a,b) << "\n";
-      a+=2;
-      //b++;
-      i++;
+      std::cout << "Missing # result: " << missing_number << "\n\n";
+      return missing_number;
     }
-    return 0;
+    else
+    {
+      std::cout << "BREAK BREAK BREAK" << "\n";
+    }
   }
+  return -1;
 }
 
 #include <vector>
