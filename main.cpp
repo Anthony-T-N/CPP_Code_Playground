@@ -3,7 +3,7 @@
 
 int missing(std::string s) 
 {
-  std::cout << "New Test" << "\n";
+  std::cout << "Testing..." << "\n";
   std::vector<int> vector_missing;
   int a = 0;
   int b = 0;
@@ -15,10 +15,10 @@ int missing(std::string s)
     a = 0;
     b+=1;
     i = 0;
-    std::cout << "BBB" << b << "\n";
+    std::cout << "Substring += vector loop" << b << "\n";
     while (i <= s.size() - 1)
     {
-      std::cout << " A: " << a << " B: " << b << " I: " << i << "\n";
+      std::cout << " a: " << a << " b: " << b << " i: " << i << "\n";
       std::cout << s.substr(a,b) << "\n";
       vector_missing.push_back(std::stoi(std::string() + s.substr(a,b)));
       a+=b;
