@@ -15,15 +15,17 @@ int missing(std::string s)
     a = 0;
     b+=1;
     i = 0;
-    std::cout << "Substring += vector loop" << b << "\n";
+    std::cout << "Substring += vector loop: " << b << "\n";
     while (i <= s.size() - 1)
     {
+      // Debug here: substr empty number.
+      std::cout << "i: " << i << " " << s.substr(a,b) << "\n";
       std::cout << " a: " << a << " b: " << b << " i: " << i << "\n";
-      std::cout << s.substr(a,b) << "\n";
       vector_missing.push_back(std::stoi(std::string() + s.substr(a,b)));
       a+=b;
       //b++;
       i++;
+      std::cout << "TICK" << "\n";
     }
     std::cout << "Pattern Check" << "\n";
     int missing_number = 0;
@@ -44,7 +46,7 @@ int missing(std::string s)
           {
             if (baseline_cout != missing_number)
             {
-              // Broken pattern with current # of digits
+              // Expected current number does not equal expected missing number thus fail
               std::cout << "0 Baseline: " << baseline_cout << " missing_number: " << missing_number << "\n";
               std::cout << "pattern fail" << "\n";
               pattern_fail = true;
@@ -78,6 +80,7 @@ int missing(std::string s)
     else
     {
       std::cout << "BREAK BREAK BREAK" << "\n";
+      // BREAK -> Begin loop again with increase to next set of digitals.
     }
   }
   return -1;
