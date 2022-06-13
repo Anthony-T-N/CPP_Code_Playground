@@ -11,21 +11,29 @@ int missing(std::string s)
   while (true)
   {
     bool pattern_fail = false;
-    vector_missing.empty();
+    vector_missing.clear();
     a = 0;
     b+=1;
     i = 0;
     std::cout << "Substring += vector loop: " << b << "\n";
+    std::cout << "Size: " << s.size() -1 << "\n";
     while (i <= s.size() - 1)
     {
-      // Debug here: substr empty number.
+      if (a > s.size() - 1)
+      {
+        break;
+      }
       std::cout << "i: " << i << " " << s.substr(a,b) << "\n";
       std::cout << " a: " << a << " b: " << b << " i: " << i << "\n";
       vector_missing.push_back(std::stoi(std::string() + s.substr(a,b)));
       a+=b;
       //b++;
       i++;
-      std::cout << "TICK" << "\n";
+    }
+    std::cout << "Vector missing check: " << "\n";
+    for (unsigned long i = 0; i <= vector_missing.size() - 1; i++)
+    {
+       std::cout << vector_missing[i] << "\n";
     }
     std::cout << "Pattern Check" << "\n";
     int missing_number = 0;
