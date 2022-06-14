@@ -1,3 +1,25 @@
+std::string reverse_letter(const std::string &str)
+{
+  // Alphabet vector here:
+  std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
+  std::string reverse_string = "";
+  int increment = -1;
+  for (int j = 0; j <= str.size() - 1; j++)
+  {
+    for (int i = 0; i <= alphabet.size() - 1; i++)
+    {
+      std::cout << "increment: " << str[increment] << " A: " << alphabet[i] << "\n";
+      if (str[str.length() + increment] == alphabet[i])
+      {
+        reverse_string += str[str.length() + increment];
+      }
+    }
+    increment -= 1;
+    std::cout << reverse_string << "\n";
+  }
+  return reverse_string;
+}
+
 #include <vector>
 #include <string> 
 
