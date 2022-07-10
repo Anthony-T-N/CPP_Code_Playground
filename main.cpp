@@ -1,3 +1,20 @@
+bool c_c(std::vector<std::string> vec_string)
+{
+	int true_sum = 0;
+	for (int i = 0; i <= vec_string.size() - 1; i++)
+	{
+		std::cout << vec_string[i] << "\n";
+		if (vec_string == "false")
+		{
+			return true;
+		}
+		else if (vec_string == "true")
+		{
+			true_sum++;
+		}
+	}
+}	
+
 std::string reverse_letter(const std::string &str)
 {
   std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
