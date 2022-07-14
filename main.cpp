@@ -13,6 +13,14 @@ bool c_c(std::vector<std::string> vec_string)
 			true_sum++;
 		}
 	}
+	if (true_sum / 2 == vector[true_sum]
+	{
+		return true;    
+	}
+	else
+	{
+		return false;
+	}
 }	
 
 std::string reverse_letter(const std::string &str)
