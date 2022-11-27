@@ -13,8 +13,9 @@ bool c_c(std::vector<std::string> vec_string)
 			true_sum++;
 		}
 	}
-	if (true_sum / 2 == vector[true_sum]
+	if (true_sum / 2 == vector[true_sum])
 	{
+		std::cout << (true_sum / 2) << vector[true_sum] << "\n";
 		return true;    
 	}
 	else
