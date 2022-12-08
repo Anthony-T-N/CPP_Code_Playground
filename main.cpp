@@ -1,3 +1,15 @@
+std::string b_b(std::string zxc)
+{
+	std::vector<std::string> sample;
+	for (int i = 0; i <= zxc.size() - 1; i++)
+	{
+		if (zxc[i] % 2 == 0)
+		{
+			sample.push_back(zxc[i]);
+		}
+	}
+}
+
 bool c_c(std::vector<std::string> vec_string)
 {
 	int true_sum = 0;
