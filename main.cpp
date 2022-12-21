@@ -1,3 +1,16 @@
+#include <string>
+std::string g(const std::string& name, const std::string& owner) 
+{
+  if (name == owner)
+  {
+    return "Hello boss";
+  }
+  else
+  {
+    return "Hello guest";
+  }
+}
+
 std::string b_b(std::string zxc)
 {
 	std::vector<std::string> sample;
