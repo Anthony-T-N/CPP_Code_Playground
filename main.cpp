@@ -1,6 +1,16 @@
+#include <vector>
+int g(std::vector<int> nums) 
+{
+  int total = 1;
+  for (int i = 0; i <= nums.size() - 1; i++)
+  {
+    total = total * nums[i];
+  }
+  return total;
+}
+
 std::string g(const std::string& name, const std::string& owner) 
 {
-	
   if (name == owner)
   {
     return "Hello boss";
