@@ -1,5 +1,6 @@
 std::string g(const std::string& name, const std::string& owner) 
 {
+	
   if (name == owner)
   {
     return "Hello boss";
