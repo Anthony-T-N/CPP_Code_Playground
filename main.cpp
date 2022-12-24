@@ -1,4 +1,14 @@
 #include <vector>
+unsigned long long mV(std::vector <int> values)
+{
+  for (int i = 0; i <= values.size() - 1; i++)
+  {
+    values+=values;
+  }
+  return 1 ; 
+}
+
+#include <vector>
 int g(std::vector<int> nums) 
 {
   int total = 1;
