@@ -1,3 +1,8 @@
+int cM(std::string friend)
+{
+  std::cout << "Merry" << friend << "/m";
+}
+
 #include <vector>
 unsigned long long mV(std::vector <int> values)
 {
@@ -5,7 +10,7 @@ unsigned long long mV(std::vector <int> values)
   {
     values+=values;
   }
-  return 1 ; 
+  return 1; 
 }
 
 #include <vector>
