@@ -6,8 +6,13 @@ int cM(std::string friend)
 #include <vector>
 unsigned long long mV(std::vector <int> values)
 {
+  int min_value = 0;
   for (int i = 0; i <= values.size() - 1; i++)
   {
+    if (values[i] > values[i + 1])
+    {
+	min_value = values[i + 1];    
+    }
     values+=values;
   }
   return 1; 
