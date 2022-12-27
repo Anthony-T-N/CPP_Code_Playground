@@ -7,6 +7,8 @@ int cM(std::string friend)
 unsigned long long mV(std::vector <int> values)
 {
   int min_value = 0;
+  sort(values.begin(), values.end());
+  values.erase(unique(values.begin(), values.end()), values.end());
   for (int i = 0; i <= values.size() - 1; i++)
   {
     if (values[i] > values[i + 1])
