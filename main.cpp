@@ -9,15 +9,27 @@ unsigned long long mV(std::vector <int> values)
   int min_value = 0;
   sort(values.begin(), values.end());
   values.erase(unique(values.begin(), values.end()), values.end());
+  
   for (int i = 0; i <= values.size() - 1; i++)
   {
+    std::cout << values[i] << "\n";
+  }
+  std::cout << "\n\n";
+  std::string str = "";
+  for (int i = 0; i <= values.size() - 1; i++)
+  {
+    std::cout << values[i] << "\n";
+    /*
     if (values[i] > values[i + 1])
     {
-	min_value = values[i + 1];    
+	    min_value = values[i + 1];    
     }
-    values+=values;
+    */
+    char c = i;
+    str += c;
   }
-  return 1; 
+  std::cout << "\n" << "REAL: " << str << "\n";
+  return std::stoi(str);
 }
 
 #include <vector>
