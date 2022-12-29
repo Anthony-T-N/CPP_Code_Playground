@@ -23,6 +23,7 @@ unsigned long long mV(std::vector <int> values)
     str += c;
   }
   std::cout << "\n" << "REAL: " << str << "\n";
+  # Need to return as long.
   return std::stoi(str);
 }
 
