@@ -19,12 +19,6 @@ unsigned long long mV(std::vector <int> values)
   for (int i = 0; i <= values.size() - 1; i++)
   {
     std::cout << values[i] << "\n";
-    /*
-    if (values[i] > values[i + 1])
-    {
-	    min_value = values[i + 1];    
-    }
-    */
     char c = i;
     str += c;
   }
