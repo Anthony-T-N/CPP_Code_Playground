@@ -6,25 +6,23 @@ int cM(std::string friend)
 #include <vector>
 unsigned long long mV(std::vector <int> values)
 {
-  int min_value = 0;
   sort(values.begin(), values.end());
   values.erase(unique(values.begin(), values.end()), values.end());
   
-  for (int i = 0; i <= values.size() - 1; i++)
+  for (unsigned long i = 0; i <= values.size() - 1; i++)
   {
     std::cout << values[i] << "\n";
   }
-  std::cout << "\n\n";
+  std::cout << "\n";
   std::string str = "";
-  for (int i = 0; i <= values.size() - 1; i++)
+  for (unsigned long i = 0; i <= values.size() - 1; i++)
   {
-    std::cout << values[i] << "\n";
-    char c = i;
+    std::cout << values[i];
+    char c = values[i];
     str += c;
   }
-  std::cout << "\n" << "REAL: " << str << "\n";
-  # Need to return as long.
-  return std::stoi(str);
+  std::cout << "\n\n" << "REAL: " << std::stol(str) << "!" << "\n";
+  return std::stol(str);
 }
 
 #include <vector>
