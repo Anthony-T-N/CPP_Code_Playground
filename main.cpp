@@ -17,10 +17,11 @@ unsigned long long mV(std::vector <int> values)
   std::string str = "";
   for (unsigned long i = 0; i <= values.size() - 1; i++)
   {
-    std::cout << values[i];
-    char c = values[i];
+    std::string c = std::to_string(values[i]);
+    std::cout << c << "\n";
     str += c;
   }
+  std::cout << "\n\n" << str << "\n";
   std::cout << "\n\n" << "REAL: " << std::stol(str) << "!" << "\n";
   return std::stol(str);
 }
