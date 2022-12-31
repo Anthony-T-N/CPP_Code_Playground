@@ -8,21 +8,11 @@ unsigned long long mV(std::vector <int> values)
 {
   sort(values.begin(), values.end());
   values.erase(unique(values.begin(), values.end()), values.end());
-  
-  for (unsigned long i = 0; i <= values.size() - 1; i++)
-  {
-    std::cout << values[i] << "\n";
-  }
-  std::cout << "\n";
   std::string str = "";
   for (unsigned long i = 0; i <= values.size() - 1; i++)
   {
-    std::string c = std::to_string(values[i]);
-    std::cout << c << "\n";
-    str += c;
+    str += std::to_string(values[i]);
   }
-  std::cout << "\n\n" << str << "\n";
-  std::cout << "\n\n" << "REAL: " << std::stol(str) << "!" << "\n";
   return std::stol(str);
 }
 
