@@ -8,12 +8,12 @@ unsigned long long mV(std::vector <int> values)
 {
   sort(values.begin(), values.end());
   values.erase(unique(values.begin(), values.end()), values.end());
-  std::string str = "";
+  std::string values_string = "";
   for (unsigned long i = 0; i <= values.size() - 1; i++)
   {
-    str += std::to_string(values[i]);
+    values_string += std::to_string(values[i]);
   }
-  return std::stol(str);
+  return std::stol(values_string);
 }
 
 #include <vector>
