@@ -1,3 +1,20 @@
+int tRF(int f) 
+{
+  std::cout << "F: " << f << "\n";
+  if (f > 13)
+  {
+    return f-2;
+  }
+  else if (f >= 1)
+  {
+    return f-1; 
+  }
+  else
+  {
+    return f;
+  }
+}
+
 int cM(std::string friend)
 {
   std::cout << "Merry" << friend << "/m";
