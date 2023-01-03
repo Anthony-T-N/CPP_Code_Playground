@@ -1,3 +1,13 @@
+std::vector<int> m(const std::vector<int> & values) 
+{
+  std::vector<int> vector_double;
+  for (int i = 0; i <= values.size() - 1; i++)
+  {
+    vector_double.push_back(values[i]*2);
+  }
+  return vector_double;
+}
+
 int tRF(int f) 
 {
   std::cout << "F: " << f << "\n";
