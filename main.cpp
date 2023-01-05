@@ -1,9 +1,13 @@
 std::vector<int> m(const std::vector<int> & values) 
 {
   std::vector<int> vector_double;
-  for (int i = 0; i <= values.size() - 1; i++)
+  if (values.empty() == true)
   {
-    std::cout << (values[i]*2) << "\n";
+    return vector_double;
+  }
+  for (unsigned long i = 0; i <= values.size() - 1; i++)
+  {
+    std::cout << values[i] << "\n";
     vector_double.push_back(values[i]*2);
   }
   return vector_double;
