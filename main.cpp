@@ -1,3 +1,15 @@
+int s_of_m(const std::vector<std::vector<int>> &numbers)
+{
+  for (int i = 0; i <= numbers.size(); i++)
+  {
+    for (int j = 0; j <= numbers[i].size(); j++)
+    {
+      std::cout << number[i][j] << "\n";
+    }
+  }
+  return 0;
+}
+
 std::vector<int> m(const std::vector<int> & values) 
 {
   std::vector<int> vector_double;
