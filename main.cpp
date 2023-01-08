@@ -1,15 +1,15 @@
 int s_of_m(const std::vector<std::vector<int>> &numbers)
 {
   int low = 0;
-  for (int i = 0; i <= numbers.size(); i++)
+  for (unsigned long int i = 0; i <= numbers.size(); i++)
   {
-    int low = numbers[i][0];
-    for (int j = 0; j <= numbers[i].size(); j++)
+    low = numbers[i][0];
+    for (unsigned long int j = 0; j <= numbers[i].size(); j++)
     {
       std::cout << numbers[i][j] << "\n";
       if (low > numbers[i][j])
       {
-	low = numbers[i][j];
+      	low = numbers[i][j];
       }
     }
   }
