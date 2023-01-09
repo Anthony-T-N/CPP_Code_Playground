@@ -1,19 +1,22 @@
 int s_of_m(const std::vector<std::vector<int>> &numbers)
 {
-  int low = 0;
-  for (unsigned long int i = 0; i <= numbers.size(); i++)
+  int mini_sum = 0;
+  int lowest_value = 0;
+  for (unsigned long int i = 0; i <= numbers.size() - 1; i++)
   {
-    low = numbers[i][0];
-    for (unsigned long int j = 0; j <= numbers[i].size(); j++)
+    lowest_value = numbers[i][0];
+    std::cout << numbers[i][0] << "\n";
+    for (unsigned long int j = 0; j <= numbers[i].size() - 1; j++)
     {
-      std::cout << numbers[i][j] << "\n";
-      if (low > numbers[i][j])
+      if (lowest_value > numbers[i][j])
       {
-      	low = numbers[i][j];
+        std::cout << "lowest_value: " << numbers[i][j] << "\n";
+        lowest_value = numbers[i][j];
       }
     }
+    mini_sum += lowest_value;
   }
-  return 0;
+  return mini_sum;
 }
 
 std::vector<int> m(const std::vector<int> & values) 
