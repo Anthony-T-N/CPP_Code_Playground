@@ -1,3 +1,10 @@
+std::string s_s(const std::string& a, const std::string& b) 
+{
+  int aa = std::stoi(a);
+  int bb = std::stoi(b);
+  return a + b;
+}
+
 int s_of_m(const std::vector<std::vector<int>> &numbers)
 {
   int mini_sum = 0;
