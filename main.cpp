@@ -1,8 +1,15 @@
 std::string s_s(const std::string& a, const std::string& b) 
 {
-  int aa = std::stoi(a);
-  int bb = std::stoi(b);
-  return a + b;
+  if (!(std::isdigit(a)) && !(std::isdigit(b))
+  {
+    return 0;
+  }
+  int total = 0;
+  total += std::stoi(a);
+  total += std::stoi(b);
+  std::cout << total << "\n";
+  std::string s = std::to_string(total);
+  return s;
 }
 
 int s_of_m(const std::vector<std::vector<int>> &numbers)
