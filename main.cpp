@@ -1,15 +1,40 @@
 std::string s_s(const std::string& a, const std::string& b) 
 {
-  if (!(std::isdigit(a)) && !(std::isdigit(b))
+  std::cout << "A: " << a << "\n";
+  std::cout << "B: " << b << "\n";
+  if (a.empty())
   {
-    return 0;
+    std::cout << "EMPTY" << "\n";
+    a = "0";
+  }
+  else if (b.empty())
+  {
+    std::cout << "EMPTY" << "\n";
+    b = "0";
+  }
+  
+  for (unsigned long int i = 0; i <= a.length() - 1; i++)
+  {
+    if (!std::isdigit(a[i]))
+    {
+      std::cout << "Yes" << "\n";
+      return "0";
+    }
+  }
+  for (unsigned long int i = 0; i <= b.length() - 1; i++)
+  {
+    if (!std::isdigit(b[i]))
+    {
+      std::cout << "Yes" << "\n";
+      return "0";
+    }
   }
   int total = 0;
   total += std::stoi(a);
   total += std::stoi(b);
   std::cout << total << "\n";
-  std::string s = std::to_string(total);
-  return s;
+  std::string s = "0";
+  return std::to_string(total);
 }
 
 int s_of_m(const std::vector<std::vector<int>> &numbers)
