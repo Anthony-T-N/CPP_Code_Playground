@@ -1,37 +1,42 @@
-std::string s_s(const std::string& a, const std::string& b) 
+#include <string>
+std::string s_s(const std::string& a, const std::string& b)
 {
   std::cout << "A: " << a << "\n";
   std::cout << "B: " << b << "\n";
-  if (a.empty())
+  
+  std::string aa = a;
+  std::string bb = b;
+
+  if (aa.empty())
   {
     std::cout << "EMPTY" << "\n";
-    a = "0";
+    aa = "0";
   }
-  else if (b.empty())
+  else if (bb.empty())
   {
     std::cout << "EMPTY" << "\n";
-    b = "0";
+    bb = "0";
   }
   
-  for (unsigned long int i = 0; i <= a.length() - 1; i++)
+  for (unsigned long int i = 0; i <= aa.length() - 1; i++)
   {
-    if (!std::isdigit(a[i]))
+    if (!std::isdigit(aa[i]))
     {
       std::cout << "Yes" << "\n";
       return "0";
     }
   }
-  for (unsigned long int i = 0; i <= b.length() - 1; i++)
+  for (unsigned long int i = 0; i <= bb.length() - 1; i++)
   {
-    if (!std::isdigit(b[i]))
+    if (!std::isdigit(bb[i]))
     {
       std::cout << "Yes" << "\n";
       return "0";
     }
   }
   int total = 0;
-  total += std::stoi(a);
-  total += std::stoi(b);
+  total += std::stoi(aa);
+  total += std::stoi(bb);
   std::cout << total << "\n";
   std::string s = "0";
   return std::to_string(total);
