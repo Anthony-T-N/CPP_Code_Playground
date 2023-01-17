@@ -1,20 +1,15 @@
 #include <string>
 std::string s_s(const std::string& a, const std::string& b)
 {
-  std::cout << "A: " << a << "\n";
-  std::cout << "B: " << b << "\n";
-  
   std::string aa = a;
   std::string bb = b;
 
   if (aa.empty())
   {
-    std::cout << "EMPTY" << "\n";
     aa = "0";
   }
   else if (bb.empty())
   {
-    std::cout << "EMPTY" << "\n";
     bb = "0";
   }
   
@@ -22,7 +17,6 @@ std::string s_s(const std::string& a, const std::string& b)
   {
     if (!std::isdigit(aa[i]))
     {
-      std::cout << "Yes" << "\n";
       return "0";
     }
   }
@@ -30,16 +24,10 @@ std::string s_s(const std::string& a, const std::string& b)
   {
     if (!std::isdigit(bb[i]))
     {
-      std::cout << "Yes" << "\n";
       return "0";
     }
   }
-  int total = 0;
-  total += std::stoi(aa);
-  total += std::stoi(bb);
-  std::cout << total << "\n";
-  std::string s = "0";
-  return std::to_string(total);
+  return std::to_string(std::stoi(aa) + std::stoi(bb));
 }
 
 int s_of_m(const std::vector<std::vector<int>> &numbers)
