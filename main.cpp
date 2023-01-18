@@ -1,3 +1,23 @@
+#include <map>
+bool i_i(std::string str) 
+{
+  std::map<char, int> str_map;
+  for (int i = 0; i <= str.size() - 1; i++)
+  {
+    std::cout << str[i] << " ";
+    str_map[str[i]]++;
+  }
+  std::cout << "\n";
+  for (auto const& [key, val] : str_map)
+  {
+      std::cout << key
+                << ':'  
+                << val
+                << std::endl;
+  }
+  return true;
+}
+
 #include <string>
 std::string s_s(const std::string& a, const std::string& b)
 {
