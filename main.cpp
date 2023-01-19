@@ -1,19 +1,29 @@
 #include <map>
 bool i_i(std::string str) 
 {
-  std::map<char, int> str_map;
-  for (int i = 0; i <= str.size() - 1; i++)
+  if (str.empty() == true)
   {
-    std::cout << str[i] << " ";
-    str_map[str[i]]++;
+    return true;
+  }
+  std::cout << str << "\n";
+  std::cout << "START" << "\n";
+  std::map<char, int> str_map;
+  for (unsigned long i = 0; i <= str.size() - 1; i++)
+  {
+    std::cout << char(std::tolower(str[i])) << " ";
+    str_map[char(std::tolower(str[i]))]++;
   }
   std::cout << "\n";
   for (auto const& [key, val] : str_map)
   {
-      std::cout << key
-                << ':'  
-                << val
-                << std::endl;
+    std::cout << key
+              << ':'  
+              << val
+              << "\n";
+    if (val > 1)
+    {
+      return false;
+    }
   }
   return true;
 }
