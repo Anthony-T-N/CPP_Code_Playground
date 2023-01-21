@@ -1,3 +1,24 @@
+#include <string>
+#include <unordered_map>
+
+static int& gR(std::unordered_map<std::string, int>& regs, std::string name)
+{
+
+}
+
+std::unordered_map<std::string, int> assembler(const std::vector<std::string>& program)
+{
+  std::unordered_map<std::string, int> test_map;
+  test_map["123"] = 1;
+  //getReg(test, "TEST");
+    
+  for (unsigned long i = 0; i <= program.size() - 1; i++)
+  {
+    std::cout << program[i] << "\n";
+  }
+  return (test_map);
+}
+
 #include <map>
 bool i_i(std::string str) 
 {
