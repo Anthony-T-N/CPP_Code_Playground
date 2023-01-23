@@ -11,30 +11,28 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
   std::unordered_map<std::string, int> test_map;
   test_map["123"] = 1;
   //getReg(test, "TEST");
-  std::string sample_text = "";
+  std::string current_var = "";
   
   for (unsigned long i = 0; i <= program.size() - 1; i++)
   {
-    std::cout << program[i] << "\n";
-    sample_text = program[i].substr(program[i].find(" ") + 1, program[i].find(" ") - 1);
-    std::cout << sample_text << "\n";
-    
+    current_var = program[i].substr(program[i].find(" ") + 1, program[i].find(" "));
+    std::cout << "current_var: " << current_var << "!" << "\n";
     if (program[i].find("mov") != std::string::npos)
     {
-      std::cout << "MOV: " <<  program[i].substr(program[i].find(" ") + 1, program[i].size() - 1) << "\n";
-      test_map[sample_text] = int(program[i].back());
+      std::cout << "BACK: " << int(program[i].back()) << "\n";
+      test_map[current_var] = int(program[i].back());
     }
     else if (program[i].find("inc") != std::string::npos)
     {
-      
+      std::cout << "inc: " << test_map[current_var] << "\n";
     }
     else if (program[i].find("dec") != std::string::npos)
     {
-      
+      std::cout << "dec: " << test_map[current_var] << "\n";
     }
     else if (program[i].find("jnz") != std::string::npos)
     {
-      
+      std::cout << "jnz: " << test_map[current_var] << "\n";
     }
   }
   return (test_map);
