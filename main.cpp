@@ -9,15 +9,16 @@ static int& gR(std::unordered_map<std::string, int>& regs, std::string name)
 std::unordered_map<std::string, int> assembler(const std::vector<std::string>& program)
 {
   std::unordered_map<std::string, int> test_map;
-  test_map["123"] = 1;
   //getReg(test, "TEST");
   std::string current_var = "";
   
   for (unsigned long i = 0; i <= program.size() - 1; i++)
   {
+    std::cout << "CONTEXT: " << program[i] << "\n";
     current_var = program[i].substr(program[i].find(" ") + 1, program[i].length() - program[i].find(" ")); //FIX
+    current_var = current_var.substr(0, current_var.find(" "));
     std::cout << "current_var: !" << current_var << "!" << "\n";
-    if (program[i].find("mov") != std::string::npos)
+    if (program[i].find("mov") != std::string::npos) // Need to handle two digits and negative numbers.
     {
       std::cout << "mov: " << test_map[current_var] << "\n";
       std::cout << "BACK: " << program[i].back() - '0' << "\n";
@@ -40,6 +41,7 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
     {
       std::cout << "jnz: " << test_map[current_var] << "\n";
       std::cout << "Current Count: " << test_map[current_var] << "\n";
+      test_map[current_var] = 0;
     }
     std::cout << "\n";
     for (auto const &pair: test_map) 
