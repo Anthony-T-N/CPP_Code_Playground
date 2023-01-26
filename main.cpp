@@ -15,13 +15,16 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
   for (unsigned long i = 0; i <= program.size() - 1; i++)
   {
     std::cout << "CONTEXT: " << program[i] << "\n";
-    current_var = program[i].substr(program[i].find(" ") + 1, program[i].length() - program[i].find(" ")); //FIX
+    current_var = program[i].substr(program[i].find(" ") + 1, program[i].length() - program[i].find(" "));
     current_var = current_var.substr(0, current_var.find(" "));
     std::cout << "current_var: !" << current_var << "!" << "\n";
     if (program[i].find("mov") != std::string::npos) // Need to handle two digits and negative numbers.
     {
+      std::string mov = "";
+      mov = program[i].substr(program[i].find(" ") + 1);
+      mov = mov.substr(current_var.find(" ") + 1);
       std::cout << "mov: " << test_map[current_var] << "\n";
-      std::cout << "BACK: " << program[i].back() - '0' << "\n";
+      std::cout << "BACK: !" << mov << "!" "\n";
       test_map[current_var] = program[i].back() - '0';
       std::cout << "Current Count: " << test_map[current_var] << "\n";
     }
