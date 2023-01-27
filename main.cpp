@@ -18,15 +18,22 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
     current_var = program[i].substr(program[i].find(" ") + 1, program[i].length() - program[i].find(" "));
     current_var = current_var.substr(0, current_var.find(" "));
     std::cout << "current_var: !" << current_var << "!" << "\n";
-    if (program[i].find("mov") != std::string::npos) // Need to handle two digits and negative numbers.
+    if (program[i].find("mov") != std::string::npos)
     {
       std::string mov = "";
       mov = program[i].substr(program[i].find(" ") + 1);
-      mov = mov.substr(current_var.find(" ") + 1);
-      std::cout << "mov: " << test_map[current_var] << "\n";
-      std::cout << "BACK: !" << mov << "!" "\n";
-      test_map[current_var] = program[i].back() - '0';
-      std::cout << "Current Count: " << test_map[current_var] << "\n";
+      mov = mov.substr(mov.find(" ") + 1);
+      
+      if (mov.find_first_of("0123456789") == std::string::npos)
+      {
+        std::cout << test_map[current_var] << " = " << test_map[mov] << "\n";
+        test_map[current_var] = test_map[mov];
+      }
+      else
+      {
+        test_map[current_var] = std::stoi(mov);
+        std::cout << "Current Count: " << test_map[current_var] << "\n";
+      }
     }
     else if (program[i].find("inc") != std::string::npos)
     {
