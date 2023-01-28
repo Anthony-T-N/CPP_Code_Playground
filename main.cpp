@@ -14,7 +14,7 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
   
   for (unsigned long i = 0; i <= program.size() - 1; i++)
   {
-    std::cout << "CONTEXT: " << program[i] << "\n";
+    std::cout << i << ") CONTEXT: " << program[i] << "\n";
     current_var = program[i].substr(program[i].find(" ") + 1, program[i].length() - program[i].find(" "));
     current_var = current_var.substr(0, current_var.find(" "));
     std::cout << "current_var: !" << current_var << "!" << "\n";
@@ -32,26 +32,35 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
       else
       {
         test_map[current_var] = std::stoi(mov);
-        std::cout << "Current Count: " << test_map[current_var] << "\n";
       }
     }
     else if (program[i].find("inc") != std::string::npos)
     {
       std::cout << "inc: " << test_map[current_var] << "\n";
       test_map[current_var]++;
-      std::cout << "Current Count: " << test_map[current_var] << "\n";
     }
     else if (program[i].find("dec") != std::string::npos)
     {
       std::cout << "dec: " << test_map[current_var] << "\n";
       test_map[current_var]--;
-      std::cout << "Current Count: " << test_map[current_var] << "\n";
     }
     else if (program[i].find("jnz") != std::string::npos)
     {
       std::cout << "jnz: " << test_map[current_var] << "\n";
       std::cout << "Current Count: " << test_map[current_var] << "\n";
-      test_map[current_var] = 0;
+      
+      if (test_map[current_var] = 0)
+      {
+        
+      }
+      else 
+      {
+        std::string jumps = "";
+        jumps = program[i].substr(program[i].find(" ") + 1);
+        jumps = jumps.substr(jumps.find(" ") + 1);
+        std::cout << jumps << "\n";
+        test_map[current_var] = 0;
+      }
     }
     std::cout << "\n";
     for (auto const &pair: test_map) 
