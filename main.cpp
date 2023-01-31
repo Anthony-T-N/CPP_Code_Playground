@@ -12,15 +12,14 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
   //getReg(test, "TEST");
   std::string current_var = "";
   
-  /*
+  
   std::cout << "Full list of instructions:" << "\n";
   for (unsigned long i = 0; i <= program.size() - 1; i++)
   {
     std::cout << program[i] << "\n";
   }
   std::cout << "\n";
-  */
-  
+ 
   for (unsigned long i = 0; i <= program.size() - 1; i++)
   {
     //std::cout << i << ") Instruction: " << program[i] << "\n";
@@ -55,18 +54,29 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
     }
     else if (program[i].find("jnz") != std::string::npos)
     {
-      //std::cout << "Jump: " << test_map[current_var] << "\n";
-      if (test_map[current_var] != 0)
+      if (current_var.find_first_of("0123456789") == std::string::npos)
       {
-        std::string jumps = "";
-        jumps = program[i].substr(program[i].find(" ") + 1);
-        jumps = jumps.substr(jumps.find(" ") + 1);
-        
-        /*
-        std::cout << "# Jumps: " << std::stoi(jumps) << "\n";
-        std::cout << "Previous Instruction: " << program[i + std::stoi(jumps)] << "\n";
-        */
-        i = i + std::stoi(jumps) - 1;
+      //std::cout << "Jump: " << test_map[current_var] << "\n";
+        if (test_map[current_var] != 0)
+        {
+          std::string jumps = "";
+          jumps = program[i].substr(program[i].find(" ") + 1);
+          jumps = jumps.substr(jumps.find(" ") + 1);
+
+          /*
+          std::cout << "# Jumps: " << std::stoi(jumps) << "\n";
+          std::cout << "Previous Instruction: " << program[i + std::stoi(jumps)] << "\n";
+          */
+          if (i + std::stoi(jumps) >= program.size() - 1)
+          {
+            std::cout << "Break" << "\n";
+            break;
+          }
+          else
+          {
+            i = i + std::stoi(jumps) - 1;
+          }
+        }
       }
     }
     /*
@@ -85,6 +95,8 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
   std::cout << "\n";
   return (test_map);
 }
+//Complex1
+//{'a': 318009, 'b': 196418, 'c': 0, 'd': 0}
 
 #include <map>
 bool i_i(std::string str) 
