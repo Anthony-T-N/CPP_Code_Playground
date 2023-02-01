@@ -52,17 +52,18 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
       //std::cout << "--: " << test_map[current_var] << "\n";
       test_map[current_var]--;
     }
+    // Regardless of whether register is letter or number. Jump.
     else if (program[i].find("jnz") != std::string::npos)
     {
       if (current_var.find_first_of("0123456789") == std::string::npos)
       {
-      //std::cout << "Jump: " << test_map[current_var] << "\n";
+        // std::cout << "Jump: " << test_map[current_var] << "\n";
+        // Move to next instruction if register is zero.
         if (test_map[current_var] != 0)
         {
           std::string jumps = "";
           jumps = program[i].substr(program[i].find(" ") + 1);
           jumps = jumps.substr(jumps.find(" ") + 1);
-
           /*
           std::cout << "# Jumps: " << std::stoi(jumps) << "\n";
           std::cout << "Previous Instruction: " << program[i + std::stoi(jumps)] << "\n";
@@ -76,6 +77,25 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
           {
             i = i + std::stoi(jumps) - 1;
           }
+        }
+      }
+      else
+      {
+        std::string jumps = "";
+        jumps = program[i].substr(program[i].find(" ") + 1);
+        jumps = jumps.substr(jumps.find(" ") + 1);
+        /*
+        std::cout << "# Jumps: " << std::stoi(jumps) << "\n";
+        std::cout << "Previous Instruction: " << program[i + std::stoi(jumps)] << "\n";
+        */
+        if (i + std::stoi(jumps) >= program.size() - 1)
+        {
+          std::cout << "Break" << "\n";
+          break;
+        }
+        else
+        {
+          i = i + std::stoi(jumps) - 1;
         }
       }
     }
