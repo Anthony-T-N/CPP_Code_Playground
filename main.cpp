@@ -1,17 +1,10 @@
 #include <string>
 #include <unordered_map>
 
-static int& gR(std::unordered_map<std::string, int>& regs, std::string name)
-{
-
-}
-
 std::unordered_map<std::string, int> assembler(const std::vector<std::string>& program)
 {
-  std::unordered_map<std::string, int> test_map;
-  //getReg(test, "TEST");
+  std::unordered_map<std::string, int> assembled_map;
   std::string current_var = "";
-  
   
   std::cout << "Full list of instructions:" << "\n";
   for (unsigned long i = 0; i <= program.size() - 1; i++)
@@ -22,10 +15,10 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
  
   for (unsigned long i = 0; i <= program.size() - 1; i++)
   {
-    //std::cout << i << ") Instruction: " << program[i] << "\n";
+    std::cout << i << ") Instruction: " << program[i] << "\n";
     current_var = program[i].substr(program[i].find(" ") + 1, program[i].length() - program[i].find(" "));
     current_var = current_var.substr(0, current_var.find(" "));
-    //std::cout << "Register : !" << current_var << "!" << "\n";
+    std::cout << "Register : !" << current_var << "!" << "\n";
     if (program[i].find("mov") != std::string::npos)
     {
       std::string mov = "";
@@ -34,41 +27,41 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
       
       if (mov.find_first_of("0123456789") == std::string::npos)
       {
-        //std::cout << test_map[current_var] << " = " << test_map[mov] << "\n";
-        test_map[current_var] = test_map[mov];
+        std::cout << assembled_map[current_var] << " = " << assembled_map[mov] << "\n";
+        assembled_map[current_var] = assembled_map[mov];
       }
       else
       {
-        test_map[current_var] = std::stoi(mov);
+        assembled_map[current_var] = std::stoi(mov);
       }
     }
     else if (program[i].find("inc") != std::string::npos)
     {
-      //std::cout << "++: " << test_map[current_var] << "\n";
-      test_map[current_var]++;
+      std::cout << "++: " << assembled_map[current_var] << "\n";
+      assembled_map[current_var]++;
     }
     else if (program[i].find("dec") != std::string::npos)
     {
-      //std::cout << "--: " << test_map[current_var] << "\n";
-      test_map[current_var]--;
+      std::cout << "--: " << assembled_map[current_var] << "\n";
+      assembled_map[current_var]--;
     }
     // Regardless of whether register is letter or number. Jump.
     else if (program[i].find("jnz") != std::string::npos)
     {
       if (current_var.find_first_of("0123456789") == std::string::npos)
       {
-        // std::cout << "Jump: " << test_map[current_var] << "\n";
+         std::cout << "Jump: " << assembled_map[current_var] << "\n";
         // Move to next instruction if register is zero.
-        if (test_map[current_var] != 0)
+        if (assembled_map[current_var] != 0)
         {
           std::string jumps = "";
           jumps = program[i].substr(program[i].find(" ") + 1);
           jumps = jumps.substr(jumps.find(" ") + 1);
-          /*
+
           std::cout << "# Jumps: " << std::stoi(jumps) << "\n";
           std::cout << "Previous Instruction: " << program[i + std::stoi(jumps)] << "\n";
-          */
-          if (i + std::stoi(jumps) >= program.size() - 1)
+
+          if (i + std::stoi(jumps) > program.size() - 1)
           {
             std::cout << "Break" << "\n";
             break;
@@ -84,11 +77,11 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
         std::string jumps = "";
         jumps = program[i].substr(program[i].find(" ") + 1);
         jumps = jumps.substr(jumps.find(" ") + 1);
-        /*
+
         std::cout << "# Jumps: " << std::stoi(jumps) << "\n";
         std::cout << "Previous Instruction: " << program[i + std::stoi(jumps)] << "\n";
-        */
-        if (i + std::stoi(jumps) >= program.size() - 1)
+        
+        if (i + std::stoi(jumps) > program.size() - 1)
         {
           std::cout << "Break" << "\n";
           break;
@@ -99,24 +92,20 @@ std::unordered_map<std::string, int> assembler(const std::vector<std::string>& p
         }
       }
     }
-    /*
     std::cout << "\n";
-    for (auto const &pair: test_map) 
+    for (auto const &pair: assembled_map) 
     {
       std::cout << "{" << pair.first << ": " << pair.second << "}\n";
     }
     std::cout << "\n";
-    */
   }
-  for (auto const &pair: test_map) 
+  for (auto const &pair: assembled_map) 
   {
     std::cout << "{" << pair.first << ": " << pair.second << "}\n";
   }
   std::cout << "\n";
-  return (test_map);
+  return (assembled_map);
 }
-//Complex1
-//{'a': 318009, 'b': 196418, 'c': 0, 'd': 0}
 
 #include <map>
 bool i_i(std::string str) 
