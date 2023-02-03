@@ -1,3 +1,19 @@
+std::vector<std::string> sBL(std::vector<std::string> array)
+{
+  for (int i = 0; i <= array.size() - 1; i++)
+  {
+    std::cout << array[i].size() << "\n";
+    for (j = 0; j <= array.size() - 1; j++)
+    {
+      if (array[i].size() > array[i+1].size())
+      {
+
+      }
+    } 
+   }
+    return array;
+}
+
 #include <string>
 #include <unordered_map>
 
