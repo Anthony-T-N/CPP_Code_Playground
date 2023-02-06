@@ -1,3 +1,29 @@
+bool XO(const std::string& str)
+{
+  int io = 0;
+  int ix = 0;
+  for (int i = 0; i <= str.size(); i++)
+  {
+    if (str[i] == 'o')
+    {
+      io++;
+    }
+    else if (str[i] == 'x')
+    {
+      ix++;
+    }
+  }
+  std::cout << io << " " << ix << "\n";
+  if (ix == io)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
 std::vector<std::string> sBL(std::vector<std::string> array)
 {
   for (int i = 0; i <= array.size() - 1; i++)
