@@ -16,10 +16,12 @@ bool XO(const std::string& str)
   std::cout << io << " " << ix << "\n";
   if (ix == io)
   {
+    std::cout << "true" << "\n";
     return true;
   }
   else
   {
+    std::cout << "false" << "\n";
     return false;
   }
 }
