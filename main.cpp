@@ -28,6 +28,10 @@ bool XO(const std::string& str)
 
 std::vector<std::string> sBL(std::vector<std::string> array)
 {
+  for (int i = 0; i <= array_size() - 1; i++)
+  {
+    std::cout << array[i] << "\n";	  
+  }
   std::vector<std::string> size_vector;
   for (int i = 0; i <= array.size() - 1; i++)
   {
@@ -40,7 +44,7 @@ std::vector<std::string> sBL(std::vector<std::string> array)
       }
     } 
    }
-   return array;
+   return size_vector;
 }
 
 #include <string>
