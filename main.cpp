@@ -1,19 +1,19 @@
 bool XO(const std::string& str)
 {
-  int int_o = 0;
-  int int_x = 0;
+  int o = 0;
+  int x = 0;
   for (int i = 0; i <= str.size(); i++)
   {
     if (str[i] == 'o' || str[i] == 'O')
     {
-      int_o++;
+      o++;
     }
     else if (str[i] == 'x' || str[i] == 'X')
     {
-      int_x++;
+      x++;
     }
   }
-  if (int_x == int_o)
+  if (o == x)
   {
     return true;
   }
