@@ -1,27 +1,24 @@
 bool XO(const std::string& str)
 {
-  int io = 0;
-  int ix = 0;
+  int int_o = 0;
+  int int_x = 0;
   for (int i = 0; i <= str.size(); i++)
   {
-    if (str[i] == 'o')
+    if (str[i] == 'o' || str[i] == 'O')
     {
-      io++;
+      int_o++;
     }
-    else if (str[i] == 'x')
+    else if (str[i] == 'x' || str[i] == 'X')
     {
-      ix++;
+      int_x++;
     }
   }
-  std::cout << io << " " << ix << "\n";
-  if (ix == io)
+  if (int_x == int_o)
   {
-    std::cout << "true" << "\n";
     return true;
   }
   else
   {
-    std::cout << "false" << "\n";
     return false;
   }
 }
