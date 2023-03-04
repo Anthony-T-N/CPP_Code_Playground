@@ -25,24 +25,17 @@ bool XO(const std::string& str)
 
 std::vector<std::string> sBL(std::vector<std::string> array)
 {
-  for (int i = 0; i <= array.size() - 1; i++)
-  {
-    std::cout << array[i] << "\n";
-    std::cout << array[i].size() << "\n";	
-  }
-  std::vector<std::string> size_vector;
-  for (int i = 0; i <= array.size() - 1; i++)
-  {
-    std::cout << array[i].size() << "\n";
-    for (j = 0; j <= array.size() - 1; j++)
-    {
-      if (array[i].size() > array[i+1].size())
+      std::vector<std::string> new_vector;      
+      for (int i = 0; i <= array.size() - 1; i++)
       {
-      	size_vector.add(array[i];
+        std::cout << array[i] << "\n";
+        for (j = 0; j <= array.size() - 1; j++)
+        {
+
+        }
       }
-    } 
-   }
-   return size_vector;
+      return array;
+    }
 }
 
 #include <string>
