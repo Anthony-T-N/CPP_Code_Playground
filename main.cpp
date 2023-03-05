@@ -25,16 +25,40 @@ bool XO(const std::string& str)
 
 std::vector<std::string> sBL(std::vector<std::string> array)
 {
-      std::vector<std::string> new_vector;      
+      std::vector<std::string> sorted_vector;
       for (int i = 0; i <= array.size() - 1; i++)
       {
-        std::cout << array[i] << "\n";
-        for (j = 0; j <= array.size() - 1; j++)
+        std::cout << "\n" << array[i] << "\n";
+        int current_low = 0;
+        std::string current_low_string = array[i];
+        std::cout << i << "] Internal Loop: " << "\n";
+        if (array.size() <= 1)
         {
-
+          for (int j = 0; j <= array.size() - 1; j++)
+          {
+            std::cout << current_low_string << " > " << array[j] << "\n";
+            if (current_low_string.size() > array[j].size())
+            {
+              std::cout << "Current Low: " << array[j] << "\n";
+              current_low_string = array[j];
+              current_low = j;
+            }
+          }
+          sorted_vector.push_back(current_low_string);
+          array.erase(array.begin() + current_low);
         }
+        else
+        {
+          sorted_vector.push_back(0);
+        }
+        for (int k = 0; k <= array.size() - 1; k++)
+        {
+          std::cout << array[k] << " ";
+        }
+        std::cout << "\n";
+        i = 0;
       }
-      return array;
+      return sorted_vector;
     }
 }
 
