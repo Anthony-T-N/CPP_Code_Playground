@@ -1,3 +1,35 @@
+long qT(std::vector<int> customers,int n)
+{
+  for (unsigned long i = 0; i < customers.size(); i++)
+  {
+    std::cout << customers[i] << " ";
+  }
+  
+  int time = 0;
+  while (customers.size() > 0)
+  {
+    for (int j = 0; j <= n; j++)
+    {
+      if (customers[j] == 0)
+      {
+        std::cout << "Customer: " << customers[j] << " Removed" << "\n";
+        customers.erase(customers.begin() + j);
+      }
+      if (customers.empty() == true)
+      {
+        return time;
+      }
+      else
+      {
+        customers.at(j) = customers.at(j) - 1;
+        time++;
+      }
+    }
+    std::cout << "Customer size: " << customers.size() << "\n";
+  }
+  return time;
+}
+
 bool XO(const std::string& str)
 {
   int o = 0;
