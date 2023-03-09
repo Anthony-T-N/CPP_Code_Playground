@@ -8,6 +8,12 @@ long qT(std::vector<int> customers,int n)
   int time = 0;
   while (customers.size() > 0)
   {
+    std::cout << "Current List: ";
+    for (unsigned long i = 0; i < customers.size(); i++)
+    {
+      std::cout << customers[i] << " ";
+    }
+    std::cout << "\n";
     for (int j = 0; j <= n; j++)
     {
       if (customers[j] == 0)
@@ -17,10 +23,14 @@ long qT(std::vector<int> customers,int n)
       }
       if (customers.empty() == true)
       {
+        std::cout << "Customer List Empty" << "\n";
+        std::cout << "Customer size: " << customers.size() << "\n";
         return time;
       }
       else
       {
+        std::cout << "Time Increase" << "\n";
+        std::cout << j << "\n";
         customers.at(j) = customers.at(j) - 1;
         time++;
       }
