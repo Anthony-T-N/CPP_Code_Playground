@@ -1,41 +1,43 @@
 long qT(std::vector<int> customers,int n)
 {
+  std::cout << "\n\n";
+  std::cout << "===========================================================" << "\n";
   for (unsigned long i = 0; i < customers.size(); i++)
   {
     std::cout << customers[i] << " ";
   }
+  std::cout << "\n";
   
   int time = 0;
   while (customers.size() > 0)
   {
+    std::cout << "\n\n";
+    for (int j = 0; j <= n-1; j++)
+    {
+      if (!(customers[j] == 0))
+      {
+        std::cout << "j: " << j << "\n";
+        customers.at(j) = customers.at(j) - 1;
+      }
+      if (customers[j] == 0)
+      {
+        std::cout << customers[j] << " Removed" << "\n";
+        customers.erase(customers.begin() + j);
+      }
+      if (customers.empty())
+      {
+        std::cout << "Customer List Empty" << "\n";
+        return time;
+      }
+    }
+    std::cout << "Customer size: " << customers.size() << "\n";
+    std::cout << "Time: " << time << "\n";
+    time++;
     std::cout << "Current List: ";
     for (unsigned long i = 0; i < customers.size(); i++)
     {
       std::cout << customers[i] << " ";
     }
-    std::cout << "\n";
-    for (int j = 0; j <= n; j++)
-    {
-      if (customers[j] == 0)
-      {
-        std::cout << "Customer: " << customers[j] << " Removed" << "\n";
-        customers.erase(customers.begin() + j);
-      }
-      if (customers.empty() == true)
-      {
-        std::cout << "Customer List Empty" << "\n";
-        std::cout << "Customer size: " << customers.size() << "\n";
-        return time;
-      }
-      else
-      {
-        std::cout << "Time Increase" << "\n";
-        std::cout << j << "\n";
-        customers.at(j) = customers.at(j) - 1;
-        time++;
-      }
-    }
-    std::cout << "Customer size: " << customers.size() << "\n";
   }
   return time;
 }
