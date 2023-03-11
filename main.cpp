@@ -7,16 +7,46 @@ long qT(std::vector<int> customers,int n)
     std::cout << customers[i] << " ";
   }
   std::cout << "\n";
-  
+
   int time = 0;
+  if (customers.empty())
+  {
+    std::cout << "Customer List Empty" << "\n";
+    return time;
+  }
+  
+  // If queue can accommodate all customers logic.
+  if (n > (int)customers.size())
+  {
+    int largest_element  = *max_element(customers.begin(),customers.end());
+    std::cout << largest_element << "\n";
+    return largest_element;
+  }
+  
   while (customers.size() > 0)
   {
     std::cout << "\n\n";
     for (int j = 0; j <= n-1; j++)
     {
+      std::cout << "j: " << j << "\n";
+      std::cout << customers.size() << "\n";
+      if (customers.size() == 1)
+      {
+        if (customers[0] == 1)
+        {
+          std::cout << customers[j] << " Removed" << "\n";
+          customers.erase(customers.begin());
+        }
+        if (customers.empty())
+        {
+          std::cout << "Customer List Empty" << "\n";
+          time++;
+          return time;
+        }
+      }
       if (!(customers[j] == 0))
       {
-        std::cout << "j: " << j << "\n";
+        std::cout << "Lower: " << "\n";
         customers.at(j) = customers.at(j) - 1;
       }
       if (customers[j] == 0)
