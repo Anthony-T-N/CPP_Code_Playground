@@ -1,22 +1,22 @@
 long qT(std::vector<int> customers,int n)
 {
-  std::cout << "\n\n";
+  std::cout << "\n";
   std::cout << "===========================================================" << "\n";
+  std::cout << "Passed List: ";
   for (unsigned long i = 0; i < customers.size(); i++)
   {
     std::cout << customers[i] << " ";
   }
-  std::cout << "\n";
-
+  
   int time = 0;
   if (customers.empty())
   {
-    std::cout << "Customer List Empty" << "\n";
+    std::cout << "Empty List;" << "\n";
     return time;
   }
   
   // If queue can accommodate all customers logic.
-  if (n > (int)customers.size())
+  if (n >= (int)customers.size() - 1)
   {
     int largest_element  = *max_element(customers.begin(),customers.end());
     std::cout << largest_element << "\n";
@@ -29,9 +29,9 @@ long qT(std::vector<int> customers,int n)
     for (int j = 0; j <= n-1; j++)
     {
       std::cout << "j: " << j << "\n";
-      std::cout << customers.size() << "\n";
       if (customers.size() == 1)
       {
+        std::cout << "[X] customers.size() == 1" << "\n";
         if (customers[0] == 1)
         {
           std::cout << customers[j] << " Removed" << "\n";
@@ -43,6 +43,12 @@ long qT(std::vector<int> customers,int n)
           time++;
           return time;
         }
+        std::cout << j << "+1 >= " << customers.size() << "\n";
+        if (n != 1 && j+1 >= (int)customers.size())
+        {
+          std::cout << "Iterator High" << "\n";
+          j = 0;
+        }
       }
       if (!(customers[j] == 0))
       {
@@ -53,6 +59,12 @@ long qT(std::vector<int> customers,int n)
       {
         std::cout << customers[j] << " Removed" << "\n";
         customers.erase(customers.begin() + j);
+        std::cout << j << "+1 >= " << customers.size() << "\n";
+        if (n != 1 && j+1 >= (int)customers.size())
+        {
+          std::cout << "Iterator High" << "\n";
+          j--;
+        }
       }
       if (customers.empty())
       {
@@ -67,6 +79,13 @@ long qT(std::vector<int> customers,int n)
     for (unsigned long i = 0; i < customers.size(); i++)
     {
       std::cout << customers[i] << " ";
+    }
+    // If queue can accommodate all customers logic.
+    if (n > (int)customers.size())
+    {
+      std::cout << "Large Queue" << "\n";
+      int largest_element  = *max_element(customers.begin(),customers.end());
+      return largest_element + time;
     }
   }
   return time;
