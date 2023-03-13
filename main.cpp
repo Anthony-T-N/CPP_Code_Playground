@@ -36,6 +36,7 @@ long qT(std::vector<int> customers,int n)
         {
           std::cout << customers[j] << " Removed" << "\n";
           customers.erase(customers.begin());
+          j--;
         }
         if (customers.empty())
         {
@@ -71,6 +72,7 @@ long qT(std::vector<int> customers,int n)
         std::cout << "Customer List Empty" << "\n";
         return time;
       }
+      std::cout << "Customer size: " << customers.size() << "\n";
     }
     std::cout << "Customer size: " << customers.size() << "\n";
     std::cout << "Time: " << time << "\n";
