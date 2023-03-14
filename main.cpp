@@ -26,6 +26,8 @@ long qT(std::vector<int> customers,int n)
   while (customers.size() > 0)
   {
     std::cout << "\n\n";
+    std::cout << "n: " << n << "\n";
+    std::cout << "New Loop:" << "\n";
     for (int j = 0; j <= n-1; j++)
     {
       std::cout << "j: " << j << "\n";
@@ -36,7 +38,6 @@ long qT(std::vector<int> customers,int n)
         {
           std::cout << customers[j] << " Removed" << "\n";
           customers.erase(customers.begin());
-          j--;
         }
         if (customers.empty())
         {
@@ -53,16 +54,16 @@ long qT(std::vector<int> customers,int n)
       }
       if (!(customers[j] == 0))
       {
-        std::cout << "Lower: " << "\n";
+        std::cout << customers.at(j) << " >>> " << customers.at(j) - 1 << "\n";
         customers.at(j) = customers.at(j) - 1;
       }
       if (customers[j] == 0)
       {
-        std::cout << customers[j] << " Removed" << "\n";
+        std::cout << "[X] customers[" << j << "] == 0" << "\n";
         customers.erase(customers.begin() + j);
-        std::cout << j << "+1 >= " << customers.size() << "\n";
         if (n != 1 && j+1 >= (int)customers.size())
         {
+          std::cout << j << "+1 >= " << customers.size() << "\n";
           std::cout << "Iterator High" << "\n";
           j--;
         }
@@ -73,6 +74,13 @@ long qT(std::vector<int> customers,int n)
         return time;
       }
       std::cout << "Customer size: " << customers.size() << "\n";
+      // If queue can accommodate all customers logic.
+      if (n > (int)customers.size())
+      {
+        std::cout << "Large Queue" << "\n";
+        int largest_element  = *max_element(customers.begin(),customers.end());
+        return largest_element + time;
+      }
     }
     std::cout << "Customer size: " << customers.size() << "\n";
     std::cout << "Time: " << time << "\n";
