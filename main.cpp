@@ -7,19 +7,20 @@ long qT(std::vector<int> customers,int n)
   {
     std::cout << customers[i] << " ";
   }
-  
+  std::cout << "END" << "\n";
   int time = 0;
   if (customers.empty())
   {
     std::cout << "Empty List;" << "\n";
+    std::cout << "Time: " << "\n";
     return time;
   }
-  
   // If queue can accommodate all customers logic.
-  if (n >= (int)customers.size() - 1)
+  if (n >= (int)customers.size())
   {
     int largest_element  = *max_element(customers.begin(),customers.end());
-    std::cout << largest_element << "\n";
+    std::cout << "largest_element;" << "\n";
+    std::cout << "Time: " << largest_element << "\n";
     return largest_element;
   }
   
@@ -43,12 +44,13 @@ long qT(std::vector<int> customers,int n)
         {
           std::cout << "Customer List Empty" << "\n";
           time++;
+          std::cout << time << "\n";
           return time;
         }
         std::cout << j << "+1 >= " << customers.size() << "\n";
         if (n != 1 && j+1 >= (int)customers.size())
         {
-          std::cout << "Iterator High" << "\n";
+          std::cout << "Iterator High 1" << "\n";
           j = 0;
         }
       }
@@ -64,13 +66,14 @@ long qT(std::vector<int> customers,int n)
         if (n != 1 && j+1 >= (int)customers.size())
         {
           std::cout << j << "+1 >= " << customers.size() << "\n";
-          std::cout << "Iterator High" << "\n";
+          std::cout << "Iterator High 2" << "\n";
           j--;
         }
       }
       if (customers.empty())
       {
         std::cout << "Customer List Empty" << "\n";
+        std::cout << "Time: " << time << "\n";
         return time;
       }
       std::cout << "Customer size: " << customers.size() << "\n";
@@ -79,6 +82,7 @@ long qT(std::vector<int> customers,int n)
       {
         std::cout << "Large Queue" << "\n";
         int largest_element  = *max_element(customers.begin(),customers.end());
+        std::cout << "Time: " << largest_element + time << "\n";
         return largest_element + time;
       }
     }
@@ -95,9 +99,11 @@ long qT(std::vector<int> customers,int n)
     {
       std::cout << "Large Queue" << "\n";
       int largest_element  = *max_element(customers.begin(),customers.end());
+      std::cout << "Time: " << "\n";
       return largest_element + time;
     }
   }
+  std::cout << "Time: " << "\n";
   return time;
 }
 
