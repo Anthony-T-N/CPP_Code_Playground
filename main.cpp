@@ -11,17 +11,16 @@ long qT(std::vector<int> customers,int n)
   int time = 0;
   if (customers.empty())
   {
-    std::cout << "Empty List;" << "\n";
-    std::cout << "Time: " << "\n";
     return time;
   }
   // If queue can accommodate all customers logic.
   if (n >= (int)customers.size())
   {
+    std::cout << "Large Queue" << "\n";
     int largest_element  = *max_element(customers.begin(),customers.end());
-    std::cout << "largest_element;" << "\n";
-    std::cout << "Time: " << largest_element << "\n";
-    return largest_element;
+    std::cout << "ELEMENT: " << largest_element << " TIME: " << time << "\n";
+    std::cout << "Time: " << largest_element + time << "\n";
+    return largest_element + time;
   }
   
   while (customers.size() > 0)
@@ -76,30 +75,27 @@ long qT(std::vector<int> customers,int n)
         std::cout << "Time: " << time << "\n";
         return time;
       }
-      std::cout << "Customer size: " << customers.size() << "\n";
-      // If queue can accommodate all customers logic.
-      if (n > (int)customers.size())
-      {
-        std::cout << "Large Queue" << "\n";
-        int largest_element  = *max_element(customers.begin(),customers.end());
-        std::cout << "Time: " << largest_element + time << "\n";
-        return largest_element + time;
-      }
     }
     std::cout << "Customer size: " << customers.size() << "\n";
-    std::cout << "Time: " << time << "\n";
     time++;
+    std::cout << "Time: " << time << "\n";
     std::cout << "Current List: ";
     for (unsigned long i = 0; i < customers.size(); i++)
     {
       std::cout << customers[i] << " ";
     }
+    std::cout << "\n";
     // If queue can accommodate all customers logic.
-    if (n > (int)customers.size())
+    
+    std::cout << "n: " << n << " | Customer size: " << customers.size() << "\n";
+    // If queue can accommodate all customers logic.
+    if (n >= (int)customers.size())
     {
+      std::cout << "Second Queue" << "\n";
       std::cout << "Large Queue" << "\n";
       int largest_element  = *max_element(customers.begin(),customers.end());
-      std::cout << "Time: " << "\n";
+      std::cout << "ELEMENT: " << largest_element << " TIME: " << time << "\n";
+      std::cout << "Time: " << largest_element + time << "\n";
       return largest_element + time;
     }
   }
