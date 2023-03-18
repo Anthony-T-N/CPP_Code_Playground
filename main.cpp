@@ -1,3 +1,19 @@
+#include <map>
+#include <string>
+std::map<char, unsigned> c(const std::string& string) 
+{
+  if (string.empty())
+  {
+    return {};
+  }
+  std::map<char, unsigned> char_cout;
+  for (int i = 0; i <= string.size() - 1; i++)
+  {
+    char_cout[string[i]]++;
+  }
+  return char_cout;
+}
+
 long qT(std::vector<int> customers,int n)
 {
   std::cout << "\n";
