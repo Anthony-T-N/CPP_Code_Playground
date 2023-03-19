@@ -1,3 +1,36 @@
+#include <string>
+#include <vector>
+template <typename T> std::vector<T> uIO(const std::vector<T>& iterable)
+{
+  if (iterable.empty())
+  {
+    return {};
+  }
+  for (unsigned long i = 0; i <= iterable.size() - 1; i++)
+  {
+    std::cout << iterable[i] << "\n";
+  }
+  return {};
+}
+
+std::vector<char> uIO(const std::string& iterable)
+{
+  if (iterable.empty())
+  {
+    return {};
+  }
+  std::vector<char> returned_vector = {};
+  for (unsigned long i = 0; i <= iterable.size() - 1; i++)
+  {
+    std::cout << iterable[i] << "\n";
+    if (std::find(returned_vector.begin(), returned_vector.end(), iterable[i]) == returned_vector.end())
+    {
+      returned_vector.push_back(iterable[i]);
+    }
+  }
+  return returned_vector;
+}
+
 #include <map>
 #include <string>
 std::map<char, unsigned> c(const std::string& string) 
