@@ -1,3 +1,4 @@
+//uIO
 #include <string>
 #include <vector>
 template <typename T> std::vector<T> uIO(const std::vector<T>& iterable)
@@ -19,14 +20,25 @@ std::vector<char> uIO(const std::string& iterable)
   {
     return {};
   }
+  std::vector<char> iterable_string(iterable.begin(), iterable.end());
   std::vector<char> returned_vector = {};
-  for (unsigned long i = 0; i <= iterable.size() - 1; i++)
+  for (unsigned long i = 0; i <= iterable_string.size() - 1; i++)
   {
-    std::cout << iterable[i] << "\n";
-    if (std::find(returned_vector.begin(), returned_vector.end(), iterable[i]) == returned_vector.end())
+    std::cout << iterable_string[i] << " ";
+    while (true)
     {
-      returned_vector.push_back(iterable[i]);
+      std::cout << iterable_string[i] << " " << iterable_string[i + 1] << "\n";
+      if (iterable_string[i] == iterable_string[i + 1])
+      {
+        //iterable_string.erase(iterable_string.begin() + i);
+        std::cout << "FRIEND" << "\n";
+      }
+      else
+      {
+        break;
+      }
     }
+    returned_vector.push_back(iterable_string[i]);
   }
   return returned_vector;
 }
