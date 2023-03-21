@@ -20,18 +20,23 @@ std::vector<char> uIO(const std::string& iterable)
   {
     return {};
   }
+  std::cout << "Passed Arug: " << iterable << "\n";
   std::vector<char> iterable_string(iterable.begin(), iterable.end());
   std::vector<char> returned_vector = {};
   for (unsigned long i = 0; i <= iterable_string.size() - 1; i++)
   {
-    std::cout << iterable_string[i] << " ";
+    std::cout << iterable_string[i] << "\n";
     while (true)
     {
-      std::cout << iterable_string[i] << " " << iterable_string[i + 1] << "\n";
-      if (iterable_string[i] == iterable_string[i + 1])
+      if (i + 2 > iterable_string.size())
       {
-        //iterable_string.erase(iterable_string.begin() + i);
-        std::cout << "FRIEND" << "\n";
+        std::cout << "i + 1 > iterable_string.size()" << "\n";
+        break;
+      }
+      std::cout << iterable_string[i] << " " << iterable_string[i + 1] << "\n";
+      if (iterable_string[i] == iterable_string[i + 1] && iterable_string.size() >= i + 1)
+      {
+        iterable_string.erase(iterable_string.begin());
       }
       else
       {
@@ -39,7 +44,12 @@ std::vector<char> uIO(const std::string& iterable)
       }
     }
     returned_vector.push_back(iterable_string[i]);
+    if (i + 1 > iterable_string.size())
+    {
+      break;
+    }
   }
+  std::cout << "END" << "\n";
   return returned_vector;
 }
 
