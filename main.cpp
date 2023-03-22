@@ -7,11 +7,36 @@ template <typename T> std::vector<T> uIO(const std::vector<T>& iterable)
   {
     return {};
   }
-  for (unsigned long i = 0; i <= iterable.size() - 1; i++)
+  std::vector<T> iterable_string(iterable.begin(), iterable.end());
+  std::vector<T> returned_vector = {};
+  for (unsigned long i = 0; i <= iterable_string.size() - 1; i++)
   {
-    std::cout << iterable[i] << "\n";
+    std::cout << iterable_string[i] << "\n";
+    while (true)
+    {
+      if (i + 2 > iterable_string.size())
+      {
+        std::cout << "i + 1 > iterable_string.size()" << "\n";
+        break;
+      }
+      std::cout << iterable_string[i] << " " << iterable_string[i + 1] << "\n";
+      if (iterable_string[i] == iterable_string[i + 1] && iterable_string.size() >= i + 1)
+      {
+        iterable_string.erase(iterable_string.begin());
+      }
+      else
+      {
+        break;
+      }
+    }
+    returned_vector.push_back(iterable_string[i]);
+    if (i + 1 > iterable_string.size())
+    {
+      break;
+    }
   }
-  return {};
+  std::cout << "END" << "\n";
+  return returned_vector;
 }
 
 std::vector<char> uIO(const std::string& iterable)
