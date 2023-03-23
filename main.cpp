@@ -1,4 +1,17 @@
-//uIO
+class K {
+  public:
+  static bool v(long long int n) 
+  {
+    std::string n_to_string = std::to_string(n);
+    std::vector<char> credit_card_num(n_to_string.begin(), n_to_string.end());
+    for (int i = 0; i <= credit_card_num.size() - 1; i++)
+    {
+      std::cout << credit_card_num[i] << "\n";
+    }
+    return false;
+  }
+};
+
 #include <string>
 #include <vector>
 template <typename T> std::vector<T> uIO(const std::vector<T>& iterable)
