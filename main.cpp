@@ -2,11 +2,26 @@ class K {
   public:
   static bool v(long long int n) 
   {
+    std::cout << "\n" << "====" << "\n";
     std::string n_to_string = std::to_string(n);
     std::vector<char> credit_card_num(n_to_string.begin(), n_to_string.end());
-    for (int i = 0; i <= credit_card_num.size() - 1; i++)
+    std::vector<int> valid_credit_card_num = {};
+    for (unsigned long i = 0; i <= credit_card_num.size() - 1; i++)
     {
       std::cout << credit_card_num[i] << "\n";
+      if (i % 2 == 0)
+      {
+        valid_credit_card_num.push_back((credit_card_num[i] - '0') * 2);
+      }
+      else
+      {
+        valid_credit_card_num.push_back((credit_card_num[i] - '0'));
+      }
+    }
+    std::cout << "\n";
+    for (unsigned long i = 0; i <= valid_credit_card_num.size() - 1; i++)
+    {
+      std::cout << valid_credit_card_num[i] << "\n";
     }
     return false;
   }
