@@ -9,9 +9,25 @@ class K {
     for (unsigned long i = 0; i <= credit_card_num.size() - 1; i++)
     {
       std::cout << credit_card_num[i] << "\n";
-      if (i % 2 == 0)
+      if (i % 2 != 0)
       {
-        valid_credit_card_num.push_back((credit_card_num[i] - '0') * 2);
+        if ((credit_card_num[i] - '0') * 2 > 9)
+        {
+          std::cout << "if ((credit_card_num[i] - '0') * 2 > 9)" << "\n";
+          int split_digital = ((credit_card_num[i] - '0') * 2);
+          std::cout << split_digital << "\n";
+          std::string split_digital_s = std::to_string(split_digital);
+          split_digital = 0;
+          for (unsigned long j = 0; split_digital_s.size() - 1; j++)
+          {
+            std::cout << split_digital_s[j] << "\n";
+            valid_credit_card_num.push_back(split_digital_s[j]);
+          }
+        }
+        else
+        {
+          valid_credit_card_num.push_back((credit_card_num[i] - '0') * 2);
+        }
       }
       else
       {
@@ -19,11 +35,20 @@ class K {
       }
     }
     std::cout << "\n";
+    int final_sum = 0;
     for (unsigned long i = 0; i <= valid_credit_card_num.size() - 1; i++)
     {
       std::cout << valid_credit_card_num[i] << "\n";
+      final_sum += valid_credit_card_num[i];
     }
-    return false;
+    if (final_sum % 10 == 0)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 };
 
