@@ -2,14 +2,14 @@ class K {
   public:
   static bool v(long long int n) 
   {
-    std::cout << "\n" << "====" << "\n";
+    std::cout << "\n" << "==============" << "\n";
     std::string n_to_string = std::to_string(n);
     std::vector<char> credit_card_num(n_to_string.begin(), n_to_string.end());
     std::vector<int> valid_credit_card_num = {};
     for (unsigned long i = 0; i <= credit_card_num.size() - 1; i++)
     {
       std::cout << credit_card_num[i] << "\n";
-      if (i % 2 != 0)
+      if (i % 2 == 0 && n_to_string.size() % 2 == 0 || i % 2 != 0 && n_to_string.size() % 2 != 0)
       {
         if ((credit_card_num[i] - '0') * 2 > 9)
         {
@@ -18,14 +18,17 @@ class K {
           std::cout << split_digital << "\n";
           std::string split_digital_s = std::to_string(split_digital);
           split_digital = 0;
-          for (unsigned long j = 0; split_digital_s.size() - 1; j++)
+          for (unsigned long j = 0; j <= split_digital_s.size() - 1; j++)
           {
             std::cout << split_digital_s[j] << "\n";
-            valid_credit_card_num.push_back(split_digital_s[j]);
+            split_digital += split_digital_s[j] - '0';
           }
+          valid_credit_card_num.push_back(split_digital);
+          std::cout << "MARK 1" << "\n";
         }
         else
         {
+          std::cout << "UNDER 9" << "\n";
           valid_credit_card_num.push_back((credit_card_num[i] - '0') * 2);
         }
       }
@@ -38,9 +41,10 @@ class K {
     int final_sum = 0;
     for (unsigned long i = 0; i <= valid_credit_card_num.size() - 1; i++)
     {
-      std::cout << valid_credit_card_num[i] << "\n";
+      std::cout << valid_credit_card_num[i] << " ";
       final_sum += valid_credit_card_num[i];
     }
+    std::cout << "\n" << "SUM: " << final_sum << "\n";
     if (final_sum % 10 == 0)
     {
       return true;
