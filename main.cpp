@@ -1,3 +1,31 @@
+#include <vector>
+bool c_a(const std::vector<int>& arr, const std::vector<int>& target) 
+{
+  for (unsigned long i = 0; i <= target.size() - 1; i++)
+  {
+    bool valid = true;
+    for (unsigned long j = 0; j <= arr.size() - 1; j++)
+    {
+      std::cout << target[i] << " " << arr[j] << "\n";
+      if (target[i] == arr[j])
+      {
+        std::cout << "TRUE" << "\n";
+        valid = true;
+        break;
+      }
+      else
+      {
+        valid = false;
+      }
+    }
+    if (valid == false)
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
 class K {
   public:
   static bool v(long long int n) 
