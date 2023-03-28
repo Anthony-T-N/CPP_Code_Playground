@@ -3,7 +3,7 @@ bool c_a(const std::vector<int>& arr, const std::vector<int>& target)
 {
   for (unsigned long i = 0; i <= target.size() - 1; i++)
   {
-    bool valid = true;
+    bool valid = false;
     for (unsigned long j = 0; j <= arr.size() - 1; j++)
     {
       std::cout << target[i] << " " << arr[j] << "\n";
@@ -16,6 +16,11 @@ bool c_a(const std::vector<int>& arr, const std::vector<int>& target)
       else
       {
         valid = false;
+      }
+      if (j == arr.size() - 1)
+      {
+        std::cout << j << " " << arr.size() - 1 << "\n";
+        return false;
       }
     }
     if (valid == false)
