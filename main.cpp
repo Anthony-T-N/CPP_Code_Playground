@@ -1,12 +1,18 @@
 #include <vector>
 bool c_a(const std::vector<int>& arr, const std::vector<int>& target) 
 {
+  if (arr.size() == 0 || target.size() == 0)
+  {
+    return false;
+  }
+  
+  std::cout << "===" << "\n";
   for (unsigned long i = 0; i <= target.size() - 1; i++)
   {
     bool valid = false;
     for (unsigned long j = 0; j <= arr.size() - 1; j++)
     {
-      std::cout << target[i] << " " << arr[j] << "\n";
+      std::cout << "i: " << target[i] << " j: " << arr[j] << "\n";
       if (target[i] == arr[j])
       {
         std::cout << "TRUE" << "\n";
@@ -19,7 +25,7 @@ bool c_a(const std::vector<int>& arr, const std::vector<int>& target)
       }
       if (j == arr.size() - 1)
       {
-        std::cout << j << " " << arr.size() - 1 << "\n";
+        std::cout << "Return False" << "\n";
         return false;
       }
     }
