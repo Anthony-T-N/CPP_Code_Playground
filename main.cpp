@@ -1,16 +1,27 @@
 #include <vector>
 bool c_a(const std::vector<int>& arr, const std::vector<int>& target) 
 {
+  std::cout << "===" << "\n";
   if (arr.size() == 0 || target.size() == 0)
   {
     return false;
   }
   
-  std::cout << "===" << "\n";
-  for (unsigned long i = 0; i <= target.size() - 1; i++)
+  std::cout << "arr: ";
+  for (unsigned long i = 0; i < arr.size(); i++)
+  {
+    std::cout << arr[i] << " ";
+  }
+  std::cout << "\n" << "target: ";
+  for (unsigned long i = 0; i < target.size(); i++)
+  {
+    std::cout << target[i] << " ";
+  }
+  std::cout << "\n";
+  for (unsigned long i = 0; i < target.size(); i++)
   {
     bool valid = false;
-    for (unsigned long j = 0; j <= arr.size() - 1; j++)
+    for (unsigned long j = 0; j < arr.size(); j++)
     {
       std::cout << "i: " << target[i] << " j: " << arr[j] << "\n";
       if (target[i] == arr[j])
