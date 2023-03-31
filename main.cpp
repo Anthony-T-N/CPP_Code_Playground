@@ -4,6 +4,7 @@ bool c_a(const std::vector<int>& arr, const std::vector<int>& target)
   std::cout << "===" << "\n";
   if (arr.size() == 0 || target.size() == 0)
   {
+    std::cout << "Return False" << "\n";
     return false;
   }
   
@@ -45,6 +46,7 @@ bool c_a(const std::vector<int>& arr, const std::vector<int>& target)
       return false;
     }
   }
+  std::cout << "Return True" << "\n";
   return true;
 }
 
