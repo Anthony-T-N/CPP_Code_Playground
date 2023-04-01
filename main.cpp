@@ -640,19 +640,22 @@ std::string reverse_letter(const std::string &str)
   return reverse_string;
 }
 
+#include <vector>
+#include <string> 
 int missing(std::string s) 
 {
+  std::cout.setstate(std::ios_base::failbit);
   std::cout << "Testing..." << "\n";
-  std::vector<int> vector_missing;
-  int a = 0;
-  int b = 0;
+  std::vector<long long> vector_missing;
+  unsigned long a = 0;
+  unsigned long b = 0;
   unsigned long i = 0;
   while (true)
   {
     bool pattern_fail = false;
     vector_missing.clear();
     a = 0;
-    b+=1;
+    b += 1;
     i = 0;
     std::cout << "Substring += vector loop: " << b << "\n";
     std::cout << "Size: " << s.size() -1 << "\n";
@@ -664,8 +667,9 @@ int missing(std::string s)
       }
       std::cout << "i: " << i << " " << s.substr(a,b) << "\n";
       std::cout << " a: " << a << " b: " << b << " i: " << i << "\n";
-      vector_missing.push_back(std::stoi(std::string() + s.substr(a,b)));
-      a+=b;
+      
+      vector_missing.push_back(std::stoll(std::string() + s.substr(a,b)));
+      a += b;
       //b++;
       i++;
     }
