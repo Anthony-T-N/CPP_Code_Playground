@@ -642,9 +642,9 @@ std::string reverse_letter(const std::string &str)
 
 #include <vector>
 #include <string> 
-int missing(std::string s) 
+int missing(std::string original_string) 
 {
-  std::cout.setstate(std::ios_base::failbit);
+  //std::cout.setstate(std::ios_base::failbit);
   std::cout << "Testing..." << "\n";
   std::vector<long long> vector_missing;
   unsigned long a = 0;
@@ -658,17 +658,17 @@ int missing(std::string s)
     b += 1;
     i = 0;
     std::cout << "Substring += vector loop: " << b << "\n";
-    std::cout << "Size: " << s.size() -1 << "\n";
-    while (i <= s.size() - 1)
+    std::cout << "Size: " << original_string.size() -1 << "\n";
+    while (i <= original_string.size() - 1)
     {
-      if (a > s.size() - 1)
+      if (a > original_string.size() - 1)
       {
         break;
       }
-      std::cout << "i: " << i << " " << s.substr(a,b) << "\n";
+      std::cout << "i: " << i << " " << original_string.substr(a,b) << "\n";
       std::cout << " a: " << a << " b: " << b << " i: " << i << "\n";
       
-      vector_missing.push_back(std::stoll(std::string() + s.substr(a,b)));
+      vector_missing.push_back(std::stoll(std::string() + original_string.substr(a,b)));
       a += b;
       //b++;
       i++;
@@ -676,9 +676,9 @@ int missing(std::string s)
     std::cout << "Vector missing check: " << "\n";
     for (unsigned long i = 0; i <= vector_missing.size() - 1; i++)
     {
-       std::cout << vector_missing[i] << "\n";
+       std::cout << vector_missing[i] << " | ";
     }
-    std::cout << "Pattern Check" << "\n";
+    std::cout << "\n" << "Pattern Check" << "\n";
     int missing_number = 0;
     int compare = vector_missing[0];
     for (unsigned long i = 0; i <= vector_missing.size() - 1; i++)
@@ -726,6 +726,10 @@ int missing(std::string s)
     if (pattern_fail == false)
     {
       std::cout << "Missing # result: " << missing_number << "\n\n";
+      if (missing_number == 0)
+      {
+        return -1;
+      }
       return missing_number;
     }
     else
