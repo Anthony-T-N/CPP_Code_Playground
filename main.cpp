@@ -644,6 +644,17 @@ std::string reverse_letter(const std::string &str)
 #include <string> 
 int missing(std::string original_string) 
 {
+  int parallel_counting = original_string[0];
+  std::cout << parallel_counting << "\n";
+  for (int i = 0; i <= original_string.size() - 1; i++)
+  {
+    std::cout << "OS: " << original_string[i];
+    std::cout << " PC: " << parallel_counting << "\n";
+    parallel_counting+=1;
+  }
+  return -1;
+}
+/*
   //std::cout.setstate(std::ios_base::failbit);
   std::cout << "Testing..." << "\n";
   std::vector<long long> vector_missing;
@@ -740,6 +751,7 @@ int missing(std::string original_string)
   }
   return -1;
 }
+*/
 
 #include <vector>
 
