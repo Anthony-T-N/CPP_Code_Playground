@@ -645,16 +645,27 @@ std::string reverse_letter(const std::string &str)
 int missing(std::string original_string) 
 {
   std::cout << "Arg: " << original_string << "\n";
-  int parallel_counting = original_string[0] - '0';
-  for (int i = 0; i <= original_string.size() - 1; i++)
+  int digit_range = 1;
+  int i = 0;
+  long parallel_counting = std::stoll(std::string() + original_string.substr(0, digit_range));
+  while (true)
   {
     std::cout << "OS: " << original_string[i];
     std::cout << " PC: " << parallel_counting << "\n";
     if (original_string[i] - '0' != parallel_counting)
     {
-      std::cout << "[D] Unmatch detected" << "\n";
+      std::cout << "[D-1] Pattern-Break" << "\n";
+      std::cout << original_string.substr(0, digit_range) << "\n";
+      if ((original_string[i] - '0') - 1 == parallel_counting)
+      {
+        return parallel_counting;
+      }
+      digit_range++;
+      parallel_counting = std::stoll(std::string() + original_string.substr(0, digit_range));
+      continue;
     }
-    parallel_counting+=1;
+    parallel_counting++;
+    i++;
   }
   return -1;
 }
