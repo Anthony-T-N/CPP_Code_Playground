@@ -647,23 +647,36 @@ int missing(std::string original_string)
   std::cout << "Arg: " << original_string << "\n";
   int digit_range = 1;
   int i = 0;
+  int mark = 1;
+  int mark_two = 1;
   long parallel_counting = std::stoll(std::string() + original_string.substr(0, digit_range));
   while (true)
   {
-    std::cout << "OS: " << original_string[i];
+    if (original_string == std::to_string(parallel_counting))
+    {
+      // Return -1 if no pattern found.
+      return -1;
+    }
+    //std::cout << mark << " " << mark_two << "\n";
+    std::cout << "OS: " << original_string.substr(mark, mark_two);
     std::cout << " PC: " << parallel_counting << "\n";
-    if (original_string[i] - '0' != parallel_counting)
+    if (std::stoi(original_string.substr(mark, mark_two)) != parallel_counting)
     {
       std::cout << "[D-1] Pattern-Break" << "\n";
       std::cout << original_string.substr(0, digit_range) << "\n";
-      if ((original_string[i] - '0') - 1 == parallel_counting)
+      if (std::stoi(original_string.substr(mark, mark_two)) - 1 == parallel_counting)
       {
+        std::cout << "[R] parallel_counting: " << parallel_counting << "\n";
         return parallel_counting;
       }
       digit_range++;
+      mark_two += 1;
+      mark = 0;
+      i++;
       parallel_counting = std::stoll(std::string() + original_string.substr(0, digit_range));
       continue;
     }
+    mark += i;
     parallel_counting++;
     i++;
   }
