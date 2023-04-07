@@ -647,7 +647,7 @@ int missing(std::string original_string)
   std::cout << "Arg: " << original_string << "\n";
   int digit_range = 1;
   int i = 0;
-  int mark = 1;
+  int mark = 0;
   int mark_two = 1;
   long parallel_counting = std::stoll(std::string() + original_string.substr(0, digit_range));
   while (true)
@@ -657,9 +657,8 @@ int missing(std::string original_string)
       // Return -1 if no pattern found.
       return -1;
     }
-    //std::cout << mark << " " << mark_two << "\n";
-    std::cout << "OS: " << original_string.substr(mark, mark_two);
-    std::cout << " PC: " << parallel_counting << "\n";
+    std::cout << mark << " " << mark_two << "\n";
+    std::cout << "OS: " << original_string.substr(mark, mark_two) << " PC: " << parallel_counting << "\n";
     if (std::stoi(original_string.substr(mark, mark_two)) != parallel_counting)
     {
       std::cout << "[D-1] Pattern-Break" << "\n";
@@ -676,9 +675,9 @@ int missing(std::string original_string)
       parallel_counting = std::stoll(std::string() + original_string.substr(0, digit_range));
       continue;
     }
+    i++;
     mark += i;
     parallel_counting++;
-    i++;
   }
   return -1;
 }
