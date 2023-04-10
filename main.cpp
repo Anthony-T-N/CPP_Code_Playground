@@ -642,15 +642,17 @@ std::string reverse_letter(const std::string &str)
 
 #include <vector>
 #include <string> 
+void digit_size_compare(int OS_size, int PC_size)
+{
+  std::cout << "OS_size: " << OS_size << " PC_size: " << PC_size << "\n";
+}
 int missing(std::string original_string) 
 {
   std::cout << "Arg: " << original_string << "\n";
-  int digit_range = 1;
   int index_one = 0;
   int index_two = 1;
-  int index_incrementer = 0;
-  long parallel_counting = std::stoll(std::string() + original_string.substr(0, digit_range));
-  bool trigger = false;
+  int index_incrementer = 1;
+  long parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
   while (true)
   {
     if (original_string == std::to_string(parallel_counting))
@@ -663,36 +665,28 @@ int missing(std::string original_string)
     if (std::stoi(original_string.substr(index_one, index_two)) != parallel_counting)
     {
       std::cout << "[D-1] Pattern-Break" << "\n";
-      //std::cout << original_string.substr(0, digit_range) << "\n";
       std::cout << "Break #: " << original_string.substr(index_one, index_two) << "\n";
       if (std::stoi(original_string.substr(index_one, index_two)) - 1 == parallel_counting)
       {
         std::cout << "[R] parallel_counting: " << parallel_counting << "\n";
         return parallel_counting;
       }
-      trigger = true;
-      digit_range++;
       index_one = 0;
       index_two += 1;
       index_incrementer++;
       // Reset parallel counter;
-      parallel_counting = std::stoll(std::string() + original_string.substr(0, digit_range));
+      parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
       std::cout << "\n";
       continue;
     }
-    if (trigger == true)
+    /*
+    if ((original_string.substr(index_one, index_two)).back() == '9')
     {
+      //digit_size_compare((original_string.substr(index_one, index_two)).length(), std::to_string(parallel_counting).length());
       index_incrementer++;
-      std::cout << "???" << "\n";
-      index_one += index_incrementer;
-      trigger = false;
     }
-    else
-    {
-      std::cout << "!!!" << "\n";
-      index_one++;
-      index_one += index_incrementer;
-    }
+    */
+    index_one += index_incrementer;
     parallel_counting++;
   }
   return -1;
