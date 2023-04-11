@@ -679,9 +679,16 @@ int missing(std::string original_string)
       std::cout << "\n";
       continue;
     }
-    /*
-    if ((original_string.substr(index_one, index_two)).back() == '9')
+    if (std::to_string(parallel_counting).length() != std::to_string(parallel_counting + 1).length())
     {
+      std::cout << "WOWOW" << "\n";
+      std::cout << parallel_counting << " " << parallel_counting + 1 << "\n";
+      index_incrementer++;
+    }
+    /*
+    if ((original_string.substr(index_one, index_two)).length() > 1 && (original_string.substr(index_one, index_two)).back() == '9')
+    {
+      std::cout << "WPW" << "\n";
       //digit_size_compare((original_string.substr(index_one, index_two)).length(), std::to_string(parallel_counting).length());
       index_incrementer++;
     }
