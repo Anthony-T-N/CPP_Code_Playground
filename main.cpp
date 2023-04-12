@@ -648,10 +648,11 @@ void digit_size_compare(int OS_size, int PC_size)
 }
 int missing(std::string original_string) 
 {
-  std::cout << "Arg: " << original_string << "\n";
+  std::cout << "\n" << "Arg: " << original_string << "\n";
   int index_one = 0;
   int index_two = 1;
   int index_incrementer = 1;
+  bool double_digit_trigger = false;
   long parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
   while (true)
   {
@@ -662,18 +663,42 @@ int missing(std::string original_string)
     }
     std::cout << "index_incrementer: " << index_incrementer << " index_one: " << index_one << " index_two: " << index_two << "\n";
     std::cout << "OS: " << original_string.substr(index_one, index_two) << " PC: " << parallel_counting << "\n";
-    if (std::stoi(original_string.substr(index_one, index_two)) != parallel_counting)
+    
+    if (index_one >= original_string.length())
+    {
+      std::cout << "[D-1] Pattern-Break" << "\n";
+      index_one = 0;
+      index_two++;
+      index_incrementer++;
+      if (double_digit_trigger == true)
+      {
+        double_digit_trigger = false;
+        index_two--;
+      }
+      // Reset parallel counter;
+      parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
+      std::cout << "\n";
+      continue;
+    }
+    
+    if (std::stoll(original_string.substr(index_one, index_two)) != parallel_counting)
     {
       std::cout << "[D-1] Pattern-Break" << "\n";
       std::cout << "Break #: " << original_string.substr(index_one, index_two) << "\n";
-      if (std::stoi(original_string.substr(index_one, index_two)) - 1 == parallel_counting)
+      if (std::stoll(original_string.substr(index_one, index_two)) - 1 == parallel_counting)
       {
         std::cout << "[R] parallel_counting: " << parallel_counting << "\n";
         return parallel_counting;
       }
       index_one = 0;
-      index_two += 1;
+      index_two++;
       index_incrementer++;
+      
+      if (double_digit_trigger == true)
+      {
+        double_digit_trigger = false;
+        index_two--;
+      }
       // Reset parallel counter;
       parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
       std::cout << "\n";
@@ -683,7 +708,8 @@ int missing(std::string original_string)
     {
       std::cout << "WOWOW" << "\n";
       std::cout << parallel_counting << " " << parallel_counting + 1 << "\n";
-      index_incrementer++;
+      double_digit_trigger = true;
+      index_two++;
     }
     /*
     if ((original_string.substr(index_one, index_two)).length() > 1 && (original_string.substr(index_one, index_two)).back() == '9')
