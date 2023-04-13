@@ -654,11 +654,17 @@ int missing(std::string original_string)
   int index_incrementer = 1;
   bool double_digit_trigger = false;
   long parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
+  bool pattern_found = false;
+  long pattern_number = -1;
   while (true)
   {
     if (original_string == std::to_string(parallel_counting))
     {
       // Return -1 if no pattern found.
+      if (pattern_found == true)
+      {
+        return parallel_counting;
+      }
       return -1;
     }
     std::cout << "index_incrementer: " << index_incrementer << " index_one: " << index_one << " index_two: " << index_two << "\n";
@@ -683,12 +689,17 @@ int missing(std::string original_string)
     
     if (std::stoll(original_string.substr(index_one, index_two)) != parallel_counting)
     {
+      if (pattern_found == true)
+      {
+        return -1;
+      }
       std::cout << "[D-1] Pattern-Break" << "\n";
       std::cout << "Break #: " << original_string.substr(index_one, index_two) << "\n";
       if (std::stoll(original_string.substr(index_one, index_two)) - 1 == parallel_counting)
       {
         std::cout << "[R] parallel_counting: " << parallel_counting << "\n";
-        return parallel_counting;
+        pattern_found = true;
+        pattern_number = parallel_counting;
       }
       index_one = 0;
       index_two++;
@@ -706,19 +717,10 @@ int missing(std::string original_string)
     }
     if (std::to_string(parallel_counting).length() != std::to_string(parallel_counting + 1).length())
     {
-      std::cout << "WOWOW" << "\n";
       std::cout << parallel_counting << " " << parallel_counting + 1 << "\n";
       double_digit_trigger = true;
       index_two++;
     }
-    /*
-    if ((original_string.substr(index_one, index_two)).length() > 1 && (original_string.substr(index_one, index_two)).back() == '9')
-    {
-      std::cout << "WPW" << "\n";
-      //digit_size_compare((original_string.substr(index_one, index_two)).length(), std::to_string(parallel_counting).length());
-      index_incrementer++;
-    }
-    */
     index_one += index_incrementer;
     parallel_counting++;
   }
