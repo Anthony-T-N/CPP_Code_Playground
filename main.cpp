@@ -658,12 +658,13 @@ int missing(std::string original_string)
   long pattern_number = -1;
   while (true)
   {
-    if (original_string == std::to_string(parallel_counting))
+    if (original_string == std::to_string(parallel_counting) || index_one > original_string.length() - 1)
     {
+      std::cout << "[D-2] Pattern-Break" << index_one << " " << original_string.length() - 1 << "\n";
       // Return -1 if no pattern found.
       if (pattern_found == true)
       {
-        return parallel_counting;
+        return pattern_number;
       }
       return -1;
     }
@@ -686,20 +687,22 @@ int missing(std::string original_string)
       std::cout << "\n";
       continue;
     }
-    
     if (std::stoll(original_string.substr(index_one, index_two)) != parallel_counting)
     {
       if (pattern_found == true)
       {
+        std::cout << "[D-3] Pattern-Break" << "\n";
         return -1;
       }
       std::cout << "[D-1] Pattern-Break" << "\n";
       std::cout << "Break #: " << original_string.substr(index_one, index_two) << "\n";
       if (std::stoll(original_string.substr(index_one, index_two)) - 1 == parallel_counting)
       {
-        std::cout << "[R] parallel_counting: " << parallel_counting << "\n";
+        std::cout << "[R] parallel_counting (Expected #):  " << parallel_counting << "\n";
         pattern_found = true;
         pattern_number = parallel_counting;
+        parallel_counting++;
+        continue;
       }
       index_one = 0;
       index_two++;
