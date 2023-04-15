@@ -656,6 +656,7 @@ int missing(std::string original_string)
   long parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
   bool pattern_found = false;
   long pattern_number = -1;
+  int temp_cout = 0;
   while (true)
   {
     if (original_string == std::to_string(parallel_counting) || index_one > original_string.length() - 1)
@@ -668,6 +669,17 @@ int missing(std::string original_string)
       }
       return -1;
     }
+    
+    // TO-DO: Fix this
+    if (double_digit_trigger == true)
+    {
+      if (temp_cout == 1)
+      {
+        index_incrementer++;
+      }
+      temp_cout += 1;
+    }
+    
     std::cout << "index_incrementer: " << index_incrementer << " index_one: " << index_one << " index_two: " << index_two << "\n";
     std::cout << "OS: " << original_string.substr(index_one, index_two) << " PC: " << parallel_counting << "\n";
     
@@ -720,6 +732,7 @@ int missing(std::string original_string)
     }
     if (std::to_string(parallel_counting).length() != std::to_string(parallel_counting + 1).length())
     {
+      std::cout << "[!] New Digit" << "\n";
       std::cout << parallel_counting << " " << parallel_counting + 1 << "\n";
       double_digit_trigger = true;
       index_two++;
