@@ -675,6 +675,7 @@ int missing(std::string original_string)
     {
       if (temp_cout == 1)
       {
+        std::cout << "index_incrementer++;" << "\n";
         index_incrementer++;
       }
       temp_cout += 1;
@@ -685,7 +686,7 @@ int missing(std::string original_string)
     
     if (index_one >= original_string.length())
     {
-      std::cout << "[D-1] Pattern-Break" << "\n";
+      std::cout << "[D-13] Pattern-Break" << "\n";
       index_one = 0;
       index_two++;
       index_incrementer++;
@@ -722,7 +723,9 @@ int missing(std::string original_string)
       
       if (double_digit_trigger == true)
       {
+        std::cout << "double_digit_trigger" << "\n";
         double_digit_trigger = false;
+        index_incrementer--;
         index_two--;
       }
       // Reset parallel counter;
