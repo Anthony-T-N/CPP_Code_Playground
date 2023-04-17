@@ -657,6 +657,10 @@ int missing(std::string original_string)
   bool pattern_found = false;
   long pattern_number = -1;
   int temp_cout = 0;
+  
+  int orig_index_one = 0;
+  int orig_index_two = 0;
+  
   while (true)
   {
     if (original_string == std::to_string(parallel_counting) || index_one > original_string.length() - 1)
@@ -692,8 +696,10 @@ int missing(std::string original_string)
       index_incrementer++;
       if (double_digit_trigger == true)
       {
+        std::cout << "double_digit_trigger 1" << "\n";
         double_digit_trigger = false;
         index_two--;
+        index_incrementer = orig_index_one;
       }
       // Reset parallel counter;
       parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
@@ -723,10 +729,11 @@ int missing(std::string original_string)
       
       if (double_digit_trigger == true)
       {
-        std::cout << "double_digit_trigger" << "\n";
+        std::cout << "double_digit_trigger 2" << "\n";
         double_digit_trigger = false;
-        index_incrementer--;
         index_two--;
+        index_incrementer = orig_index_one;
+        std::cout << "index_incrementer: " << index_incrementer << "\n";
       }
       // Reset parallel counter;
       parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
@@ -735,10 +742,12 @@ int missing(std::string original_string)
     }
     if (std::to_string(parallel_counting).length() != std::to_string(parallel_counting + 1).length())
     {
-      std::cout << "[!] New Digit" << "\n";
+      std::cout << "[!] New Digit + double_digit_trigger = true;" << "\n";
       std::cout << parallel_counting << " " << parallel_counting + 1 << "\n";
       double_digit_trigger = true;
       index_two++;
+      std::cout << "index_incrementer: " << index_incrementer << "\n";
+      orig_index_one = index_incrementer;
     }
     index_one += index_incrementer;
     parallel_counting++;
