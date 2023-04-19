@@ -642,10 +642,6 @@ std::string reverse_letter(const std::string &str)
 
 #include <vector>
 #include <string> 
-void digit_size_compare(int OS_size, int PC_size)
-{
-  std::cout << "OS_size: " << OS_size << " PC_size: " << PC_size << "\n";
-}
 int missing(std::string original_string) 
 {
   std::cout << "\n" << "Arg: " << original_string << "\n";
@@ -657,10 +653,7 @@ int missing(std::string original_string)
   bool pattern_found = false;
   long pattern_number = -1;
   int temp_cout = 0;
-  
   int orig_index_one = 0;
-  int orig_index_two = 0;
-  
   while (true)
   {
     
@@ -674,18 +667,7 @@ int missing(std::string original_string)
       }
       return -1;
     }
-    
-    // TO-DO: Fix this
-    if (double_digit_trigger == true)
-    {
-      if (temp_cout == 1)
-      {
-        std::cout << "temp_cout: index_incrementer++;" << "\n";
-        index_incrementer++;
-      }
-      temp_cout += 1;
-    }
-    
+
     std::cout << "index_incrementer: " << index_incrementer << " index_one: " << index_one << " index_two: " << index_two << "\n";
     std::cout << "OS: " << original_string.substr(index_one, index_two) << " PC: " << parallel_counting << "\n";
     
@@ -701,6 +683,7 @@ int missing(std::string original_string)
         double_digit_trigger = false;
         index_two--;
         index_incrementer = orig_index_one;
+        temp_cout = 0;
       }
       // Reset parallel counter;
       parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
@@ -736,6 +719,7 @@ int missing(std::string original_string)
         index_incrementer = orig_index_one;
         index_incrementer++;
         std::cout << "index_incrementer: " << index_incrementer << "\n";
+        temp_cout = 0;
       }
       // Reset parallel counter;
       parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
@@ -750,6 +734,15 @@ int missing(std::string original_string)
       index_two++;
       std::cout << "index_incrementer: " << index_incrementer << "\n";
       orig_index_one = index_incrementer;
+    }
+    if (double_digit_trigger == true)
+    {
+      if (temp_cout == 1)
+      {
+        std::cout << "temp_cout: index_incrementer++;" << "\n";
+        index_incrementer++;
+      }
+      temp_cout += 1;
     }
     index_one += index_incrementer;
     parallel_counting++;
