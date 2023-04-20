@@ -644,7 +644,7 @@ std::string reverse_letter(const std::string &str)
 #include <string> 
 int missing(std::string original_string) 
 {
-  std::cout << "\n" << "Arg: " << original_string << "\n";
+  std::cout << "\n" << "Passed Argument: " << original_string << "\n";
   int index_one = 0;
   int index_two = 1;
   int index_incrementer = 1;
@@ -657,23 +657,25 @@ int missing(std::string original_string)
   while (true)
   {
     
-    if (original_string == std::to_string(parallel_counting) || index_one > original_string.length() - 1)
+    if (original_string == std::to_string(parallel_counting) || index_one >= original_string.length() - 1)
     {
-      std::cout << "[D-2] Pattern-Break" << index_one << " " << original_string.length() - 1 << "\n";
+      std::cout << "[!] Pattern-Break (Match or substring beyond original string's length)" << index_one << " " << original_string.length() - 1 << "\n";
       // Return -1 if no pattern found.
       if (pattern_found == true)
       {
+        std::cout << "Return: " << pattern_number << "\n";
         return pattern_number;
       }
+      std::cout << "return -1" << "\n";
       return -1;
     }
 
     std::cout << "index_incrementer: " << index_incrementer << " index_one: " << index_one << " index_two: " << index_two << "\n";
     std::cout << "OS: " << original_string.substr(index_one, index_two) << " PC: " << parallel_counting << "\n";
     
-    if (index_one >= original_string.length())
+    if (index_one >= original_string.length() - 1)
     {
-      std::cout << "[D-13] Pattern-Break" << "\n";
+      std::cout << "[!] Pattern-Break (Substring beyond original string's length)" << "\n";
       index_one = 0;
       index_two++;
       index_incrementer++;
@@ -694,10 +696,11 @@ int missing(std::string original_string)
     {
       if (pattern_found == true)
       {
-        std::cout << "[D-3] Pattern-Break" << "\n";
+        std::cout << "[!] Pattern-Break (Substring != Parallel Counting when pattern already found)" << "\n";
+        std::cout << "return -1" << "\n";
         return -1;
       }
-      std::cout << "[D-1] Pattern-Break" << "\n";
+      std::cout << "[!] Pattern-Break (Substring != Parallel Counting)" << "\n";
       std::cout << "Break #: " << original_string.substr(index_one, index_two) << "\n";
       if (std::stoll(original_string.substr(index_one, index_two)) - 1 == parallel_counting)
       {
@@ -723,7 +726,6 @@ int missing(std::string original_string)
       }
       // Reset parallel counter;
       parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
-      std::cout << "\n";
       continue;
     }
     if (std::to_string(parallel_counting).length() != std::to_string(parallel_counting + 1).length())
@@ -747,6 +749,7 @@ int missing(std::string original_string)
     index_one += index_incrementer;
     parallel_counting++;
   }
+  std::cout << "Here" << "\n";
   return -1;
 }
 /*
