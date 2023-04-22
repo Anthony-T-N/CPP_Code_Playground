@@ -649,7 +649,7 @@ int missing(std::string original_string)
   int index_two = 1;
   int index_incrementer = 1;
   bool double_digit_trigger = false;
-  unsigned long long parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
+  unsigned long long parallel_counting = std::stoull(std::string() + original_string.substr(0, index_two));
   bool pattern_found = false;
   unsigned long long pattern_number = -1;
   int temp_cout = 0;
@@ -688,21 +688,27 @@ int missing(std::string original_string)
         temp_cout = 0;
       }
       // Reset parallel counter;
-      parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
+      parallel_counting = std::stoull(std::string() + original_string.substr(0, index_two));
       std::cout << "\n";
       continue;
     }
-    if (std::stoll(original_string.substr(index_one, index_two)) != parallel_counting)
+    if (std::stoull(original_string.substr(index_one, index_two)) != parallel_counting)
     {
       if (pattern_found == true)
       {
         std::cout << "[!] Pattern-Break (Substring != Parallel Counting when pattern already found)" << "\n";
-        std::cout << "return -1" << "\n";
-        return -1;
+        pattern_found = false;
+        index_one = 0;
+        index_two++;
+        index_incrementer++;
+        // Reset parallel counter;
+        parallel_counting = std::stoull(std::string() + original_string.substr(0, index_two));
+        std::cout << "\n";
+        continue;
       }
       std::cout << "[!] Pattern-Break (Substring != Parallel Counting)" << "\n";
       std::cout << "Break #: " << original_string.substr(index_one, index_two) << "\n";
-      if (std::stoll(original_string.substr(index_one, index_two)) - 1 == parallel_counting)
+      if (std::stoull(original_string.substr(index_one, index_two)) - 1 == parallel_counting)
       {
         std::cout << "[R] parallel_counting (Expected #):  " << parallel_counting << "\n";
         pattern_found = true;
@@ -725,7 +731,7 @@ int missing(std::string original_string)
         temp_cout = 0;
       }
       // Reset parallel counter;
-      parallel_counting = std::stoll(std::string() + original_string.substr(0, index_two));
+      parallel_counting = std::stoull(std::string() + original_string.substr(0, index_two));
       continue;
     }
     if (std::to_string(parallel_counting).length() != std::to_string(parallel_counting + 1).length())
