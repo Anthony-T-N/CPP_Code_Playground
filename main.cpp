@@ -641,11 +641,11 @@ std::string reverse_letter(const std::string &str)
 }
 
 #include <vector>
-#include <string> 
+#include <string>
 int missing(std::string original_string) 
 {
   std::cout << "\n" << "Passed Argument: " << original_string << "\n";
-  int index_one = 0;
+  unsigned long index_one = 0;
   int index_two = 1;
   int index_incrementer = 1;
   bool double_digit_trigger = false;
@@ -659,7 +659,7 @@ int missing(std::string original_string)
     
     if (original_string == std::to_string(parallel_counting) || index_one >= original_string.length() - 1)
     {
-      std::cout << "[!] Pattern-Break (Match or substring beyond original string's length)" << index_one << " " << original_string.length() - 1 << "\n";
+      std::cout << "[!] Pattern-Break (Match or substring beyond original string's length) " << index_one << " " << original_string.length() - 1 << "\n";
       // Return -1 if no pattern found.
       if (pattern_found == true)
       {
