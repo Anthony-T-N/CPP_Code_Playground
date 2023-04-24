@@ -642,8 +642,17 @@ std::string reverse_letter(const std::string &str)
 
 #include <vector>
 #include <string>
+#include <gmp.h>
+
+int test_function()
+{
+  mpz_class x = 0;
+  std::cout << x << "\n";
+}
+  
 int missing(std::string original_string) 
 {
+  test_function();
   std::cout << "\n" << "Passed Argument: " << original_string << "\n";
   unsigned long index_one = 0;
   int index_two = 1;
@@ -656,7 +665,6 @@ int missing(std::string original_string)
   int orig_index_incrementer = 0;
   while (true)
   {
-    
     if (original_string == std::to_string(parallel_counting) || index_one >= original_string.length() - 1)
     {
       std::cout << "[!] Pattern-Break (Match or substring beyond original string's length) " << index_one << " " << original_string.length() - 1 << "\n";
