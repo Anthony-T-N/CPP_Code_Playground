@@ -1,4 +1,20 @@
 #include <vector>
+std::vector<int> s(std::vector<int> vec)
+{
+  std::map<int, int> duplicate_map;
+  for (unsigned long i = vec.size() - 1; i > 0; i--)
+  {
+    duplicate_map[vec[i]]++;
+    if (duplicate_map[vec[i]] == 1)
+    {
+      std::cout << "TEST" << "\n";
+      vec.erase(vec.end(), i);
+    }
+  }
+  return vec;
+}
+
+#include <vector>
 bool c_a(const std::vector<int>& arr, const std::vector<int>& target) 
 {
   std::cout << "===" << "\n";
