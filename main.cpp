@@ -2,13 +2,15 @@
 std::vector<int> s(std::vector<int> vec)
 {
   std::map<int, int> duplicate_map;
-  for (unsigned long i = vec.size() - 1; i > 0; i--)
+  for (int i = vec.size() - 1; i >= 0; i--)
   {
+    std::cout << i << " : " << vec[i] << "\n";
     duplicate_map[vec[i]]++;
     if (duplicate_map[vec[i]] == 1)
     {
-      std::cout << "TEST" << "\n";
-      vec.erase(vec.end(), i);
+      //std::cout << "Remove: " << vec.end() - i << "\n";
+      vec.erase(vec.end() - i);
+      i++;
     }
   }
   return vec;
