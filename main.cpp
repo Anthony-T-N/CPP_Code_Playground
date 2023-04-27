@@ -1,19 +1,24 @@
 #include <vector>
 std::vector<int> s(std::vector<int> vec)
 {
+  std::vector<int> solved_solved_vector;
+  std::vector<int> solved_vector;
   std::map<int, int> duplicate_map;
   for (int i = vec.size() - 1; i >= 0; i--)
   {
-    std::cout << i << " : " << vec[i] << "\n";
-    duplicate_map[vec[i]]++;
+    std::cout << "i: " << i << " : " << vec[i] << "\n";
     if (duplicate_map[vec[i]] == 1)
     {
-      //std::cout << "Remove: " << vec.end() - i << "\n";
-      vec.erase(vec.end() - i);
-      i++;
+      continue;
     }
+    duplicate_map[vec[i]]++;
+    solved_vector.push_back(vec[i]);
   }
-  return vec;
+  for (int i = solved_vector.size() - 1; i >= 0; i--)
+  {
+    solved_solved_vector.push_back(solved_vector[i]);
+  }
+  return solved_solved_vector;
 }
 
 #include <vector>
