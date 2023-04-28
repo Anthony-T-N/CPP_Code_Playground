@@ -1,12 +1,10 @@
 #include <vector>
 std::vector<int> s(std::vector<int> vec)
 {
-  std::vector<int> solved_solved_vector;
   std::vector<int> solved_vector;
   std::map<int, int> duplicate_map;
   for (int i = vec.size() - 1; i >= 0; i--)
   {
-    std::cout << "i: " << i << " : " << vec[i] << "\n";
     if (duplicate_map[vec[i]] == 1)
     {
       continue;
@@ -14,11 +12,12 @@ std::vector<int> s(std::vector<int> vec)
     duplicate_map[vec[i]]++;
     solved_vector.push_back(vec[i]);
   }
+  vec.clear();
   for (int i = solved_vector.size() - 1; i >= 0; i--)
   {
-    solved_solved_vector.push_back(solved_vector[i]);
+    vec.push_back(solved_vector[i]);
   }
-  return solved_solved_vector;
+  return vec;
 }
 
 #include <vector>
