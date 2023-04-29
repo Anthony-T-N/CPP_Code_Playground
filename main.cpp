@@ -1,3 +1,39 @@
+#include <iostream>
+bool iC(std::string s)
+{
+  bool ticket = false;
+  std::map<int, int> map;
+  for (unsigned long i = 0; i <= s.length() - 1; i++)
+  {
+    if (map.count(s[i]))
+    {
+      std::cout << "Key Located" << "\n";
+      if (ticket == true)
+      {
+        continue;
+      }
+      else
+      {
+        return false;
+      }
+    }
+    else
+    {
+      std::cout << "New Key Added: " << s[i] <<  "\n";
+      map[s[i]]++;
+      if (s[i] == s[i + 1])
+      {
+        ticket = true;
+      }
+      else 
+      {
+        ticket = false;
+      }
+    }
+  }
+  return true;
+}
+
 #include <vector>
 std::vector<int> s(std::vector<int> vec)
 {
