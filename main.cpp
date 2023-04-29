@@ -1,14 +1,13 @@
 #include <iostream>
 bool iC(std::string s)
 {
-  bool ticket = false;
+  bool consecutive_grouped = false;
   std::map<int, int> map;
   for (unsigned long i = 0; i <= s.length() - 1; i++)
   {
     if (map.count(s[i]))
     {
-      std::cout << "Key Located" << "\n";
-      if (ticket == true)
+      if (consecutive_grouped == true)
       {
         continue;
       }
@@ -19,15 +18,14 @@ bool iC(std::string s)
     }
     else
     {
-      std::cout << "New Key Added: " << s[i] <<  "\n";
       map[s[i]]++;
       if (s[i] == s[i + 1])
       {
-        ticket = true;
+        consecutive_grouped = true;
       }
       else 
       {
-        ticket = false;
+        consecutive_grouped = false;
       }
     }
   }
