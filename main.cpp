@@ -1,3 +1,21 @@
+#include <string>
+#include <vector>
+bool s(const std::vector<std::string>& words) 
+{
+  std::map<char, int> letter_map;
+  for (int i = 0; i <= words.size() - 1; i++)
+  {
+    std::cout << words[i] << " " << words[i][0] << " " << words[i].back()  << "\n";
+    letter_map[words[i][0]]++;
+    letter_map[words[i].back()]++;
+  }
+  for (const auto& letters : letter_map) 
+  {
+    std::cout << "K: " << letters.first << " V: " << letters.second << "\n";
+  }
+  return false;
+}
+
 #include <iostream>
 bool iC(std::string s)
 {
