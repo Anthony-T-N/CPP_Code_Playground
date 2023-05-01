@@ -2,12 +2,21 @@
 #include <vector>
 bool s(const std::vector<std::string>& words) 
 {
+  std::vector<std::string> short_vector;
+  std::string word;
   std::map<char, int> letter_map;
   for (int i = 0; i <= words.size() - 1; i++)
   {
     std::cout << words[i] << " " << words[i][0] << " " << words[i].back()  << "\n";
     letter_map[words[i][0]]++;
     letter_map[words[i].back()]++;
+    word = words[i][0] + words[i].back();
+    std::cout << word << "\n";
+    short_vector.push_back(word);
+  }
+  for (int i = 0; i <= short_vector.size() - 1; i++)
+  {
+    std::cout << short_vector[i] << "\n";
   }
   for (const auto& letters : letter_map) 
   {
