@@ -5,19 +5,57 @@ bool s(const std::vector<std::string>& words)
   std::vector<std::string> short_vector;
   std::string word;
   std::map<char, int> letter_map;
-  for (int i = 0; i <= words.size() - 1; i++)
+  for (unsigned long i = 0; i <= words.size() - 1; i++)
   {
-    std::cout << words[i] << " " << words[i][0] << " " << words[i].back()  << "\n";
+    std::cout << words[i] << "\n";
     letter_map[words[i][0]]++;
     letter_map[words[i].back()]++;
-    word = words[i][0] + words[i].back();
+    word += words[i][0];
+    word += words[i].back();
+    std::cout << words[i][0] << " " << words[i].back() << "\n";
     std::cout << word << "\n";
     short_vector.push_back(word);
+    word = "";
   }
-  for (int i = 0; i <= short_vector.size() - 1; i++)
+  std::cout << "\n";
+  for (unsigned long i = 0; i <= short_vector.size() - 1; i++)
   {
     std::cout << short_vector[i] << "\n";
   }
+  
+  unsigned long stage = 0;
+  std::vector<std::string> copied_short_vector = short_vector;
+  std::vector<std::string> temp_vector;
+  while (true)
+  {
+    temp_vector.push_back(copied_short_vector[stage]);
+    copied_short_vector.erase(copied_short_vector.begin() + stage);
+    for (unsigned long i = 0; i <= copied_short_vector.size() - 1; i++)
+    {
+      std::cout << copied_short_vector[i] << "\n";
+      if (temp_vector[0].back() == copied_short_vector[i][0] && i == 0)
+      {
+        temp_vector.push_back(copied_short_vector[i]);
+        copied_short_vector.erase(copied_short_vector.begin() + i);
+        i--;
+      }
+      else if (temp_vector[i].back() == copied_short_vector[i][0])
+      {
+        temp_vector.push_back(copied_short_vector[i]);
+        copied_short_vector.erase(copied_short_vector.begin() + i);
+        i--;
+      }
+    }
+    stage++;
+    copied_short_vector = short_vector;
+    temp_vector.clear();
+    if (stage == copied_short_vector.size() - 1)
+    {
+      break;
+    }
+  }
+  
+  
   for (const auto& letters : letter_map) 
   {
     std::cout << "K: " << letters.first << " V: " << letters.second << "\n";
