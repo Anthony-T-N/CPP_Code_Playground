@@ -18,35 +18,53 @@ bool s(const std::vector<std::string>& words)
     word = "";
   }
   std::cout << "\n";
-  for (unsigned long i = 0; i <= short_vector.size() - 1; i++)
-  {
-    std::cout << short_vector[i] << "\n";
-  }
   
   unsigned long stage = 0;
   std::vector<std::string> copied_short_vector = short_vector;
   std::vector<std::string> temp_vector;
+  int ace = 0;
+  for (unsigned long i = 0; i <= short_vector.size() - 1; i++)
+  {
+    std::cout << short_vector[i] << " | ";
+  }
+  std::cout << "\n";
   while (true)
   {
     temp_vector.push_back(copied_short_vector[stage]);
+    std::cout << "START: " << copied_short_vector[stage] << "\n";
     copied_short_vector.erase(copied_short_vector.begin() + stage);
     for (unsigned long i = 0; i <= copied_short_vector.size() - 1; i++)
     {
       std::cout << copied_short_vector[i] << "\n";
-      if (temp_vector[0].back() == copied_short_vector[i][0] && i == 0)
+      std::cout << temp_vector[ace].back() << " == " << copied_short_vector[i][0] << "\n";
+      if (temp_vector[ace].back() == copied_short_vector[i][0])
       {
         temp_vector.push_back(copied_short_vector[i]);
         copied_short_vector.erase(copied_short_vector.begin() + i);
         i--;
+        ace++;
+        for (unsigned long k = 0; k <= temp_vector.size() - 1; k++)
+        {
+          std::cout << temp_vector[k] << " | ";
+        }
       }
-      else if (temp_vector[i].back() == copied_short_vector[i][0])
+      if (temp_vector.size() == copied_short_vector.size())
+      {
+        return true;
+      }
+      /*
+      else if (temp_vector[ace].back() == copied_short_vector[i][0])
       {
         temp_vector.push_back(copied_short_vector[i]);
         copied_short_vector.erase(copied_short_vector.begin() + i);
         i--;
+        ace++;
       }
+      */
     }
+    std::cout << "NEW" << "\n";
     stage++;
+    ace = 0;
     copied_short_vector = short_vector;
     temp_vector.clear();
     if (stage == copied_short_vector.size() - 1)
