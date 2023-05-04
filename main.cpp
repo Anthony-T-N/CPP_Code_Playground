@@ -36,9 +36,10 @@ bool s(const std::vector<std::string>& words)
     for (unsigned long i = 0; i <= copied_short_vector.size() - 1; i++)
     {
       std::cout << copied_short_vector[i] << "\n";
-      std::cout << temp_vector[ace].back() << " == " << copied_short_vector[i][0] << "\n";
+      std::cout << temp_vector[ace] << " ==? " << copied_short_vector[i] << "\n";
       if (temp_vector[ace].back() == copied_short_vector[i][0])
       {
+        std::cout << temp_vector[ace].back() << " ==== " << copied_short_vector[i][0] << "\n";
         temp_vector.push_back(copied_short_vector[i]);
         copied_short_vector.erase(copied_short_vector.begin() + i);
         i--;
@@ -47,8 +48,10 @@ bool s(const std::vector<std::string>& words)
         {
           std::cout << temp_vector[k] << " | ";
         }
+        std::cout << "\n";
       }
-      if (temp_vector.size() == copied_short_vector.size())
+      std::cout << temp_vector.size() << " == " << short_vector.size() << "\n";
+      if (temp_vector.size() == short_vector.size())
       {
         return true;
       }
