@@ -33,27 +33,56 @@ bool s(const std::vector<std::string>& words)
     temp_vector.push_back(copied_short_vector[stage]);
     std::cout << "START: " << copied_short_vector[stage] << "\n";
     copied_short_vector.erase(copied_short_vector.begin() + stage);
-    for (unsigned long i = 0; i <= copied_short_vector.size() - 1; i++)
+    for (int i = 0; i <= copied_short_vector.size() - 1; i++)
     {
-      std::cout << copied_short_vector[i] << "\n";
-      std::cout << temp_vector[ace] << " ==? " << copied_short_vector[i] << "\n";
+      std::cout << "i: " << i << " " << copied_short_vector.size() - 1 << "\n";
+      std::cout << "Remaining: ";
+      for (int y = 0; y <= copied_short_vector.size() - 1; y++)
+      {
+        if (copied_short_vector[i] == copied_short_vector[y])
+        {
+          std::cout << "[" << copied_short_vector[y] << "]" << "|";
+        }
+        else
+        {
+          std::cout << copied_short_vector[y] << "|";
+        }
+      }
+      std::cout << " S:" << copied_short_vector.size() - 1;
+      std::cout << "\n" << "Current: ";
+      for (int z = 0; z <= temp_vector.size() - 1; z++)
+      {
+        std::cout << temp_vector[z] << "|";
+      }
+      std::cout << " S:" << temp_vector.size() - 1;
+      std::cout << "\n";
+
       if (temp_vector[ace].back() == copied_short_vector[i][0])
       {
-        std::cout << temp_vector[ace].back() << " ==== " << copied_short_vector[i][0] << "\n";
+        std::cout << temp_vector[ace].back() << " = " << copied_short_vector[i][0] << "\n";
         temp_vector.push_back(copied_short_vector[i]);
         copied_short_vector.erase(copied_short_vector.begin() + i);
-        i--;
-        ace++;
-        for (unsigned long k = 0; k <= temp_vector.size() - 1; k++)
+        std::cout << " i" << i << "\n";
+        if (i - 1 <= 0)
         {
-          std::cout << temp_vector[k] << " | ";
+          i = 0;
         }
-        std::cout << "\n";
+        else
+        {
+          i--;
+        }
+        ace++;
       }
-      std::cout << temp_vector.size() << " == " << short_vector.size() << "\n";
       if (temp_vector.size() == short_vector.size())
       {
+        std::cout << "Size: " << temp_vector.size() << " == " << short_vector.size() << "\n";
         return true;
+      }
+      std::cout << i << " " << copied_short_vector.size() - 1 << "\n";
+      if (i >= copied_short_vector.size() - 1)
+      {
+        std::cout << "i=-1" << "\n";
+        i = -1;
       }
       /*
       else if (temp_vector[ace].back() == copied_short_vector[i][0])
