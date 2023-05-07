@@ -33,6 +33,7 @@ bool s(const std::vector<std::string>& words)
     temp_vector.push_back(copied_short_vector[stage]);
     std::cout << "START: " << copied_short_vector[stage] << "\n";
     copied_short_vector.erase(copied_short_vector.begin() + stage);
+    int reset = 0;
     bool second_fail = false;
     for (int i = 0; i <= copied_short_vector.size() - 1; i++)
     {
@@ -67,7 +68,6 @@ bool s(const std::vector<std::string>& words)
         std::cout << "i: " << i << "\n";
         if (i - 1 <= 0)
         {
-          // FIX THIS
           i = 0;
         }
         else
@@ -84,8 +84,14 @@ bool s(const std::vector<std::string>& words)
       std::cout << i << " " << copied_short_vector.size() - 1 << "\n";
       if (i >= copied_short_vector.size() - 1)
       {
+        if (reset == 2)
+        {
+          break;
+        }
+        std::cout << "Insert: " << reset << "\n";
         std::cout << "i=-1" << "\n";
         i = -1;
+        reset++;
       }
       if (copied_short_vector.size() == 1)
       {
@@ -106,7 +112,8 @@ bool s(const std::vector<std::string>& words)
       }
       */
     }
-    std::cout << "NEW" << "\n";
+    reset = 0;
+    std::cout << "\n" << "NEW" << "\n";
     stage++;
     ace = 0;
     copied_short_vector = short_vector;
@@ -116,7 +123,6 @@ bool s(const std::vector<std::string>& words)
       break;
     }
   }
-  
   
   for (const auto& letters : letter_map) 
   {
