@@ -1,5 +1,8 @@
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <iostream>
+
 bool s(const std::vector<std::string>& words) 
 {
   std::vector<std::string> short_vector;
@@ -28,6 +31,20 @@ bool s(const std::vector<std::string>& words)
     std::cout << short_vector[i] << " | ";
   }
   std::cout << "\n";
+  
+  std::sort(short_vector.begin(), short_vector.end());
+  do 
+  {
+    for (const std::string item : short_vector)
+    {
+        std::cout << item << " ";
+    }
+    std::cout << "\n" << "Loop" << "\n";
+  } 
+  while(std::next_permutation(short_vector.begin(), short_vector.end()));
+  
+  std::cout << "nnnn" << "\n";
+  
   while (true)
   {
     temp_vector.push_back(copied_short_vector[stage]);
