@@ -5,6 +5,7 @@
 
 bool s(const std::vector<std::string>& words) 
 {
+  std::vector<std::string> temp_vector_two;
   std::vector<std::string> short_vector;
   std::string word;
   std::map<char, int> letter_map;
@@ -37,9 +38,18 @@ bool s(const std::vector<std::string>& words)
   {
     for (const std::string item : short_vector)
     {
-        std::cout << item << " ";
+      std::cout << item << " ";
+      temp_vector_two.push_back(item);
     }
     std::cout << "\n" << "Loop" << "\n";
+    for (int i = 0; i <= temp_vector_two.size() - 1; i++)
+    {
+      if ((temp_vector_two[i].back() == temp_vector_two[i+1][0]) && (i + 1 <= temp_vector_two.size()))
+      {
+        std::cout << temp_vector_two[i].back() << " " << temp_vector_two[i+1][0] << "\n";
+      }
+    }
+    temp_vector_two.clear();
   } 
   while(std::next_permutation(short_vector.begin(), short_vector.end()));
   
