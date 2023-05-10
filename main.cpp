@@ -42,13 +42,21 @@ bool s(const std::vector<std::string>& words)
       temp_vector_two.push_back(item);
     }
     std::cout << "\n" << "Loop" << "\n";
+    int match_cout = 0;
     for (int i = 0; i <= temp_vector_two.size() - 1; i++)
     {
-      if ((temp_vector_two[i].back() == temp_vector_two[i+1][0]) && (i + 1 <= temp_vector_two.size()))
+      if ((temp_vector_two[i].back() == temp_vector_two[i+1][0]) && (i + 1 <= temp_vector_two.size() - 1))
       {
         std::cout << temp_vector_two[i].back() << " " << temp_vector_two[i+1][0] << "\n";
+        match_cout++;
+      }
+      if (match_cout == temp_vector_two.size() - 1)
+      {
+        std::cout << "TRUE" << "\n";
+        return true;
       }
     }
+    std::cout << match_cout << "\n";
     temp_vector_two.clear();
   } 
   while(std::next_permutation(short_vector.begin(), short_vector.end()));
