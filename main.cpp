@@ -1,3 +1,17 @@
+class GS
+{
+public:
+    static int gps(int s, std::vector<double> &x)
+    {
+      std::cout << s << "\n";
+      for (int i = 0; i <= x.size() - 1; i++)
+      {
+        std::cout << i << " ";
+      }
+      return 1;
+    }
+};
+
 #include <string>
 #include <vector>
 #include <algorithm>
