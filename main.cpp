@@ -3,27 +3,36 @@ class GS
 public:
     static int gps(int s, std::vector<double> &x)
     {
+      std::cout << "\n";
       std::vector<double> average; 
-      double cal;
-      for (int i = 0; i <= x.size() - 1; i++)
+      double cal = 0;
+      for (unsigned long i = 0; i <= x.size() - 1; i++)
       {
         std::cout << x[i] << " ";
       }
       std::cout << "\n\n";
-      for (int i = 0; i <= x.size() - 1; i++)
+      std::cout << "s: " << s << "\n";
+      for (unsigned long i = 0; i <= x.size() - 1; i++)
       {
-        std::cout << x[i] << "\n";
-        cal = ((x[i+1] - x[i]) * 3600) / s;
-        std::cout << cal << "\n";
-        average.push_back(cal);
+        if (i+1 < x.size() - 1)
+        {
+          std::cout << "x[i]: " << x[i] << "\n";
+          cal = ((x[i+1] - x[i]) * 3600) / s;
+          std::cout << " " << x[i+1] << " " << x[i] << "\n";
+          std::cout << "Cal: " << cal << "\n";
+          average.push_back(cal);
+        }
       }
+      std::cout << "\n";
       cal = 0;
-      for (int i = 0; i <= average.size() - 1; i++)
+      for (unsigned long i = 0; i <= average.size() - 1; i++)
       {
-        std::cout << average[i] << "\n";
+        std::cout << "average[i]: " << average[i] << "\n";
         cal += average[i];
+        std::cout << "Cal: " << cal << "\n";
       }
-      std::cout << cal << "\n";
+      std::cout << "Final Cal: " << cal << "\n";
+      std::cout << "Return: " << cal / average.size() << "\n";
       return cal / average.size();
     }
 };
