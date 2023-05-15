@@ -3,6 +3,10 @@ class GS
 public:
     static int gps(int s, std::vector<double> &x)
     {
+      if (x.size() - 1 <= 1)
+      {
+        return 0;
+      }
       std::cout << "\n";
       std::vector<double> average; 
       double cal = 0;
@@ -16,7 +20,7 @@ public:
       {
         if (i+1 < x.size() - 1)
         {
-          std::cout << "x[i]: " << x[i] << "\n";
+          std::cout << "x[i+1]: " << x[i+1] << " x[i]: " << x[i] << "\n";
           cal = ((x[i+1] - x[i]) * 3600) / s;
           std::cout << " " << x[i+1] << " " << x[i] << "\n";
           std::cout << "Cal: " << cal << "\n";
