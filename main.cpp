@@ -18,11 +18,11 @@ public:
       std::cout << "s: " << s << "\n";
       for (unsigned long i = 0; i <= x.size() - 1; i++)
       {
-        if (i+1 < x.size() - 1)
+        if (i+1 < x.size())
         {
           std::cout << "x[i+1]: " << x[i+1] << " x[i]: " << x[i] << "\n";
           cal = ((x[i+1] - x[i]) * 3600) / s;
-          std::cout << " " << x[i+1] << " " << x[i] << "\n";
+          std::cout << x[i+1] << " " << x[i] << "\n";
           std::cout << "Cal: " << cal << "\n";
           average.push_back(cal);
         }
@@ -31,9 +31,8 @@ public:
       cal = 0;
       for (unsigned long i = 0; i <= average.size() - 1; i++)
       {
-        std::cout << "average[i]: " << average[i] << "\n";
         cal += average[i];
-        std::cout << "Cal: " << cal << "\n";
+        std::cout << "average[i]: " << average[i] << " Cal: " << cal << "\n";
       }
       std::cout << "Final Cal: " << cal << "\n";
       std::cout << "Return: " << cal / average.size() << "\n";
