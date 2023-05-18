@@ -33,14 +33,20 @@ public:
 
       std::cout << "\n";
       cal = 0;
+      
+      int highest_num = 0;
       for (unsigned long i = 0; i <= average.size() - 1; i++)
       {
         cal += average[i];
         std::cout << "average[i]: " << average[i] << " Cal: " << cal << "\n";
+        if (average[i] > highest_num)
+        {
+          highest_num = average[i];
+        }
       }
       std::cout << "Final Cal: " << cal << "\n";
       std::cout << "Return: " << cal / average.size() << "\n";
-      return cal / average.size();
+      return highest_num;
     }
 };
 
