@@ -10,42 +10,34 @@ public:
       std::cout << "\n";
       std::vector<double> average; 
       double cal = 0;
-      for (unsigned long i = 0; i <= x.size() - 1; i++)
+      
+      std::vector<double> test_vector = x;
+      
+      for (unsigned long i = 0; i <= test_vector.size() - 1; i++)
       {
-        std::cout << x[i] << " ";
+        std::cout << i << ":" << test_vector[i] << " ";
       }
       std::cout << "\n\n";
       std::cout << "s: " << s << "\n";
-      double  temp = 0;
       for (unsigned long i = 0; i <= x.size() - 1; i++)
       {
         if (i+1 < x.size())
         {
-          std::cout << "x[i+1]: " << x[i+1] << " x[i]: " << x[i] << "\n";
           cal = ((x[i+1] - x[i]) * 3600) / s;
-          std::cout << " " << x[i+1] << " " << x[i] << "\n";
-          std::cout << "Cal: " << cal << "\n";
+          std::cout << "Cal: " << cal << " x[i+1]: " << x[i+1] << " x[i]: " << x[i] << "\n";
           average.push_back(cal);
-          temp = cal;
         }
       }
-      std::cout << "temp: " << temp << "\n"; 
-
       std::cout << "\n";
-      cal = 0;
-      
       int highest_num = 0;
       for (unsigned long i = 0; i <= average.size() - 1; i++)
       {
-        cal += average[i];
-        std::cout << "average[i]: " << average[i] << " Cal: " << cal << "\n";
         if (average[i] > highest_num)
         {
           highest_num = average[i];
         }
       }
-      std::cout << "Final Cal: " << cal << "\n";
-      std::cout << "Return: " << cal / average.size() << "\n";
+      std::cout << "highest_num: " << highest_num << "\n";
       return highest_num;
     }
 };
