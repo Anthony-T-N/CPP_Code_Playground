@@ -13,6 +13,7 @@ public:
       
       std::vector<double> test_vector = x;
       
+      std::cout << "test_vector.size(): " << test_vector.size() << "\n";
       for (unsigned long i = 0; i <= test_vector.size() - 1; i++)
       {
         std::cout << i << ":" << test_vector[i] << " ";
@@ -21,7 +22,7 @@ public:
       std::cout << "s: " << s << "\n";
       for (unsigned long i = 0; i <= x.size() - 1; i++)
       {
-        if (i+1 < x.size())
+        if (!(i+1 > x.size()))
         {
           cal = ((x[i+1] - x[i]) * 3600) / s;
           std::cout << "Cal: " << cal << " x[i+1]: " << x[i+1] << " x[i]: " << x[i] << "\n";
