@@ -20,12 +20,13 @@ public:
       }
       std::cout << "\n\n";
       std::cout << "s: " << s << "\n";
-      for (unsigned long i = 0; i <= x.size() - 1; i++)
+      std::cout << "Size: " << test_vector.size() << "\n";
+      for (unsigned long i = 0; i <= test_vector.size() - 1; i++)
       {
-        if (!(i+1 > x.size()))
+        if (!(i+1 > x.size() - 1))
         {
           cal = ((x[i+1] - x[i]) * 3600) / s;
-          std::cout << "Cal: " << cal << " x[i+1]: " << x[i+1] << " x[i]: " << x[i] << "\n";
+          std::cout << "i): " << i << " | Cal: " << cal << " x[i+1]: " << x[i+1] << " x[i]: " << x[i] << "\n";
           average.push_back(cal);
         }
       }
