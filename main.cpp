@@ -23,7 +23,7 @@ public:
       std::cout << "Size: " << test_vector.size() << "\n";
       for (unsigned long i = 0; i <= test_vector.size() - 1; i++)
       {
-        if (!(i+1 > x.size() - 1))
+        if (!(i+1 > test_vector.size()))
         {
           cal = ((x[i+1] - x[i]) * 3600) / s;
           std::cout << "i): " << i << " | Cal: " << cal << " x[i+1]: " << x[i+1] << " x[i]: " << x[i] << "\n";
