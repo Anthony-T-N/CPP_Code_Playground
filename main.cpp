@@ -32,10 +32,13 @@ public:
       }
       std::cout << "\n";
       int highest_num = 0;
+      average.pop_back();
       for (unsigned long i = 0; i <= average.size() - 1; i++)
       {
+        std::cout << "i): " << average[i] << "\n";
         if (average[i] > highest_num)
         {
+          std::cout << "Current High: " << average[i] << "\n";
           highest_num = average[i];
         }
       }
