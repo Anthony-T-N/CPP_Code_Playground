@@ -1,24 +1,17 @@
 class GS
 {
 public:
-    static int gps(int s, std::vector<double> x)
+    static int gps(int s, std::vector<double> &x)
     {
       if (x.size() - 1 <= 1)
       {
         return 0;
       }
-      double test_double = 0;
-      std::vector<double> test_vector;
-      for (unsigned long i = 0; i <= x.size() - 1; i++)
-      {
-        //test_double = new double(x[i]);
-        test_vector.push_back(x[i]);
-      }
-      std::cout << "\n";
+      std::vector<double> test_vector = x;
       std::vector<double> average; 
       double cal = 0;
       
-      std::cout << "test_vector.size(): " << test_vector.size() << "\n";
+      std::cout << "\n" << "test_vector.size(): " << test_vector.size() << "\n";
       for (unsigned long i = 0; i <= test_vector.size() - 1; i++)
       {
         std::cout << i << ":" << test_vector[i] << " ";
@@ -36,10 +29,15 @@ public:
         }
       }
       std::cout << "\n";
+      //average.erase(std::remove(average.begin(), average.end(), average.size()), average.end());
       int highest_num = 0;
+      
+      double last_element = average[average.size() - 1];
+      std::cout << "Last Element" << last_element << "\n";
+      
       for (unsigned long i = 0; i <= average.size() - 1; i++)
       {
-        if (i == average.size() - 1)
+        if (average[i] == last_element)
         {
           break;
         }
