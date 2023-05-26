@@ -21,7 +21,7 @@ public:
       std::cout << "Size: " << test_vector.size() << "\n";
       for (unsigned long i = 0; i <= test_vector.size() - 1; i++)
       {
-        if (!(i+1 > test_vector.size()))
+        if (!(i+1 > test_vector.size() - 1))
         {
           cal = ((x[i+1] - x[i]) * 3600) / s;
           std::cout << "i): " << i << " | Cal: " << cal << " x[i+1]: " << x[i+1] << " x[i]: " << x[i] << "\n";
@@ -29,18 +29,9 @@ public:
         }
       }
       std::cout << "\n";
-      //average.erase(std::remove(average.begin(), average.end(), average.size()), average.end());
       int highest_num = 0;
-      
-      double last_element = average[average.size() - 1];
-      std::cout << "Last Element" << last_element << "\n";
-      
       for (unsigned long i = 0; i <= average.size() - 1; i++)
       {
-        if (average[i] == last_element)
-        {
-          break;
-        }
         std::cout << "i): " << average[i] << "\n";
         if (average[i] > highest_num)
         {
