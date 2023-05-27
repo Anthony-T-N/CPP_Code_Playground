@@ -19,14 +19,11 @@ public:
       std::cout << "\n\n";
       std::cout << "s: " << s << "\n";
       std::cout << "Size: " << test_vector.size() << "\n";
-      for (unsigned long i = 0; i <= test_vector.size() - 1; i++)
+      for (unsigned long i = 0; i <= test_vector.size() - 2; i++)
       {
-        if (!(i+1 > test_vector.size() - 1))
-        {
-          cal = ((x[i+1] - x[i]) * 3600) / s;
-          std::cout << "i): " << i << " | Cal: " << cal << " x[i+1]: " << x[i+1] << " x[i]: " << x[i] << "\n";
-          average.push_back(cal);
-        }
+        std::cout << "i): " << i << " - Cal: " << cal << " test_vector[i+1]: " << test_vector[i+1] << " test_vector[i]: " << test_vector[i] << "\n";
+        cal = ((test_vector[i+1] - test_vector[i]) * 3600) / s;
+        average.push_back(cal);
       }
       std::cout << "\n";
       int highest_num = 0;
