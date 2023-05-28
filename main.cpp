@@ -3,14 +3,13 @@ class GS
 public:
     static int gps(int s, std::vector<double> &x)
     {
-      if (x.size() - 1 <= 1)
+      std::vector<double> test_vector = x;
+      if (test_vector.size() - 1 <= 1)
       {
         return 0;
       }
-      std::vector<double> test_vector = x;
       std::vector<double> average; 
-      double cal = 0;
-      
+      int cal = 0;
       std::cout << "\n" << "test_vector.size(): " << test_vector.size() << "\n";
       for (unsigned long i = 0; i <= test_vector.size() - 1; i++)
       {
@@ -22,7 +21,7 @@ public:
       for (unsigned long i = 0; i <= test_vector.size() - 2; i++)
       {
         std::cout << "i): " << i << " - Cal: " << cal << " test_vector[i+1]: " << test_vector[i+1] << " test_vector[i]: " << test_vector[i] << "\n";
-        cal = ((test_vector[i+1] - test_vector[i]) * 3600) / s;
+        cal = (3600 * (test_vector[i+1] - test_vector[i])) / s;
         average.push_back(cal);
       }
       std::cout << "\n";
