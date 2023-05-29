@@ -3,32 +3,33 @@ class GS
 public:
     static int gps(int s, std::vector<double> &x)
     {
-      std::vector<double> test_vector = x;
-      if (test_vector.size() - 1 <= 1)
+      std::vector<double> copied_vector = x;
+      //copied_vector.push_back(0);
+      if (copied_vector.size() - 1 <= 1)
       {
         return 0;
       }
       std::vector<double> average; 
       int cal = 0;
-      std::cout << "\n" << "test_vector.size(): " << test_vector.size() << "\n";
-      for (unsigned long i = 0; i <= test_vector.size() - 1; i++)
+      std::cout << "\n" << "copied_vector.size(): " << copied_vector.size() << "\n";
+      for (unsigned long i = 0; i <= copied_vector.size() - 1; i++)
       {
-        std::cout << i << ":" << test_vector[i] << " ";
+        std::cout << i << ":" << copied_vector[i] << " ";
       }
       std::cout << "\n\n";
       std::cout << "s: " << s << "\n";
-      std::cout << "Size: " << test_vector.size() << "\n";
-      for (unsigned long i = 0; i <= test_vector.size() - 2; i++)
+      std::cout << "Size: " << copied_vector.size() - 1 << "\n";
+      for (unsigned long i = 0; i < copied_vector.size() - 1; i++)
       {
-        std::cout << "i): " << i << " - Cal: " << cal << " test_vector[i+1]: " << test_vector[i+1] << " test_vector[i]: " << test_vector[i] << "\n";
-        cal = (3600 * (test_vector[i+1] - test_vector[i])) / s;
+        std::cout << "i): " << i << " - Cal: " << cal << " copied_vector[i+1]: " << copied_vector[i+1] << " copied_vector[i]: " << copied_vector[i] << "\n";
+        cal = (3600 * (copied_vector[i+1] - copied_vector[i])) / s;
         average.push_back(cal);
       }
       std::cout << "\n";
       int highest_num = 0;
-      for (unsigned long i = 0; i <= average.size() - 1; i++)
+      for (unsigned long i = 0; i < average.size() - 1; i++)
       {
-        std::cout << "i): " << average[i] << "\n";
+        std::cout << "i): " << i << " " << average[i] << "\n";
         if (average[i] > highest_num)
         {
           std::cout << "Current High: " << average[i] << "\n";
