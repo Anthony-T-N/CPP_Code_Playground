@@ -4,7 +4,6 @@ public:
     static int gps(int s, std::vector<double> &x)
     {
       std::vector<double> copied_vector = x;
-      //copied_vector.push_back(0);
       if (copied_vector.size() - 1 <= 1)
       {
         return 0;
@@ -17,8 +16,6 @@ public:
         std::cout << i << ":" << copied_vector[i] << " ";
       }
       std::cout << "\n\n";
-      std::cout << "s: " << s << "\n";
-      std::cout << "Size: " << copied_vector.size() - 1 << "\n";
       for (unsigned long i = 0; i < copied_vector.size() - 1; i++)
       {
         std::cout << "i): " << i << " - Cal: " << cal << " copied_vector[i+1]: " << copied_vector[i+1] << " copied_vector[i]: " << copied_vector[i] << "\n";
