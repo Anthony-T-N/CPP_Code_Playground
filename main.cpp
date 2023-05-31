@@ -8,14 +8,14 @@ public:
       {
         return 0;
       }
-      std::vector<double> average; 
-      int cal = 0;
       std::cout << "\n" << "copied_vector.size(): " << copied_vector.size() << "\n";
       for (unsigned long i = 0; i <= copied_vector.size() - 1; i++)
       {
         std::cout << i << ":" << copied_vector[i] << " ";
       }
       std::cout << "\n\n";
+      std::vector<double> average; 
+      int cal = 0;
       for (unsigned long i = 0; i < copied_vector.size() - 1; i++)
       {
         std::cout << "i): " << i << " - Cal: " << cal << " copied_vector[i+1]: " << copied_vector[i+1] << " copied_vector[i]: " << copied_vector[i] << "\n";
@@ -26,10 +26,8 @@ public:
       int highest_num = 0;
       for (unsigned long i = 0; i < average.size() - 1; i++)
       {
-        std::cout << "i): " << i << " " << average[i] << "\n";
         if (average[i] > highest_num)
         {
-          std::cout << "Current High: " << average[i] << "\n";
           highest_num = average[i];
         }
       }
