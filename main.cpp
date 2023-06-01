@@ -1,3 +1,23 @@
+#include <vector>
+std::vector<unsigned int> rS(const std::vector<unsigned int>& numbers) 
+{
+  std::vector<unsigned int> mutated_vector = numbers;
+  unsigned int lowest_num = mutated_vector[0];
+  int index_of_low_num = 0;
+  for (int i = 0; i <= mutated_vector.size() - 1; i++)
+  {
+    if (lowest_num > mutated_vector[i])
+    {
+      lowest_num = mutated_vector[i];
+      index_of_low_num = i;
+    }
+  }
+  std::cout << "Lowest_num: " << lowest_num << "\n";
+
+  mutated_vector.erase(mutated_vector.begin() + index_of_low_num);
+  return mutated_vector;
+}
+
 class GS
 {
 public:
