@@ -13,8 +13,9 @@ std::vector<unsigned int> rS(const std::vector<unsigned int>& numbers)
     }
   }
   std::cout << "Lowest_num: " << lowest_num << "\n";
-
-  mutated_vector.erase(mutated_vector.begin() + index_of_low_num);
+  std::cout << "index_of_low_num: " << index_of_low_num << "\n";
+  std::cout << "mutated_vector[index_of_low_num]: " << mutated_vector[index_of_low_num] << "\n";
+  mutated_vector.erase(mutated_vector.begin() + 0);
   return mutated_vector;
 }
 
