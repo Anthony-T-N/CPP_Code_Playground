@@ -3,20 +3,31 @@ std::vector<unsigned int> rS(const std::vector<unsigned int>& numbers)
 {
   std::vector<unsigned int> mutated_vector = numbers;
   unsigned int lowest_num = mutated_vector[0];
-  int index_of_low_num = 0;
-  for (int i = 0; i <= mutated_vector.size() - 1; i++)
+  // Works if assigning index with number other than 0.
+  unsigned long index = 0;
+  for (unsigned long i = 0; i <= mutated_vector.size() - 1; i++)
   {
+    std::cout << i << "\n";
     if (lowest_num > mutated_vector[i])
     {
+      std::cout << "if (lowest_num > mutated_vector[i])" << "\n";
       lowest_num = mutated_vector[i];
-      index_of_low_num = i;
+      // Fix line.
+      index = i;
+      std::cout << "index: " << index << "\n";
     }
   }
   std::cout << "Lowest_num: " << lowest_num << "\n";
-  std::cout << "index_of_low_num: " << index_of_low_num << "\n";
-  std::cout << "mutated_vector[index_of_low_num]: " << mutated_vector[index_of_low_num] << "\n";
-  int tem = 0;
-  mutated_vector.erase(mutated_vector.begin() + tem);
+  std::cout << "index_of_low_num: " << index << "\n";
+  std::cout << "mutated_vector[index_of_low_num]: " << mutated_vector[index] << "\n";
+  if (index == 0)
+  {
+    mutated_vector.erase(mutated_vector.begin() + 0);
+  }
+  else 
+  {
+    mutated_vector.erase(mutated_vector.begin() + index);
+  }
   return mutated_vector;
 }
 
