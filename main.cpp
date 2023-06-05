@@ -2,12 +2,13 @@
 std::vector<unsigned int> rS(const std::vector<unsigned int>& numbers) 
 {
   std::vector<unsigned int> mutated_vector = numbers;
-  unsigned int lowest_num = mutated_vector[0];
+  unsigned int lowest_num = mutated_vector[mutated_vector.size() - 1];
   // Works if assigning index with number other than 0.
   unsigned long index = 0;
   for (unsigned long i = 0; i <= mutated_vector.size() - 1; i++)
   {
     std::cout << i << "\n";
+    std::cout << lowest_num << " > " << mutated_vector[i] << "\n";
     if (lowest_num > mutated_vector[i])
     {
       std::cout << "if (lowest_num > mutated_vector[i])" << "\n";
@@ -20,14 +21,7 @@ std::vector<unsigned int> rS(const std::vector<unsigned int>& numbers)
   std::cout << "Lowest_num: " << lowest_num << "\n";
   std::cout << "index_of_low_num: " << index << "\n";
   std::cout << "mutated_vector[index_of_low_num]: " << mutated_vector[index] << "\n";
-  if (index == 0)
-  {
-    mutated_vector.erase(mutated_vector.begin() + 0);
-  }
-  else 
-  {
-    mutated_vector.erase(mutated_vector.begin() + index);
-  }
+  mutated_vector.erase(mutated_vector.begin() + index);
   return mutated_vector;
 }
 
