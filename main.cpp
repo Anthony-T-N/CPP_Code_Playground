@@ -1,3 +1,19 @@
+#include <string>
+std::string s(int n) 
+{
+  std::string padded_num = "";
+  padded_num = std::to_string(n);
+  int index = 0;
+  for (int i = 0; i < padded_num.size() - 1; i++)
+  {
+    index = i;
+  }
+  padded_add = 5 - i;
+  std::cout << "padded_num: " << padded_num << "\n";
+  std::cout << "index: " << index << "\n";
+  return padded_num;
+}
+
 #include <vector>
 std::vector<unsigned int> rS(const std::vector<unsigned int>& numbers) 
 {
