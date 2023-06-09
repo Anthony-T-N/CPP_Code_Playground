@@ -1,17 +1,18 @@
 #include <string>
 std::string s(int n) 
 {
-  std::string padded_num = "";
-  padded_num = std::to_string(n);
   int index = 0;
-  for (int i = 0; i < padded_num.size() - 1; i++)
+  for (int i = 0; i < std::to_string(n).size() + 1; i++)
   {
     index = i;
   }
-  padded_add = 5 - i;
-  std::cout << "padded_num: " << padded_num << "\n";
-  std::cout << "index: " << index << "\n";
-  return padded_num;
+  std::string padded_num = "";
+  for (int i = 0; i < (5 - index); i++)
+  {
+    padded_num += "0";
+  }
+  padded_num += std::to_string(n);
+  return "Value is " + padded_num;
 }
 
 #include <vector>
