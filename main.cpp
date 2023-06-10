@@ -1,3 +1,38 @@
+#include <vector>
+std::vector<std::vector<int>> m_t(int n)
+{
+  if (n <= 0)
+  {
+    return {};
+  }
+  std::vector<std::vector<int>> super_vector;
+  std::vector<int> current_vector;
+  for (int i = 1; i <= n; i++)
+  {
+    current_vector.clear();
+    for (int j = 1; j <= n; j++)
+    {
+      if (i == 1)
+      {
+        current_vector.push_back(j);
+      }
+      else
+      {
+        if (j == 1)
+        {
+          current_vector.push_back(i);
+        }
+        else
+        {
+          current_vector.push_back(super_vector[0][j - 1] * current_vector[0]);
+        }
+      }
+    }
+    super_vector.push_back(current_vector);
+  }
+  return super_vector;
+}
+
 #include <string>
 std::string s(int n) 
 {
