@@ -1,3 +1,27 @@
+#include <string>
+#include <vector>
+std::vector<std::string> tB(unsigned nFloors) 
+{
+  std::cout << "nFloors: " << nFloors << "\n";
+  std::vector<std::string> tower; 
+  std::string current_line;
+  for (int i = 1; i <= nFloors; i++)
+  {
+    current_line = "";
+    if (i == 1)
+    {
+      std::cout << i << " " << i << "\n";
+      tower.push_back(current_line(i, "*"));
+    }
+    else
+    {
+      std::cout << i << " " << (i * 2) - 1 << "\n";
+      tower.push_back(current_line((i * 2) - 1, "*"));
+    }
+  }
+  return std::vector<std::string>();
+}
+
 #include <vector>
 std::vector<std::vector<int>> m_t(int n)
 {
