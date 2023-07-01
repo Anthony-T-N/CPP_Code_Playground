@@ -1,3 +1,24 @@
+int gP(int upSpeed, int downSpeed, int desiredHeight)
+{
+  int plant_size = 0;
+  int days = 1;
+  std::cout << "upSpeed: " << upSpeed << " downSpeed: " << downSpeed << " desiredHeight: " << desiredHeight << "\n";
+  while (plant_size != desiredHeight)
+  {
+    std::cout << plant_size << "\n";
+    if (days % 2 == 0)
+    {
+      plant_size += upSpeed;
+    }
+    else
+    {
+      plant_size -= downSpeed;
+    }
+    days++;
+  }
+  return days;
+}
+
 #include <string>
 #include <vector>
 std::vector<std::string> tB(unsigned nFloors) 
