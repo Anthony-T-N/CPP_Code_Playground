@@ -5,7 +5,8 @@ int gP(int upSpeed, int downSpeed, int desiredHeight)
   std::cout << "upSpeed: " << upSpeed << " downSpeed: " << downSpeed << " desiredHeight: " << desiredHeight << "\n";
   while (plant_size < desiredHeight)
   {
-    std::cout << plant_size << "\n";
+    std::cout << "Days: " << days << "\n";
+    std::cout << "Plant Size: " << plant_size << "\n";
     plant_size += upSpeed;
     plant_size -= downSpeed;
     days++;
