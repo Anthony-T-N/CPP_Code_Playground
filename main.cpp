@@ -1,13 +1,18 @@
 int gP(int upSpeed, int downSpeed, int desiredHeight)
 {
   int plant_size = 0;
-  int days = -1;
+  int days = 0;
   std::cout << "upSpeed: " << upSpeed << " downSpeed: " << downSpeed << " desiredHeight: " << desiredHeight << "\n";
   while (plant_size < desiredHeight)
   {
     std::cout << "Days: " << days << "\n";
     std::cout << "Plant Size: " << plant_size << "\n";
     plant_size += upSpeed;
+    if (plant_size >= desiredHeight)
+    {
+      std::cout << "Yes" << "\n";
+      return days;
+    }
     plant_size -= downSpeed;
     days++;
   }
