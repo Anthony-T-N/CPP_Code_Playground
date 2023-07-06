@@ -1,3 +1,12 @@
+#include <array>
+
+using persons_t = std::array<int, 3>;
+
+persons_t g_p(int n) 
+{
+    return { 0, 0, 0 };
+}
+
 int gP(int upSpeed, int downSpeed, int desiredHeight)
 {
   int plant_size = 0;
