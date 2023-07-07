@@ -4,8 +4,26 @@ using persons_t = std::array<int, 3>;
 
 persons_t g_p(int n) 
 {
-    return { 0, 0, 0 };
-}
+  int person_a = -1;
+  int person_b = 0;
+  int person_c = 0;
+  for (int i = 0; i <= n; i++)
+  {
+    person_a++;
+    if (person_a == 3)
+    {
+      person_a = 0;
+      person_b++;
+      if (person_b == 3)
+      {
+        person_b = 0;
+      }
+    }
+    std::cout << i << " " << person_a << " " << person_b << " " << person_c << "\n";
+
+  }
+    
+  return { person_a, person_b, person_c };
 
 int gP(int upSpeed, int downSpeed, int desiredHeight)
 {
