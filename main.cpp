@@ -4,7 +4,7 @@ using persons_t = std::array<int, 3>;
 
 persons_t g_p(int n) 
 {
-  int person_a = -1;
+  int person_a = 0;
   int person_b = 0;
   int person_c = 0;
   for (int i = 0; i <= n; i++)
