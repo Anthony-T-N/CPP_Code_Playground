@@ -4,6 +4,7 @@ using persons_t = std::array<int, 3>;
 
 persons_t g_p(int n) 
 {
+  std::cout << "n: " << n << "\n";
   int person_a = -1;
   int person_b = 0;
   int person_c = 0;
@@ -25,9 +26,7 @@ persons_t g_p(int n)
       }
     }
     std::cout << i << " " << person_a << " " << person_b << " " << person_c << "\n";
-
   }
-    
   return { person_a, person_b, person_c };
 }
 
