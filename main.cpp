@@ -1,3 +1,9 @@
+std::string rA(std::string str) 
+{
+  std::cout << str.substr(0, str.find("#")) << "\n";
+  return str.substr(0, str.find("#"));  
+}
+
 #include <array>
 
 using persons_t = std::array<int, 3>;
