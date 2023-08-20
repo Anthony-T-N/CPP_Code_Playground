@@ -1,3 +1,26 @@
+#include <string>
+class PP
+{
+  public:
+  static std::string pP(const std::string &s, int n)
+  {
+    std::vector<char> = {'a','b','c','d','e','f',
+		'g','h','i','j','k','l','m','n','o','p',
+		'q','r','s','t','u','v','w','x','y','z'};
+    
+    std::string modifiable_copy = s;
+    for (int i = 0; i <= modifiable_copy.length() - 1; i++)
+    {
+      std::cout << modifiable_copy[i] << "\n";
+      std::cout << modifiable_copy[i]
+    }
+    std::cout << "\n";
+    std::cout << modifiable_copy << "\n";
+    return "2423";
+    
+  }
+};
+
 std::string rA(std::string str) 
 {
   std::cout << str.substr(0, str.find("#")) << "\n";
