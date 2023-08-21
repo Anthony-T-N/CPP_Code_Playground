@@ -4,15 +4,28 @@ class PP
   public:
   static std::string pP(const std::string &s, int n)
   {
-    std::vector<char> = {'a','b','c','d','e','f',
+    std::vector<char> alphabet = {'a','b','c','d','e','f',
 		'g','h','i','j','k','l','m','n','o','p',
 		'q','r','s','t','u','v','w','x','y','z'};
     
+    // Letter shift
     std::string modifiable_copy = s;
+    std::string rebulit_string = "";
     for (int i = 0; i <= modifiable_copy.length() - 1; i++)
     {
       std::cout << modifiable_copy[i] << "\n";
-      std::cout << modifiable_copy[i]
+      for (int j = 0; j <= alphabet.size() - 1; j++)
+      {
+        std::cout << modifiable_copy[i] << " " << alphabet[j] << "\n";
+        if (char(tolower(modifiable_copy[i])) == alphabet[j])
+        {
+          std::cout << "[+] Match" << "\n";
+          rebulit_string += alphabet[j + n];
+          break;
+        }
+      }
+      std::cout << "[=] Rebulit String: " << rebulit_string << "\n";
+      std::cout << "\n";
     }
     std::cout << "\n";
     std::cout << modifiable_copy << "\n";
