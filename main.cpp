@@ -14,23 +14,49 @@ class PP
     for (int i = 0; i <= modifiable_copy.length() - 1; i++)
     {
       std::cout << modifiable_copy[i] << "\n";
-      for (int j = 0; j <= alphabet.size() - 1; j++)
+      if (modifiable_copy[i] == ' ')
       {
-        std::cout << modifiable_copy[i] << " " << alphabet[j] << "\n";
-        if (char(tolower(modifiable_copy[i])) == alphabet[j])
+        std::cout << "Empty Space" << "\n";
+        rebulit_string += " ";
+      }
+      else
+      {
+        bool find_switch = false;
+        for (int j = 0; j <= alphabet.size() - 1; j++)
         {
-          std::cout << "[+] Match" << "\n";
-          rebulit_string += alphabet[j + n];
-          break;
+          std::cout << modifiable_copy[i] << " " << alphabet[j] << "\n";
+          if (char(tolower(modifiable_copy[i])) == alphabet[j])
+          {
+            std::cout << "[+] Match" << "\n";
+            rebulit_string += alphabet[j + n];
+            find_switch = true;
+            break;
+          }
+        }
+        if (find_switch == false)
+        {
+          rebulit_string += modifiable_copy[i];
         }
       }
-      std::cout << "[=] Rebulit String: " << rebulit_string << "\n";
+      std::cout << rebulit_string << "\n";
       std::cout << "\n";
     }
+    // Downcasing letter.
+    std::vector<char> rebulit_vector(rebulit_string.begin(), rebulit_string.end());
+    for (int i = 0; i <= rebulit_vector.size() - 1; i++)
+    {
+      if (i % 2 != 0)
+      {
+        std::cout << rebulit_vector[i] << " " << char(tolower(rebulit_vector[i])) << "\n";
+        rebulit_vector[i] = tolower(rebulit_vector[i]);
+      }
+    }
+    for (int i = 0; i <= rebulit_vector.size() - 1; i++)
+    {
+      std::cout << rebulit_vector[i];
+    }
     std::cout << "\n";
-    std::cout << modifiable_copy << "\n";
     return "2423";
-    
   }
 };
 
