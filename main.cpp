@@ -4,14 +4,16 @@ class PP
   public:
   static std::string pP(const std::string &s, int n)
   {
-    std::vector<char> alphabet = {'a','b','c','d','e','f',
-		'g','h','i','j','k','l','m','n','o','p',
-		'q','r','s','t','u','v','w','x','y','z'};
+    std::cout << "Original_String: " << s << "\n";
+    
+    std::vector<char> alphabet = {'A','B','C','D','E','F',
+		'G','H','I','J','K','L','M','N','O','P',
+		'Q','R','S','T','U','V','W','X','Y','Z'};
     
     // Letter shift
     std::string modifiable_copy = s;
     std::string rebulit_string = "";
-    for (int i = 0; i <= modifiable_copy.length() - 1; i++)
+    for (unsigned long i = 0; i <= modifiable_copy.length() - 1; i++)
     {
       std::cout << modifiable_copy[i] << "\n";
       if (modifiable_copy[i] == ' ')
@@ -22,10 +24,10 @@ class PP
       else
       {
         bool find_switch = false;
-        for (int j = 0; j <= alphabet.size() - 1; j++)
+        for (unsigned long j = 0; j <= alphabet.size() - 1; j++)
         {
           std::cout << modifiable_copy[i] << " " << alphabet[j] << "\n";
-          if (char(tolower(modifiable_copy[i])) == alphabet[j])
+          if (char(tolower(modifiable_copy[i])) == char(tolower(alphabet[j])))
           {
             std::cout << "[+] Match" << "\n";
             rebulit_string += alphabet[j + n];
@@ -43,7 +45,7 @@ class PP
     }
     // Downcasing letter.
     std::vector<char> rebulit_vector(rebulit_string.begin(), rebulit_string.end());
-    for (int i = 0; i <= rebulit_vector.size() - 1; i++)
+    for (unsigned long i = 0; i <= rebulit_vector.size() - 1; i++)
     {
       if (i % 2 != 0)
       {
@@ -51,14 +53,21 @@ class PP
         rebulit_vector[i] = tolower(rebulit_vector[i]);
       }
     }
-    for (int i = 0; i <= rebulit_vector.size() - 1; i++)
+    
+    std::string reverse_string;
+    
+    for (int i = rebulit_vector.size() - 1; i >= 0; i--)
     {
       std::cout << rebulit_vector[i];
+      reverse_string += rebulit_vector[i];
     }
     std::cout << "\n";
-    return "2423";
+    std::cout << reverse_string << "\n";
+    std::cout << "\n";
+    return reverse_string;
   }
 };
+
 
 std::string rA(std::string str) 
 {
