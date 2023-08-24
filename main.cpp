@@ -11,6 +11,7 @@ class PP
 		'Q','R','S','T','U','V','W','X','Y','Z'};
     
     // Letter shift
+    // Complement to 9
     std::string modifiable_copy = s;
     std::string rebulit_string = "";
     for (unsigned long i = 0; i <= modifiable_copy.length() - 1; i++)
@@ -20,6 +21,13 @@ class PP
       {
         std::cout << "Empty Space" << "\n";
         rebulit_string += " ";
+      }
+      else if (modifiable_copy[i] >= '0' && modifiable_copy[i] <= '9' )
+      {
+        std::cout << "TEST" << "\n";
+        std::cout << 9 - (modifiable_copy[i] - '0') << "\n";
+        int test = 9 - (modifiable_copy[i] - '0');
+        rebulit_string += 9 - (modifiable_copy[i] - '0');
       }
       else
       {
@@ -67,8 +75,6 @@ class PP
     return reverse_string;
   }
 };
-
-
 std::string rA(std::string str) 
 {
   std::cout << str.substr(0, str.find("#")) << "\n";
