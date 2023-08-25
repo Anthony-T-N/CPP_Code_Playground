@@ -26,8 +26,11 @@ class PP
       {
         std::cout << "TEST" << "\n";
         std::cout << 9 - (modifiable_copy[i] - '0') << "\n";
-        int test = 9 - (modifiable_copy[i] - '0');
-        rebulit_string += 9 - (modifiable_copy[i] - '0');
+        int test = 9 - (int(modifiable_copy[i]) - 48);
+        std::cout << test << "\n";
+        rebulit_string += std::to_string(test);
+        std::cout << "!" << rebulit_string << "!" << "\n";
+        
       }
       else
       {
@@ -38,6 +41,7 @@ class PP
           if (char(tolower(modifiable_copy[i])) == char(tolower(alphabet[j])))
           {
             std::cout << "[+] Match" << "\n";
+            // TODO
             rebulit_string += alphabet[j + n];
             find_switch = true;
             break;
@@ -75,6 +79,7 @@ class PP
     return reverse_string;
   }
 };
+
 std::string rA(std::string str) 
 {
   std::cout << str.substr(0, str.find("#")) << "\n";
