@@ -4,6 +4,7 @@ class PP
   public:
   static std::string pP(const std::string &s, int n)
   {
+  {
     std::cout << "Original_String: " << s << "\n";
     
     std::vector<char> alphabet = {'A','B','C','D','E','F',
@@ -30,7 +31,6 @@ class PP
         std::cout << test << "\n";
         rebulit_string += std::to_string(test);
         std::cout << "!" << rebulit_string << "!" << "\n";
-        
       }
       else
       {
@@ -41,7 +41,11 @@ class PP
           if (char(tolower(modifiable_copy[i])) == char(tolower(alphabet[j])))
           {
             std::cout << "[+] Match" << "\n";
-            // TODO
+            std::cout << "size: " << alphabet.size() << " " << (j + n) <<  "\n";
+            if (alphabet.size() - 1 < (j + n))
+            {
+              std::cout << "DEBUG" << "\n";
+            }
             rebulit_string += alphabet[j + n];
             find_switch = true;
             break;
@@ -79,12 +83,6 @@ class PP
     return reverse_string;
   }
 };
-
-std::string rA(std::string str) 
-{
-  std::cout << str.substr(0, str.find("#")) << "\n";
-  return str.substr(0, str.find("#"));  
-}
 
 #include <array>
 
