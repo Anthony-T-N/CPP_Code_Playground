@@ -4,7 +4,6 @@ class PP
   public:
   static std::string pP(const std::string &s, int n)
   {
-  {
     std::cout << "Original_String: " << s << "\n";
     
     std::vector<char> alphabet = {'A','B','C','D','E','F',
@@ -41,12 +40,16 @@ class PP
           if (char(tolower(modifiable_copy[i])) == char(tolower(alphabet[j])))
           {
             std::cout << "[+] Match" << "\n";
-            std::cout << "size: " << alphabet.size() << " " << (j + n) <<  "\n";
+            std::cout << "size: " << alphabet.size() - 1 << " " << (j + n) <<  "\n";
             if (alphabet.size() - 1 < (j + n))
             {
-              std::cout << "DEBUG" << "\n";
+              std::cout << alphabet[(j + n) - (alphabet.size())] << "\n";
+              rebulit_string += alphabet[(j + n) - (alphabet.size())];
             }
-            rebulit_string += alphabet[j + n];
+            else
+            {
+              rebulit_string += alphabet[j + n];
+            }
             find_switch = true;
             break;
           }
