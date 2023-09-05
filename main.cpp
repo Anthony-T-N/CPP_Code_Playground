@@ -4,8 +4,6 @@ class PP
   public:
   static std::string pP(const std::string &s, int n)
   {
-    std::cout << "Original_String: " << s << "\n";
-    
     std::vector<char> alphabet = {'A','B','C','D','E','F',
 		'G','H','I','J','K','L','M','N','O','P',
 		'Q','R','S','T','U','V','W','X','Y','Z'};
@@ -16,34 +14,23 @@ class PP
     std::string rebulit_string = "";
     for (unsigned long i = 0; i <= modifiable_copy.length() - 1; i++)
     {
-      std::cout << modifiable_copy[i] << "\n";
       if (modifiable_copy[i] == ' ')
       {
-        std::cout << "Empty Space" << "\n";
         rebulit_string += " ";
       }
       else if (modifiable_copy[i] >= '0' && modifiable_copy[i] <= '9' )
       {
-        std::cout << "TEST" << "\n";
-        std::cout << 9 - (modifiable_copy[i] - '0') << "\n";
-        int test = 9 - (int(modifiable_copy[i]) - 48);
-        std::cout << test << "\n";
-        rebulit_string += std::to_string(test);
-        std::cout << "!" << rebulit_string << "!" << "\n";
+        rebulit_string += std::to_string(9 - (int(modifiable_copy[i]) - 48));
       }
       else
       {
         bool find_switch = false;
         for (unsigned long j = 0; j <= alphabet.size() - 1; j++)
         {
-          std::cout << modifiable_copy[i] << " " << alphabet[j] << "\n";
           if (char(tolower(modifiable_copy[i])) == char(tolower(alphabet[j])))
           {
-            std::cout << "[+] Match" << "\n";
-            std::cout << "size: " << alphabet.size() - 1 << " " << (j + n) <<  "\n";
             if (alphabet.size() - 1 < (j + n))
             {
-              std::cout << alphabet[(j + n) - (alphabet.size())] << "\n";
               rebulit_string += alphabet[(j + n) - (alphabet.size())];
             }
             else
@@ -59,8 +46,6 @@ class PP
           rebulit_string += modifiable_copy[i];
         }
       }
-      std::cout << rebulit_string << "\n";
-      std::cout << "\n";
     }
     // Downcasing letter.
     std::vector<char> rebulit_vector(rebulit_string.begin(), rebulit_string.end());
@@ -68,21 +53,15 @@ class PP
     {
       if (i % 2 != 0)
       {
-        std::cout << rebulit_vector[i] << " " << char(tolower(rebulit_vector[i])) << "\n";
         rebulit_vector[i] = tolower(rebulit_vector[i]);
       }
     }
-    
-    std::string reverse_string;
-    
+    // Reverse String.
+    std::string reverse_string = "";
     for (int i = rebulit_vector.size() - 1; i >= 0; i--)
     {
-      std::cout << rebulit_vector[i];
       reverse_string += rebulit_vector[i];
     }
-    std::cout << "\n";
-    std::cout << reverse_string << "\n";
-    std::cout << "\n";
     return reverse_string;
   }
 };
