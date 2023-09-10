@@ -72,7 +72,7 @@ using persons_t = std::array<int, 3>;
 
 persons_t g_p(int n) 
 {
-  std::cout << "n: " << n << "\n";
+  //std::cout << "n: " << n << "\n";
   int person_a = -1;
   int person_b = 0;
   int person_c = 0;
@@ -83,7 +83,6 @@ persons_t g_p(int n)
     {
       person_a = 0;
       person_b++;
-      person_c = 0;
       if (person_b == 3)
       {
         person_b = 0;
@@ -93,9 +92,14 @@ persons_t g_p(int n)
         person_c++;
       }
     }
-    std::cout << i << " " << person_a << " " << person_b << " " << person_c << "\n";
+    if (person_c == 3)
+    {
+      person_c = 0;
+    }
+    //std::cout << i << "] " << person_a << " " << person_b << " " << person_c << "\n";
   }
   return { person_a, person_b, person_c };
+}turn { person_a, person_b, person_c };
 }
 
 int gP(int upSpeed, int downSpeed, int desiredHeight)
