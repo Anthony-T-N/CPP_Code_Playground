@@ -70,13 +70,13 @@ class PP
 
 using persons_t = std::array<int, 3>;
 
-persons_t g_p(int n) 
+persons_t g_p(long n) 
 {
   //std::cout << "n: " << n << "\n";
   int person_a = -1;
   int person_b = 0;
   int person_c = 0;
-  for (int i = 0; i <= n; i++)
+  for (long i = 0; i <= n; i++)
   {
     person_a++;
     if (person_a == 3)
@@ -99,7 +99,6 @@ persons_t g_p(int n)
     //std::cout << i << "] " << person_a << " " << person_b << " " << person_c << "\n";
   }
   return { person_a, person_b, person_c };
-}turn { person_a, person_b, person_c };
 }
 
 int gP(int upSpeed, int downSpeed, int desiredHeight)
